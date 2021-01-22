@@ -10,7 +10,7 @@
         <img src="assets/img/logo.png" />
       </a>
     </div>
-    <?php if ($_SESSION['alogin']) { ?>
+    <?php if (strlen($_SESSION['login']) > 0) { ?>
       <div class="right-div">
         <a href="logout.php" class="btn btn-danger pull-right">LOG ME OUT</a>
       </div>
@@ -18,7 +18,7 @@
   </div>
 </div>
 <!-- LOGO HEADER END-->
-<?php if ($_SESSION['alogin']) { ?>
+<?php if (strlen($_SESSION['login']) > 0) { ?>
   <section class="menu-section">
     <div class="container">
       <div class="row ">

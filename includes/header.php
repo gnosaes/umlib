@@ -10,7 +10,7 @@
         <img src="assets/img/logo.png" />
       </a>
     </div>
-    <?php if ($_SESSION['login']) { ?>
+    <?php if (strlen($_SESSION['login']) > 0) { ?>
       <div class="right-div">
         <a href="logout.php" class="btn btn-danger pull-right">LOG ME OUT</a>
       </div>
@@ -18,7 +18,7 @@
   </div>
 </div>
 <!-- LOGO HEADER END-->
-<?php if ($_SESSION['login']) { ?>
+<?php if (strlen($_SESSION['login']) > 0) { ?>
   <section class="menu-section">
     <div class="container">
       <div class="row ">
@@ -47,7 +47,7 @@
         <div class="col-md-12">
           <div class="navbar-collapse collapse ">
             <ul id="menu-top" class="nav navbar-nav navbar-right">
-              <li><a href="adminlogin.php">Admin Login</a></li>
+              <li><a href="admin/index.php">Admin Login</a></li>
               <li><a href="signup.php">User Signup</a></li>
               <li><a href="index.php">User Login</a></li>
             </ul>

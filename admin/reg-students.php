@@ -2,11 +2,13 @@
 session_start();
 error_reporting(0);
 include('includes/config.php');
-if (strlen($_SESSION['alogin']) == 0) {
-  header('location:index.php');
-} else {
 
-  // code for block student    
+if (strlen($_SESSION['login']) == 0) {
+  header('location:index.php');
+} else if ($_SESSION['role'] == 'student') {
+  header('location:../dashboard.php');
+} else {
+  // code for inactive student    
   if (isset($_GET['inid'])) {
     $id = $_GET['inid'];
     $status = 0;
@@ -17,8 +19,6 @@ if (strlen($_SESSION['alogin']) == 0) {
     $query->execute();
     header('location:reg-students.php');
   }
-
-
 
   //code for active students
   if (isset($_GET['id'])) {
@@ -31,8 +31,6 @@ if (strlen($_SESSION['alogin']) == 0) {
     $query->execute();
     header('location:reg-students.php');
   }
-
-
 ?>
   <!DOCTYPE html>
   <html lang="en">

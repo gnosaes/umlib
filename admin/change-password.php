@@ -1,9 +1,12 @@
 <?php
 session_start();
-include('includes/config.php');
 error_reporting(0);
-if (strlen($_SESSION['alogin']) == 0) {
+include('includes/config.php');
+
+if (strlen($_SESSION['login']) == 0) {
   header('location:index.php');
+} else if ($_SESSION['role'] == 'student') {
+  header('location:../dashboard.php');
 } else {
   if (isset($_POST['change'])) {
     $password = md5($_POST['password']);

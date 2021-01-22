@@ -1,9 +1,12 @@
 <?php
 session_start();
-include('includes/config.php');
 error_reporting(0);
+include('includes/config.php');
+
 if (strlen($_SESSION['login']) == 0) {
   header('location:index.php');
+} else if ($_SESSION['role'] == 'admin') {
+  header('location:admin/dashboard.php');
 } else {
   if (isset($_POST['update'])) {
     $sid = $_SESSION['stdid'];
