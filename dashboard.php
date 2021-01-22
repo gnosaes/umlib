@@ -7,7 +7,6 @@ if (strlen($_SESSION['login']) == 0) {
 } else { ?>
   <!DOCTYPE html>
   <html lang="en">
-
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,7 +19,14 @@ if (strlen($_SESSION['login']) == 0) {
     <link href="assets/css/style.css" rel="stylesheet" />
     <!-- GOOGLE FONT -->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-
+    <style>
+    a.custom {
+      text-decoration: none;
+    }
+    a.custom:hover div.alert {
+        box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.16);
+      }
+    </style>
   </head>
 
   <body>
@@ -34,9 +40,8 @@ if (strlen($_SESSION['login']) == 0) {
             <h4 class="header-line">ADMIN DASHBOARD</h4>
           </div>
         </div>
-
         <div class="row">
-          <div class="col-md-3 col-sm-3 col-xs-6">
+          <a class="custom col-md-3 col-sm-3 col-xs-6" href="issued-books.php">
             <div class="alert alert-info back-widget-set text-center">
               <i class="fa fa-bars fa-5x"></i>
               <?php
@@ -48,13 +53,11 @@ if (strlen($_SESSION['login']) == 0) {
               $results1 = $query1->fetchAll(PDO::FETCH_OBJ);
               $issuedbooks = $query1->rowCount();
               ?>
-
               <h3><?php echo htmlentities($issuedbooks); ?> </h3>
               Book Issued
             </div>
-          </div>
-
-          <div class="col-md-3 col-sm-3 col-xs-6">
+          </a>
+          <a class="custom col-md-3 col-sm-3 col-xs-6" href="issued-books.php">
             <div class="alert alert-warning back-widget-set text-center">
               <i class="fa fa-recycle fa-5x"></i>
               <?php
@@ -67,13 +70,13 @@ if (strlen($_SESSION['login']) == 0) {
               $results2 = $query2->fetchAll(PDO::FETCH_OBJ);
               $returnedbooks = $query2->rowCount();
               ?>
-
               <h3><?php echo htmlentities($returnedbooks); ?></h3>
               Books Not Returned Yet
             </div>
-          </div>
+          </a>
         </div>
       </div>
+    <?php include('includes/slideshow.php'); ?>
     </div>
     <!-- CONTENT-WRAPPER SECTION END-->
     <?php include('includes/footer.php'); ?>
@@ -86,6 +89,5 @@ if (strlen($_SESSION['login']) == 0) {
     <!-- CUSTOM SCRIPTS  -->
     <script src="assets/js/custom.js"></script>
   </body>
-
   </html>
 <?php } ?>
