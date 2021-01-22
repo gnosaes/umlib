@@ -1,37 +1,43 @@
 <?php
 session_start();
-include('includes/config.php');
 error_reporting(0);
-if (isset($_POST['signup'])) {
-  $fullname = $_POST['fullanme'];
-  $mobileno = $_POST['mobileno'];
-  $email = $_POST['email'];
-  $password = md5($_POST['password']);
-  $status = 1;
+include('includes/config.php');
 
-  $sql = "INSERT INTO tblstudents(FullName,MobileNumber,EmailId,Password,Status) VALUES(:fullname,:mobileno,:email,:password,:status)";
-  $query = $dbh->prepare($sql);
-  $query->bindParam(':fullname', $fullname, PDO::PARAM_STR);
-  $query->bindParam(':mobileno', $mobileno, PDO::PARAM_STR);
-  $query->bindParam(':email', $email, PDO::PARAM_STR);
-  $query->bindParam(':password', $password, PDO::PARAM_STR);
-  $query->bindParam(':status', $status, PDO::PARAM_STR);
-  $query->execute();
-  $lastInsertId = $dbh->lastInsertId();
+if (strlen($_SESSION['login']) > 0) {
+  $_SESSION['role'] == 'admin' ? header('location:admin/dashboard.php') : header('location:dashboard.php');
+} else {
+  if (isset($_POST['signup'])) {
+    $fullname = $_POST['fullanme'];
+    $mobileno = $_POST['mobileno'];
+    $email = $_POST['email'];
+    $password = md5($_POST['password']);
+    $status = 1;
 
-  $student_id = "SID" . sprintf('%03d', $lastInsertId);
-  $sql = "UPDATE tblstudents SET StudentId=:studentId WHERE id=:id";
-  $query = $dbh->prepare($sql);
-  $query->bindParam(':studentId', $student_id, PDO::PARAM_STR);
-  $query->bindParam(':id', $lastInsertId, PDO::PARAM_STR);
-  $query->execute();
+    $sql = "INSERT INTO tblstudents(FullName,MobileNumber,EmailId,Password,Status) VALUES(:fullname,:mobileno,:email,:password,:status)";
+    $query = $dbh->prepare($sql);
+    $query->bindParam(':fullname', $fullname, PDO::PARAM_STR);
+    $query->bindParam(':mobileno', $mobileno, PDO::PARAM_STR);
+    $query->bindParam(':email', $email, PDO::PARAM_STR);
+    $query->bindParam(':password', $password, PDO::PARAM_STR);
+    $query->bindParam(':status', $status, PDO::PARAM_STR);
+    $query->execute();
+    $lastInsertId = $dbh->lastInsertId();
 
-  if ($lastInsertId) {
-    echo '<script>alert("Your Registration successfull and your student id is  "+"' . $student_id . '")</script>';
-  } else {
-    echo "<script>alert('Something went wrong. Please try again');</script>";
+    $student_id = "SID" . sprintf('%03d', $lastInsertId);
+    $sql = "UPDATE tblstudents SET StudentId=:studentId WHERE id=:id";
+    $query = $dbh->prepare($sql);
+    $query->bindParam(':studentId', $student_id, PDO::PARAM_STR);
+    $query->bindParam(':id', $lastInsertId, PDO::PARAM_STR);
+    $query->execute();
+
+    if ($lastInsertId) {
+      echo '<script>alert("Your Registration successfull and your student id is  "+"' . $student_id . '")</script>';
+    } else {
+      echo "<script>alert('Something went wrong. Please try again');</script>";
+    }
   }
 }
+
 ?>
 
 <!DOCTYPE html>
