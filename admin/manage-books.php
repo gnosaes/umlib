@@ -107,6 +107,7 @@ if (strlen($_SESSION['login']) == 0) {
                         <th>Author</th>
                         <th>ISBN</th>
                         <th>Price</th>
+                        <th>Quantity</th>
                         <th>Action</th>
                       </tr>
                     </thead>
@@ -136,6 +137,9 @@ if (strlen($_SESSION['login']) == 0) {
                             </td>
                             <td class="center">
                               <?php echo htmlentities($result->BookPrice); ?>
+                            </td>
+                            <td class="center">
+                              <?php echo htmlentities($result->Quantity); ?>
                             </td>
                             <td class="center">
                               <a href="edit-book.php?bookid=<?php echo htmlentities($result->bookid); ?>">

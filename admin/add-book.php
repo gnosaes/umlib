@@ -14,13 +14,15 @@ if (strlen($_SESSION['login']) == 0) {
     $author = $_POST['author'];
     $isbn = $_POST['isbn'];
     $price = $_POST['price'];
-    $sql = "INSERT INTO  tblbooks(BookName,CatId,AuthorId,ISBNNumber,BookPrice) VALUES(:bookname,:category,:author,:isbn,:price)";
+    $quantity = $_POST['quantity'];
+    $sql = "INSERT INTO  tblbooks(BookName,CatId,AuthorId,ISBNNumber,BookPrice, Quantity) VALUES(:bookname,:category,:author,:isbn,:price,:quantity)";
     $query = $dbh->prepare($sql);
     $query->bindParam(':bookname', $bookname, PDO::PARAM_STR);
     $query->bindParam(':category', $category, PDO::PARAM_STR);
     $query->bindParam(':author', $author, PDO::PARAM_STR);
     $query->bindParam(':isbn', $isbn, PDO::PARAM_STR);
     $query->bindParam(':price', $price, PDO::PARAM_STR);
+    $query->bindParam(':price', $quantity, PDO::PARAM_STR);
     $query->execute();
     $lastInsertId = $dbh->lastInsertId();
     if ($lastInsertId) {
@@ -120,6 +122,11 @@ if (strlen($_SESSION['login']) == 0) {
                   <div class="form-group">
                     <label>Price<span style="color:red;">*</span></label>
                     <input class="form-control" type="text" name="price" autocomplete="off" required="required" />
+                  </div>
+
+                  <div class="form-group">
+                    <label>Quantity<span style="color:red;">*</span></label>
+                    <input class="form-control" type="text" name="quantity" autocomplete="off" required="required" />
                   </div>
                   <button type="submit" name="add" class="btn btn-info">Add </button>
                 </form>
