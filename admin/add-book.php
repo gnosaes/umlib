@@ -22,7 +22,7 @@ if (strlen($_SESSION['login']) == 0) {
     $query->bindParam(':author', $author, PDO::PARAM_STR);
     $query->bindParam(':isbn', $isbn, PDO::PARAM_STR);
     $query->bindParam(':price', $price, PDO::PARAM_STR);
-    $query->bindParam(':price', $quantity, PDO::PARAM_STR);
+    $query->bindParam(':quantity', $quantity, PDO::PARAM_STR);
     $query->execute();
     $lastInsertId = $dbh->lastInsertId();
     if ($lastInsertId) {
@@ -126,7 +126,7 @@ if (strlen($_SESSION['login']) == 0) {
 
                   <div class="form-group">
                     <label>Quantity<span style="color:red;">*</span></label>
-                    <input class="form-control" type="text" name="quantity" autocomplete="off" required="required" />
+                    <input class="form-control" type="number" name="quantity" autocomplete="off" required="required" />
                   </div>
                   <button type="submit" name="add" class="btn btn-info">Add </button>
                 </form>
