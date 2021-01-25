@@ -2,7 +2,6 @@
 session_start();
 error_reporting(0);
 include('includes/config.php');
-
 if (strlen($_SESSION['login']) == 0) {
   header('location:index.php');
 } else if ($_SESSION['role'] == 'student') {
@@ -41,7 +40,6 @@ if (strlen($_SESSION['login']) == 0) {
     <link href="assets/css/style.css" rel="stylesheet" />
     <!-- GOOGLE FONT -->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-
   </head>
 
   <body>
@@ -53,9 +51,7 @@ if (strlen($_SESSION['login']) == 0) {
         <div class="row pad-botm">
           <div class="col-md-12">
             <h4 class="header-line">Add category</h4>
-
           </div>
-
         </div>
         <div class="row">
           <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
@@ -66,15 +62,6 @@ if (strlen($_SESSION['login']) == 0) {
                   <div class="form-group">
                     <label>Category Name</label>
                     <input class="form-control" type="text" name="category" autocomplete="off" required />
-                  </div>
-                  <div class="form-group">
-                    <label>Status</label>
-                    <div class="radio">
-                      <label> <input type="radio" name="status" id="status" value="1" checked="checked">Active </label>
-                    </div>
-                    <div class="radio">
-                      <label> <input type="radio" name="status" id="status" value="0">Inactive </label>
-                    </div>
                   </div>
                   <button type="submit" name="create" class="btn btn-info">Create </button>
                 </form>
