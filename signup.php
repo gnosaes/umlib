@@ -30,11 +30,11 @@ if (strlen($_SESSION['login']) > 0) {
     $query->bindParam(':id', $lastInsertId, PDO::PARAM_STR);
     $query->execute();
 
-    if ($lastInsertId) {
-      echo '<script>alert("Your Registration successfull and your student id is  "+"' . $student_id . '")</script>';
-    } else {
-      echo "<script>alert('Something went wrong. Please try again');</script>";
-    }
+  if ($lastInsertId) {
+    echo '<script>alert("Your Registration successfull and your student id is ' . $student_id . '")</script>';
+    echo "<script type='text/javascript'> document.location ='index.php'; </script>";
+  } else {
+    echo "<script>alert('Something went wrong. Please try again');</script>";   
   }
 }
 
