@@ -85,13 +85,13 @@ if (isset($_POST['signup'])) {
     <div class="container">
       <div class="row pad-botm">
         <div class="col-md-12">
-          <h4 class="header-line">User Signup</h4>
+          <h4 class="header-line">SIGN UP</h4>
         </div>
       </div>
       <div class="row">
         <div class="col-md-9 col-md-offset-1">
           <div class="panel panel-danger">
-            <div class="panel-heading"> SINGUP FORM </div>
+            <div class="panel-heading"> SIGN UP FORM </div>
             <div class="panel-body">
               <form name="signup" method="post" onSubmit="return valid();">
                 <div class="form-group">
@@ -100,7 +100,7 @@ if (isset($_POST['signup'])) {
                 </div>
 
                 <div class="form-group">
-                  <label>Mobile Number :</label>
+                  <label>Enter Mobile Number</label>
                   <input class="form-control" type="text" name="mobileno" maxlength="11" minlength="10" autocomplete="off" required />
                 </div>
 
@@ -120,7 +120,7 @@ if (isset($_POST['signup'])) {
                   <input class="form-control" type="password" name="confirmpassword" autocomplete="off" required />
                 </div>
 
-                <button type="submit" name="signup" class="btn btn-danger" id="submit">Register Now </button>
+                <button type="submit" name="signup" class="btn btn-danger" id="submit">SIGN UP</button>
               </form>
             </div>
           </div>

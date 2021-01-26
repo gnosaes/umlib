@@ -44,7 +44,7 @@ if (strlen($_SESSION['alogin']) == 0) {
       <div class="container">
         <div class="row pad-botm">
           <div class="col-md-12">
-            <h4 class="header-line">Add Author</h4>
+            <h4 class="header-line">Edit Author Info</h4>
           </div>
         </div>
 
@@ -70,7 +70,6 @@ if (strlen($_SESSION['alogin']) == 0) {
                     <?php }
                     } ?>
                   </div>
-
                   <button type="submit" name="update" class="btn btn-info">Update </button>
                 </form>
               </div>

@@ -43,7 +43,7 @@ if (strlen($_SESSION['alogin']) == 0) {
       <div class="container">
         <div class="row pad-botm">
           <div class="col-md-12">
-            <h4 class="header-line">Manage Authors</h4>
+            <h4 class="header-line">Manage Author</h4>
           </div>
           <div class="row">
             <?php if ($_SESSION['error'] != "") { ?>
@@ -92,16 +92,16 @@ if (strlen($_SESSION['alogin']) == 0) {
           <div class="col-md-12">
             <!-- Advanced Tables -->
             <div class="panel panel-default">
-              <div class="panel-heading"> Authors Listing </div>
+              <div class="panel-heading"> List of Authors</div>
               <div class="panel-body">
                 <div class="table-responsive">
                   <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                     <thead>
                       <tr>
                         <th>#</th>
-                        <th>Author</th>
-                        <th>Creation Date</th>
-                        <th>Updation Date</th>
+                        <th>Author Name</th>
+                        <th>Date Created</th>
+                        <th>Update Date</th>
                         <th>Action</th>
                       </tr>
                     </thead>

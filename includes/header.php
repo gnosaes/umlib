@@ -12,7 +12,7 @@
         </div>
         <?php if ($_SESSION['login']) { ?>
             <div class="right-div">
-                <a href="logout.php" class="btn btn-danger pull-right">LOG ME OUT</a>
+                <a href="logout.php" class="btn btn-danger pull-right">LOG OUT</a>
             </div>
         <?php } ?>
     </div>
@@ -34,7 +34,7 @@
                                     <li role="presentation"><a role="menuitem" tabindex="-1" href="change-password.php">Change Password</a></li>
                                 </ul>
                             </li>
-                            <li><a href="issued-books.php">Issued Books</a></li>
+                            <li><a href="issued-books.php">Issued Book</a></li>
                         </ul>
                     </div>
                 </div>
@@ -49,8 +49,8 @@
                     <div class="navbar-collapse collapse ">
                         <ul id="menu-top" class="nav navbar-nav navbar-right">
                             <li><a href="adminlogin.php">Admin Login</a></li>
-                            <li><a href="signup.php">User Signup</a></li>
-                            <li><a href="index.php">User Login</a></li>
+                            <li><a href="signup.php">Signup</a></li>
+                            <li><a href="index.php">Login</a></li>
                         </ul>
                     </div>
                 </div>
