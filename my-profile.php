@@ -47,7 +47,7 @@ if (strlen($_SESSION['login']) == 0) {
       <div class="container">
         <div class="row pad-botm">
           <div class="col-md-12">
-            <h4 class="header-line">Profile</h4>
+            <h4 class="header-line">My Profile</h4>
           </div>
         </div>
         <div class="row">
@@ -67,18 +67,18 @@ if (strlen($_SESSION['login']) == 0) {
                   if ($query->rowCount() > 0) {
                     foreach ($results as $result) {               ?>
                       <div class="form-group">
-                        <label>Student ID &emsp;&nbsp;: </label>
+                        <label>Student ID : </label>
                         <?php echo htmlentities($result->StudentId); ?>
                       </div>
 
                       <div class="form-group">
-                        <label>Register Date : </label>
+                        <label>Reg Date : </label>
                         <?php echo htmlentities($result->RegDate); ?>
                       </div>
 
                       <?php if ($result->UpdationDate != "") { ?>
                         <div class="form-group">
-                          <label>Last Update &nbsp;&nbsp;: </label>
+                          <label>Last Updation Date : </label>
                           <?php echo htmlentities($result->UpdationDate); ?>
                         </div>
                       <?php } ?>
@@ -93,23 +93,23 @@ if (strlen($_SESSION['login']) == 0) {
                       </div>
 
                       <div class="form-group">
-                        <label>Full Name</label>
+                        <label>Enter Full Name</label>
                         <input class="form-control" type="text" name="fullanme" value="<?php echo htmlentities($result->FullName); ?>" autocomplete="off" required />
                       </div>
 
                       <div class="form-group">
-                        <label>Mobile Number</label>
+                        <label>Mobile Number :</label>
                         <input class="form-control" type="text" name="mobileno" maxlength="10" value="<?php echo htmlentities($result->MobileNumber); ?>" autocomplete="off" required />
                       </div>
 
                       <div class="form-group">
-                        <label>Email</label>
+                        <label>Enter Email</label>
                         <input class="form-control" type="email" name="email" id="emailid" value="<?php echo htmlentities($result->EmailId); ?>" autocomplete="off" required readonly />
                       </div>
                   <?php }
                   } ?>
 
-                  <button type="submit" name="update" class="btn btn-primary" id="submit">Update Profile</button>
+                  <button type="submit" name="update" class="btn btn-primary" id="submit">Update Now </button>
                 </form>
               </div>
             </div>

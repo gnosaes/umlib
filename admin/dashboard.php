@@ -20,6 +20,7 @@ if (strlen($_SESSION['alogin']) == 0) {
     <link href="assets/css/style.css" rel="stylesheet" />
     <!-- GOOGLE FONT -->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+
   </head>
 
   <body>
@@ -45,8 +46,9 @@ if (strlen($_SESSION['alogin']) == 0) {
               $results = $query->fetchAll(PDO::FETCH_OBJ);
               $listdbooks = $query->rowCount();
               ?>
+
               <h3><?php echo htmlentities($listdbooks); ?></h3>
-              Listed Books
+              Books Listed
             </div>
           </div>
 
@@ -62,7 +64,7 @@ if (strlen($_SESSION['alogin']) == 0) {
               ?>
 
               <h3><?php echo htmlentities($issuedbooks); ?> </h3>
-              Books Issued
+              Times Book Issued
             </div>
           </div>
 
@@ -80,7 +82,7 @@ if (strlen($_SESSION['alogin']) == 0) {
               ?>
 
               <h3><?php echo htmlentities($returnedbooks); ?></h3>
-              Books Returned
+              Times Books Returned
             </div>
           </div>
 
@@ -99,6 +101,7 @@ if (strlen($_SESSION['alogin']) == 0) {
               Registered Users
             </div>
           </div>
+
         </div>
 
         <div class="row">
@@ -114,7 +117,7 @@ if (strlen($_SESSION['alogin']) == 0) {
               ?>
 
               <h3><?php echo htmlentities($listdathrs); ?></h3>
-              Listed Authors
+              Authors Listed
             </div>
           </div>
 

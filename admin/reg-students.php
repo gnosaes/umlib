@@ -62,7 +62,7 @@ if (strlen($_SESSION['alogin']) == 0) {
       <div class="container">
         <div class="row pad-botm">
           <div class="col-md-12">
-            <h4 class="header-line">Manage Student</h4>
+            <h4 class="header-line">Manage Reg Students</h4>
           </div>
 
 
@@ -72,7 +72,7 @@ if (strlen($_SESSION['alogin']) == 0) {
             <!-- Advanced Tables -->
             <div class="panel panel-default">
               <div class="panel-heading">
-                List of Registered Students
+                Reg Students
               </div>
               <div class="panel-body">
                 <div class="table-responsive">
@@ -82,9 +82,9 @@ if (strlen($_SESSION['alogin']) == 0) {
                         <th>#</th>
                         <th>Student ID</th>
                         <th>Student Name</th>
-                        <th>Email </th>
+                        <th>Email id </th>
                         <th>Mobile Number</th>
-                        <th>Register Date</th>
+                        <th>Reg Date</th>
                         <th>Status</th>
                         <th>Action</th>
                       </tr>

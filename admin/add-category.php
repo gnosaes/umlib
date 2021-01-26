@@ -39,6 +39,7 @@ if (strlen($_SESSION['alogin']) == 0) {
         <link href="assets/css/style.css" rel="stylesheet" />
         <!-- GOOGLE FONT -->
         <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+
     </head>
 
     <body>
@@ -51,9 +52,10 @@ if (strlen($_SESSION['alogin']) == 0) {
                 <div class="row pad-botm">
                     <div class="col-md-12">
                         <h4 class="header-line">Add category</h4>
-                    </div>
-                </div>
 
+                    </div>
+
+                </div>
                 <div class="row">
                     <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3"">
 <div class=" panel panel-info">
@@ -66,7 +68,6 @@ if (strlen($_SESSION['alogin']) == 0) {
                                     <label>Category Name</label>
                                     <input class="form-control" type="text" name="category" autocomplete="off" required />
                                 </div>
-
                                 <div class="form-group">
                                     <label>Status</label>
                                     <div class="radio">
@@ -79,13 +80,17 @@ if (strlen($_SESSION['alogin']) == 0) {
                                             <input type="radio" name="status" id="status" value="0">Inactive
                                         </label>
                                     </div>
+
                                 </div>
-                                <button type="submit" name="create" class="btn btn-info">Add </button>
+                                <button type="submit" name="create" class="btn btn-info">Create </button>
+
                             </form>
                         </div>
                     </div>
                 </div>
+
             </div>
+
         </div>
         </div>
         <!-- CONTENT-WRAPPER SECTION END-->

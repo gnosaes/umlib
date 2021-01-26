@@ -82,14 +82,14 @@ if (strlen($_SESSION['alogin']) == 0) {
       <div class="container">
         <div class="row pad-botm">
           <div class="col-md-12">
-            <h4 class="header-line">Edit Issued Book</h4>
+            <h4 class="header-line">Issued Book Details</h4>
           </div>
 
         </div>
         <div class="row">
           <div class="col-md-10 col-sm-6 col-xs-12 col-md-offset-1">
             <div class=" panel panel-info">
-              <div class="panel-heading"> Update Issued Book</div>
+              <div class="panel-heading"> Issued Book Details</div>
               <div class="panel-body">
                 <form role="form" method="post">
                   <?php
@@ -103,23 +103,23 @@ if (strlen($_SESSION['alogin']) == 0) {
                   if ($query->rowCount() > 0) {
                     foreach ($results as $result) { ?>
                       <div class="form-group">
-                        <label>Student Name &emsp;&emsp;&emsp;:</label>
+                        <label>Student Name :</label>
                         <?php echo htmlentities($result->FullName); ?>
                       </div>
 
                       <div class="form-group">
-                        <label>Book Title &emsp;&emsp;&emsp;&emsp;&emsp;:</label>
+                        <label>Book Name :</label>
                         <?php echo htmlentities($result->BookName); ?>
                       </div>
 
 
                       <div class="form-group">
-                        <label>ISBN &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;:</label>
+                        <label>ISBN :</label>
                         <?php echo htmlentities($result->ISBNNumber); ?>
                       </div>
 
                       <div class="form-group">
-                        <label>Book Issued Date &emsp;&nbsp;&nbsp;:</label>
+                        <label>Book Issued Date :</label>
                         <?php echo htmlentities($result->IssuesDate); ?>
                       </div>
 
@@ -135,7 +135,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                       </div>
 
                       <div class="form-group">
-                        <label>Fine &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;:</label>
+                        <label>Fine (in USD) :</label>
                         <?php
                         if ($result->fine == "") { ?>
                           <input class="form-control" type="text" name="fine" id="fine" required />
@@ -145,7 +145,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                         ?>
                       </div>
                       <?php if ($result->RetrunStatus == 0) { ?>
-                        <button type="submit" name="return" id="submit" class="btn btn-info">Update</button>
+                        <button type="submit" name="return" id="submit" class="btn btn-info">Return Book </button>
                   <?php }
                     }
                   } ?>

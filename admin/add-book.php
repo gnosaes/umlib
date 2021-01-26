@@ -58,9 +58,10 @@ if (strlen($_SESSION['alogin']) == 0) {
                 <div class="row pad-botm">
                     <div class="col-md-12">
                         <h4 class="header-line">Add Book</h4>
-                    </div>
-                </div>
 
+                    </div>
+
+                </div>
                 <div class="row">
                     <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3"">
 <div class=" panel panel-info">
@@ -70,7 +71,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                         <div class="panel-body">
                             <form role="form" method="post">
                                 <div class="form-group">
-                                    <label>Book Title<span style="color:red;">*</span></label>
+                                    <label>Book Name<span style="color:red;">*</span></label>
                                     <input class="form-control" type="text" name="bookname" autocomplete="off" required />
                                 </div>
 
@@ -100,6 +101,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                                     <select class="form-control" name="author" required="required">
                                         <option value=""> Select Author</option>
                                         <?php
+
                                         $sql = "SELECT * from  tblauthors ";
                                         $query = $dbh->prepare($sql);
                                         $query->execute();
@@ -124,11 +126,14 @@ if (strlen($_SESSION['alogin']) == 0) {
                                     <input class="form-control" type="text" name="price" autocomplete="off" required="required" />
                                 </div>
                                 <button type="submit" name="add" class="btn btn-info">Add </button>
+
                             </form>
                         </div>
                     </div>
                 </div>
+
             </div>
+
         </div>
         </div>
         <!-- CONTENT-WRAPPER SECTION END-->

@@ -33,7 +33,7 @@ if (strlen($_SESSION['alogin']) == 0) {
       <div class="container">
         <div class="row pad-botm">
           <div class="col-md-12">
-            <h4 class="header-line">Manage Issued Book</h4>
+            <h4 class="header-line">Manage Issued Books</h4>
           </div>
           <div class="row">
             <?php if ($_SESSION['error'] != "") { ?>
@@ -72,7 +72,7 @@ if (strlen($_SESSION['alogin']) == 0) {
           <div class="col-md-12">
             <!-- Advanced Tables -->
             <div class="panel panel-default">
-              <div class="panel-heading"> List of Issued Books </div>
+              <div class="panel-heading"> Issued Books </div>
               <div class="panel-body">
                 <div class="table-responsive">
                   <table class="table table-striped table-bordered table-hover" id="dataTables-example">
@@ -80,7 +80,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                       <tr>
                         <th>#</th>
                         <th>Student Name</th>
-                        <th>Book Title</th>
+                        <th>Book Name</th>
                         <th>ISBN </th>
                         <th>Issued Date</th>
                         <th>Return Date</th>

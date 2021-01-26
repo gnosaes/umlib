@@ -57,7 +57,7 @@ if (isset($_POST['login'])) {
     <div class="container">
       <div class="row pad-botm">
         <div class="col-md-12">
-          <h4 class="header-line">LOGIN</h4>
+          <h4 class="header-line">USER LOGIN FORM</h4>
         </div>
       </div>
 
@@ -65,20 +65,20 @@ if (isset($_POST['login'])) {
       <div class="row">
         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
           <div class="panel panel-info">
-            <div class="panel-heading"> LOGIN</div>
+            <div class="panel-heading"> LOGIN FORM </div>
             <div class="panel-body">
               <form role="form" method="post">
                 <div class="form-group">
-                  <label>Enter Email</label>
+                  <label>Enter Email id</label>
                   <input class="form-control" type="text" name="emailid" required autocomplete="off" />
                 </div>
 
                 <div class="form-group">
-                  <label>Enter Password</label>
+                  <label>Password</label>
                   <input class="form-control" type="password" name="password" required autocomplete="off" />
-                  <p class="help-block"><a href="user-forgot-password.php">Forgot your password?</a></p>
+                  <p class="help-block"><a href="user-forgot-password.php">Forgot Password</a></p>
                 </div>
-                <button type="submit" name="login" class="btn btn-info">LOGIN </button> | <a href="signup.php">Not Registered? Sign Up Now.</a>
+                <button type="submit" name="login" class="btn btn-info">LOGIN </button> | <a href="signup.php">Not Register Yet</a>
               </form>
             </div>
           </div>

@@ -62,7 +62,7 @@ if (isset($_POST['change'])) {
     <div class="container">
       <div class="row pad-botm">
         <div class="col-md-12">
-          <h4 class="header-line">Password Recovery</h4>
+          <h4 class="header-line">User Password Recovery</h4>
         </div>
       </div>
 
@@ -70,31 +70,31 @@ if (isset($_POST['change'])) {
       <div class="row">
         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
           <div class="panel panel-info">
-            <div class="panel-heading">PASSWORD RECOVERY FORM</div>
+            <div class="panel-heading"> LOGIN FORM </div>
             <div class="panel-body">
               <form role="form" name="chngpwd" method="post" onSubmit="return valid();">
 
                 <div class="form-group">
-                  <label>Enter Your Email</label>
+                  <label>Enter Reg Email id</label>
                   <input class="form-control" type="email" name="email" required autocomplete="off" />
                 </div>
 
                 <div class="form-group">
-                  <label>Enter Your Mobile Number</label>
+                  <label>Enter Reg Mobile No</label>
                   <input class="form-control" type="text" name="mobile" required autocomplete="off" />
                 </div>
 
                 <div class="form-group">
-                  <label>Enter New Password</label>
+                  <label>Password</label>
                   <input class="form-control" type="password" name="newpassword" required autocomplete="off" />
                 </div>
 
                 <div class="form-group">
-                  <label>Confirm New Password</label>
+                  <label>ConfirmPassword</label>
                   <input class="form-control" type="password" name="confirmpassword" required autocomplete="off" />
                 </div>
 
-                <button type="submit" name="change" class="btn btn-info">SUBMIT</button> | <a href="index.php">Back to Login</a>
+                <button type="submit" name="change" class="btn btn-info">Chnage Password</button> | <a href="index.php">Login</a>
               </form>
             </div>
           </div>
