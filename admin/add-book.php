@@ -2,34 +2,37 @@
 session_start();
 error_reporting(0);
 include('includes/config.php');
-if (strlen($_SESSION['alogin']) == 0) {
-    header('location:index.php');
-} else {
 
-    if (isset($_POST['add'])) {
-        $bookname = $_POST['bookname'];
-        $category = $_POST['category'];
-        $author = $_POST['author'];
-        $isbn = $_POST['isbn'];
-        $price = $_POST['price'];
-        $sql = "INSERT INTO  tblbooks(BookName,CatId,AuthorId,ISBNNumber,BookPrice) VALUES(:bookname,:category,:author,:isbn,:price)";
-        $query = $dbh->prepare($sql);
-        $query->bindParam(':bookname', $bookname, PDO::PARAM_STR);
-        $query->bindParam(':category', $category, PDO::PARAM_STR);
-        $query->bindParam(':author', $author, PDO::PARAM_STR);
-        $query->bindParam(':isbn', $isbn, PDO::PARAM_STR);
-        $query->bindParam(':price', $price, PDO::PARAM_STR);
-        $query->execute();
-        $lastInsertId = $dbh->lastInsertId();
-        if ($lastInsertId) {
-            $_SESSION['msg'] = "Book Listed successfully";
-            header('location:manage-books.php');
-        } else {
-            $_SESSION['error'] = "Something went wrong. Please try again";
-            header('location:manage-books.php');
-        }
+if (strlen($_SESSION['login']) == 0) {
+  header('location:index.php');
+} else if ($_SESSION['role'] == 'student') {
+  header('location:../dashboard.php');
+} else {
+  if (isset($_POST['add'])) {
+    $bookname = $_POST['bookname'];
+    $category = $_POST['category'];
+    $author = $_POST['author'];
+    $isbn = $_POST['isbn'];
+    $price = $_POST['price'];
+    $sql = "INSERT INTO  tblbooks(BookName,CatId,AuthorId,ISBNNumber,BookPrice) VALUES(:bookname,:category,:author,:isbn,:price)";
+    $query = $dbh->prepare($sql);
+    $query->bindParam(':bookname', $bookname, PDO::PARAM_STR);
+    $query->bindParam(':category', $category, PDO::PARAM_STR);
+    $query->bindParam(':author', $author, PDO::PARAM_STR);
+    $query->bindParam(':isbn', $isbn, PDO::PARAM_STR);
+    $query->bindParam(':price', $price, PDO::PARAM_STR);
+    $query->execute();
+    $lastInsertId = $dbh->lastInsertId();
+    if ($lastInsertId) {
+      $_SESSION['msg'] = "Book Listed successfully";
+      header('location:manage-books.php');
+    } else {
+      $_SESSION['error'] = "Something went wrong. Please try again";
+      header('location:manage-books.php');
     }
+  }
 ?>
+
     <!DOCTYPE html>
     <html lang="en">
 
@@ -141,23 +144,22 @@ if (strlen($_SESSION['alogin']) == 0) {
                                 <button id="add" type="submit" name="add" class="btn btn-info">Add </button>
                             </form>
                         </div>
-                    </div>
-                </div>
             </div>
-
+          </div>
         </div>
-        </div>
-        <!-- CONTENT-WRAPPER SECTION END-->
-        <?php include('includes/footer.php'); ?>
-        <!-- FOOTER SECTION END-->
-        <!-- JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
-        <!-- CORE JQUERY  -->
-        <script src="assets/js/jquery-1.10.2.js"></script>
-        <!-- BOOTSTRAP SCRIPTS  -->
-        <script src="assets/js/bootstrap.js"></script>
-        <!-- CUSTOM SCRIPTS  -->
-        <script src="assets/js/custom.js"></script>
-    </body>
+      </div>
+    </div>
+    <!-- CONTENT-WRAPPER SECTION END-->
+    <?php include('includes/footer.php'); ?>
+    <!-- FOOTER SECTION END-->
+    <!-- JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
+    <!-- CORE JQUERY  -->
+    <script src="assets/js/jquery-1.10.2.js"></script>
+    <!-- BOOTSTRAP SCRIPTS  -->
+    <script src="assets/js/bootstrap.js"></script>
+    <!-- CUSTOM SCRIPTS  -->
+    <script src="assets/js/custom.js"></script>
+  </body>
 
-    </html>
+  </html>
 <?php } ?>
