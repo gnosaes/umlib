@@ -1,3 +1,4 @@
+
 <head>
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
@@ -84,57 +85,88 @@
                 <a href="logout.php" class="btn btn-danger pull-right">LOG ME OUT</a>
 
             </div>
+
+<div class="navbar navbar-inverse set-radius-zero">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand">
+        <img src="assets/img/logo.png" />
+      </a>
+    </div>
+    <?php if (strlen($_SESSION['login']) > 0) { ?>
+      <div class="right-div">
+        <a href="logout.php" class="btn btn-danger pull-right">LOG ME OUT</a>
+      </div>
+    <?php } ?>
+  </div>
+</div>
+<!-- LOGO HEADER END-->
+<?php if (strlen($_SESSION['login']) > 0) { ?>
+  <section class="menu-section">
+    <div class="container">
+      <div class="row ">
+        <div class="col-md-12">
+          <div class="navbar-collapse collapse ">
+            <ul id="menu-top" class="nav navbar-nav navbar-right">
+              <li><a href="dashboard.php" class="menu-top-active">DASHBOARD</a></li>
+              <li>
+                <a href="#" class="dropdown-toggle" id="ddlmenuItem" data-toggle="dropdown"> Categories <i class="fa fa-angle-down"></i></a>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="ddlmenuItem">
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="add-category.php">Add Category</a></li>
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="manage-categories.php">Manage Categories</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a href="#" class="dropdown-toggle" id="ddlmenuItem" data-toggle="dropdown"> Authors <i class="fa fa-angle-down"></i></a>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="ddlmenuItem">
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="add-author.php">Add Author</a></li>
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="manage-authors.php">Manage Authors</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a href="#" class="dropdown-toggle" id="ddlmenuItem" data-toggle="dropdown"> Books <i class="fa fa-angle-down"></i></a>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="ddlmenuItem">
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="add-book.php">Add Book</a></li>
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="manage-books.php">Manage Books</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a href="#" class="dropdown-toggle" id="ddlmenuItem" data-toggle="dropdown"> Issue Books <i class="fa fa-angle-down"></i></a>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="ddlmenuItem">
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="issue-book.php">Issue New Book</a></li>
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="manage-issued-books.php">Manage Issued Books</a></li>
+                </ul>
+              </li>
+              <li><a href="reg-students.php">Reg Students</a></li>
+              <li><a href="change-password.php">Change Password</a></li>
+            </ul>
+          </div>
+
         </div>
     </div>
-    <!-- LOGO HEADER END-->
-    <section class="menu-section">
-        <div class="container">
-            <div class="row ">
-                <div class="col-md-12">
-                    <div class="navbar-collapse collapse ">
-                        <ul id="menu-top" class="nav navbar-nav navbar-right">
-                            <li><a href="dashboard.php" class="menu-top-active">DASHBOARD</a></li>
-
-                            <li>
-                                <a href="#" class="dropdown-toggle" id="ddlmenuItem" data-toggle="dropdown"> Categories <i class="fa fa-angle-down"></i></a>
-                                <ul class="dropdown-menu" role="menu" aria-labelledby="ddlmenuItem">
-                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="add-category.php">Add Category</a></li>
-                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="manage-categories.php">Manage Categories</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#" class="dropdown-toggle" id="ddlmenuItem" data-toggle="dropdown"> Authors <i class="fa fa-angle-down"></i></a>
-                                <ul class="dropdown-menu" role="menu" aria-labelledby="ddlmenuItem">
-                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="add-author.php">Add Author</a></li>
-                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="manage-authors.php">Manage Authors</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#" class="dropdown-toggle" id="ddlmenuItem" data-toggle="dropdown"> Books <i class="fa fa-angle-down"></i></a>
-                                <ul class="dropdown-menu" role="menu" aria-labelledby="ddlmenuItem">
-                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="add-book.php">Add Book</a></li>
-                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="manage-books.php">Manage Books</a></li>
-                                </ul>
-                            </li>
-
-                            <li>
-                                <a href="#" class="dropdown-toggle" id="ddlmenuItem" data-toggle="dropdown"> Issue Books <i class="fa fa-angle-down"></i></a>
-                                <ul class="dropdown-menu" role="menu" aria-labelledby="ddlmenuItem">
-                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="issue-book.php">Issue New Book</a></li>
-                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="manage-issued-books.php">Manage Issued Books</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="reg-students.php">Reg Students</a></li>
-
-                            <li><a href="change-password.php">Change Password</a></li>
-                            <li><button data-trigger="#my_offcanvas2" class="btn btn-primary" type="button" style=" margin:8px;"> <i class="fa fa-wheelchair" style="font-size:30px; margin:5px; "></i></button>
-                            <li>
-
-                        </ul>
-                    </div>
-                </div>
-
-            </div>
+  </section>
+<?php } else { ?>
+  <section class="menu-section">
+    <div class="container">
+      <div class="row ">
+        <div class="col-md-12">
+          <div class="navbar-collapse collapse ">
+            <ul id="menu-top" class="nav navbar-nav navbar-right">
+              <li><a href="index.php">Admin Login</a></li>
+              <li><a href="../signup.php">User Signup</a></li>
+              <li><a href="../index.php">User Login</a></li>
+            </ul>
+          </div>
         </div>
-    </section>
-</body>
+      </div>
+    </div>
+  </section>
+<?php } ?>

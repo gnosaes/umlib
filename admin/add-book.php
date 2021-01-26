@@ -2,34 +2,37 @@
 session_start();
 error_reporting(0);
 include('includes/config.php');
-if (strlen($_SESSION['alogin']) == 0) {
-    header('location:index.php');
-} else {
 
-    if (isset($_POST['add'])) {
-        $bookname = $_POST['bookname'];
-        $category = $_POST['category'];
-        $author = $_POST['author'];
-        $isbn = $_POST['isbn'];
-        $price = $_POST['price'];
-        $sql = "INSERT INTO  tblbooks(BookName,CatId,AuthorId,ISBNNumber,BookPrice) VALUES(:bookname,:category,:author,:isbn,:price)";
-        $query = $dbh->prepare($sql);
-        $query->bindParam(':bookname', $bookname, PDO::PARAM_STR);
-        $query->bindParam(':category', $category, PDO::PARAM_STR);
-        $query->bindParam(':author', $author, PDO::PARAM_STR);
-        $query->bindParam(':isbn', $isbn, PDO::PARAM_STR);
-        $query->bindParam(':price', $price, PDO::PARAM_STR);
-        $query->execute();
-        $lastInsertId = $dbh->lastInsertId();
-        if ($lastInsertId) {
-            $_SESSION['msg'] = "Book Listed successfully";
-            header('location:manage-books.php');
-        } else {
-            $_SESSION['error'] = "Something went wrong. Please try again";
-            header('location:manage-books.php');
-        }
+if (strlen($_SESSION['login']) == 0) {
+  header('location:index.php');
+} else if ($_SESSION['role'] == 'student') {
+  header('location:../dashboard.php');
+} else {
+  if (isset($_POST['add'])) {
+    $bookname = $_POST['bookname'];
+    $category = $_POST['category'];
+    $author = $_POST['author'];
+    $isbn = $_POST['isbn'];
+    $price = $_POST['price'];
+    $sql = "INSERT INTO  tblbooks(BookName,CatId,AuthorId,ISBNNumber,BookPrice) VALUES(:bookname,:category,:author,:isbn,:price)";
+    $query = $dbh->prepare($sql);
+    $query->bindParam(':bookname', $bookname, PDO::PARAM_STR);
+    $query->bindParam(':category', $category, PDO::PARAM_STR);
+    $query->bindParam(':author', $author, PDO::PARAM_STR);
+    $query->bindParam(':isbn', $isbn, PDO::PARAM_STR);
+    $query->bindParam(':price', $price, PDO::PARAM_STR);
+    $query->execute();
+    $lastInsertId = $dbh->lastInsertId();
+    if ($lastInsertId) {
+      $_SESSION['msg'] = "Book Listed successfully";
+      header('location:manage-books.php');
+    } else {
+      $_SESSION['error'] = "Something went wrong. Please try again";
+      header('location:manage-books.php');
     }
+  }
 ?>
+
     <!DOCTYPE html>
     <html lang="en">
 
@@ -45,7 +48,21 @@ if (strlen($_SESSION['alogin']) == 0) {
         <link href="assets/css/style.css" rel="stylesheet" />
         <!-- GOOGLE FONT -->
         <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-
+        <script>
+            function checkISBN() {
+                $("#loaderIcon").show();
+                jQuery.ajax({
+                    url: "check-isbn.php",
+                    data: 'isbnid=' + $("#isbnid").val(),
+                    type: "POST",
+                    success: function(data) {
+                        $("#isbn-availability-status").html(data);
+                        $("#loaderIcon").hide();
+                    },
+                    error: function() {}
+                });
+            }
+        </script>
     </head>
 
     <body>
@@ -95,13 +112,11 @@ if (strlen($_SESSION['alogin']) == 0) {
                                     </select>
                                 </div>
 
-
                                 <div class="form-group">
                                     <label> Author<span style="color:red;">*</span></label>
                                     <select class="form-control" name="author" required="required">
                                         <option value=""> Select Author</option>
                                         <?php
-
                                         $sql = "SELECT * from  tblauthors ";
                                         $query = $dbh->prepare($sql);
                                         $query->execute();
@@ -117,36 +132,34 @@ if (strlen($_SESSION['alogin']) == 0) {
 
                                 <div class="form-group">
                                     <label>ISBN Number<span style="color:red;">*</span></label>
-                                    <input class="form-control" type="text" name="isbn" required="required" autocomplete="off" />
-                                    <p class="help-block">An ISBN is an International Standard Book Number.ISBN Must be unique</p>
+                                    <p class="help-block">An ISBN is an International Standard Book Number</p>
+                                    <input class="form-control" type="text" name="isbn" required="required" autocomplete="off" id="isbnid" onblur="checkISBN()" />
+                                    <span id="isbn-availability-status" style="font-size:12px;"></span>
                                 </div>
 
-                                <div class="form-group">
+                                <div class=" form-group">
                                     <label>Price<span style="color:red;">*</span></label>
                                     <input class="form-control" type="text" name="price" autocomplete="off" required="required" />
                                 </div>
-                                <button type="submit" name="add" class="btn btn-info">Add </button>
-
+                                <button id="add" type="submit" name="add" class="btn btn-info">Add </button>
                             </form>
                         </div>
-                    </div>
-                </div>
-
             </div>
-
+          </div>
         </div>
-        </div>
-        <!-- CONTENT-WRAPPER SECTION END-->
-        <?php include('includes/footer.php'); ?>
-        <!-- FOOTER SECTION END-->
-        <!-- JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
-        <!-- CORE JQUERY  -->
-        <script src="assets/js/jquery-1.10.2.js"></script>
-        <!-- BOOTSTRAP SCRIPTS  -->
-        <script src="assets/js/bootstrap.js"></script>
-        <!-- CUSTOM SCRIPTS  -->
-        <script src="assets/js/custom.js"></script>
-    </body>
+      </div>
+    </div>
+    <!-- CONTENT-WRAPPER SECTION END-->
+    <?php include('includes/footer.php'); ?>
+    <!-- FOOTER SECTION END-->
+    <!-- JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
+    <!-- CORE JQUERY  -->
+    <script src="assets/js/jquery-1.10.2.js"></script>
+    <!-- BOOTSTRAP SCRIPTS  -->
+    <script src="assets/js/bootstrap.js"></script>
+    <!-- CUSTOM SCRIPTS  -->
+    <script src="assets/js/custom.js"></script>
+  </body>
 
-    </html>
+  </html>
 <?php } ?>
