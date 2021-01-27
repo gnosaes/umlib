@@ -37,12 +37,10 @@ if (strlen($_SESSION['login']) > 0) {
     echo "<script>alert('Something went wrong. Please try again');</script>";   
   }
 }
-
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
@@ -80,7 +78,6 @@ if (strlen($_SESSION['login']) > 0) {
       });
     }
   </script>
-
 </head>
 
 <body>
