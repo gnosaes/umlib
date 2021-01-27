@@ -55,7 +55,7 @@ if (strlen($_SESSION['login']) == 0) {
         </div>
         <div class="row">
           <div class="col-md-9 col-md-offset-1">
-            <div class="panel panel-danger">
+            <div class="panel ">
               <div class="panel-heading"> My Profile </div>
               <div class="panel-body">
                 <form name="signup" method="post">

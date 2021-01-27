@@ -48,7 +48,7 @@ if (strlen($_SESSION['login']) == 0) {
 
         <div class="row">
           <a class="custom col-md-3 col-sm-3 col-xs-6" href="manage-books.php">
-            <div class="alert alert-success back-widget-set text-center">
+            <div class="alert alert-success back-widget-set text-center" style="background:#00c0a0;">
               <i class="fa fa-book fa-5x"></i>
               <?php
               $sql = "SELECT id from tblbooks ";
@@ -63,7 +63,7 @@ if (strlen($_SESSION['login']) == 0) {
           </a>
 
           <a class="custom col-md-3 col-sm-3 col-xs-6" href="manage-issued-books.php">
-            <div class="alert alert-info back-widget-set text-center">
+            <div class="alert alert-info back-widget-set text-center" style="background:indigo;">
               <i class="fa fa-bars fa-5x"></i>
               <?php
               $sql1 = "SELECT id from tblissuedbookdetails ";
@@ -78,7 +78,7 @@ if (strlen($_SESSION['login']) == 0) {
           </a>
 
           <a class="custom col-md-3 col-sm-3 col-xs-6" href="manage-issued-books.php">
-            <div class="alert alert-warning back-widget-set text-center">
+            <div class="alert alert-warning back-widget-set text-center" style="background: #ffc31d;">
               <i class="fa fa-recycle fa-5x"></i>
               <?php
               $status = 1;
@@ -95,7 +95,7 @@ if (strlen($_SESSION['login']) == 0) {
           </a>
 
           <a class="custom col-md-3 col-sm-3 col-xs-6" href="reg-students.php">
-            <div class="alert alert-danger back-widget-set text-center">
+            <div class="alert alert-danger back-widget-set text-center" style="background:#ff2c72;">
               <i class="fa fa-users fa-5x"></i>
               <?php
               $sql3 = "SELECT id from tblstudents ";
@@ -112,7 +112,7 @@ if (strlen($_SESSION['login']) == 0) {
 
         <div class="row">
           <a class="custom col-md-3 col-sm-3 col-xs-6" href="manage-authors.php">
-            <div class="alert alert-success back-widget-set text-center">
+            <div class="alert alert-success back-widget-set text-center" style="background:#9286ff;">
               <i class="fa fa-user fa-5x"></i>
               <?php
               $sq4 = "SELECT id from tblauthors ";
@@ -127,7 +127,7 @@ if (strlen($_SESSION['login']) == 0) {
           </a>
 
           <a class="custom col-md-3 col-sm-3 col-xs-6" href="manage-categories.php">
-            <div class="alert alert-info back-widget-set text-center">
+            <div class="alert alert-info back-widget-set text-center" style="background:#3a78ff;">
               <i class="fa fa-file-archive-o fa-5x"></i>
               <?php
               $sql5 = "SELECT id from tblcategory ";

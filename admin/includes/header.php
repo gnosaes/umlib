@@ -51,7 +51,7 @@
           <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand">
-          <img src="assets/img/logo.png" />
+          <img src="assets/img/logo_white.png" />
         </a>
       </div>
 
@@ -105,7 +105,7 @@
                 <li><a href="reg-students.php">Student</a></li>
                 <li><a href="change-password.php">Change Password</a></li>
                 <li>
-                  <button data-trigger="#my_offcanvas2" class="btn btn-primary" type="button" style=" margin:8px;">
+                  <button data-trigger="#my_offcanvas2" class="btn btn-primary" type="button" style=" margin-top:5px; margin-left:120px;">
                     <i class="fa fa-wheelchair" style="font-size:30px; margin:5px; "></i>
                   </button>
                 <li>
@@ -125,7 +125,7 @@
                 <li><a href="../signup.php">Sign Up</a></li>
                 <li><a href="../index.php">Login</a></li>
                 <li>
-                  <button data-trigger="#my_offcanvas2" class="btn btn-primary" type="button" style=" margin:8px;">
+                  <button data-trigger="#my_offcanvas2" class="btn btn-primary" type="button" style=" margin-top:5px; margin-left:370px;">
                     <i class="fa fa-wheelchair" style="font-size:30px; margin:5px; "></i>
                   </button>
                 <li>

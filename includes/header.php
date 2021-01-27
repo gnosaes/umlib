@@ -51,7 +51,7 @@
           <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand">
-          <img src="assets/img/logo.png" />
+          <img src="assets/img/logo_white.png" />
         </a>
       </div>
 
@@ -82,13 +82,16 @@
 
                 <li><a href="issued-books.php">Issued Book</a></li>
                 <li>
-                  <button data-trigger="#my_offcanvas2" class="btn btn-primary" type="button" style=" margin:8px;">
-                    <i class="fa fa-wheelchair" style="font-size:30px; margin:5px; "></i>
-                  </button>
+                  <button data-trigger="#my_offcanvas2" class="btn btn-primary" type="button" style=" margin-top:5px; margin-left:320px;">
+                    <i class="fa fa-wheelchair" style=" font-size:30px; margin:5px; "></i>
+                  </button></span>
                 </li>
+
               </ul>
             </div>
           </div>
+
+
         </div>
       </div>
     </section>
@@ -103,7 +106,7 @@
                 <li><a href="signup.php"> Signup </a></li>
                 <li><a href="index.php"> Login </a></li>
                 <li>
-                  <button data-trigger="#my_offcanvas2" class="btn btn-primary" type="button" style=" margin:8px;">
+                  <button data-trigger="#my_offcanvas2" class="btn btn-primary" type="button" style="  margin-top:5px; margin-left:350px;">
                     <i class="fa fa-wheelchair" style="font-size:30px; margin:5px; "></i>
                   </button>
                 <li>
