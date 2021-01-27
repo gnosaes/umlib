@@ -2,7 +2,6 @@
 session_start();
 error_reporting(0);
 include('includes/config.php');
-
 if (strlen($_SESSION['login']) == 0) {
   header('location:index.php');
 } else if ($_SESSION['role'] == 'student') {
@@ -19,7 +18,6 @@ if (strlen($_SESSION['login']) == 0) {
     $query->execute();
     header('location:reg-students.php');
   }
-
   //code for active students
   if (isset($_GET['id'])) {
     $id = $_GET['id'];
@@ -49,7 +47,6 @@ if (strlen($_SESSION['login']) == 0) {
     <link href="assets/css/style.css" rel="stylesheet" />
     <!-- GOOGLE FONT -->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-
   </head>
 
   <body>
@@ -62,16 +59,12 @@ if (strlen($_SESSION['login']) == 0) {
           <div class="col-md-12">
             <h4 class="header-line">Manage Reg Students</h4>
           </div>
-
-
         </div>
         <div class="row">
           <div class="col-md-12">
             <!-- Advanced Tables -->
             <div class="panel panel-default">
-              <div class="panel-heading">
-                Reg Students
-              </div>
+              <div class="panel-heading">Reg Students</div>
               <div class="panel-body">
                 <div class="table-responsive">
                   <table class="table table-striped table-bordered table-hover" id="dataTables-example">
@@ -118,12 +111,12 @@ if (strlen($_SESSION['login']) == 0) {
                               <?php if ($result->Status == 1) {
                                 echo htmlentities("Active");
                               } else {
-                                echo htmlentities("Blocked");
+                                echo htmlentities("Inactive");
                               }
                               ?></td>
                             <td class="center">
                               <?php if ($result->Status == 1) { ?>
-                                <a href="reg-students.php?inid=<?php echo htmlentities($result->id); ?>" onclick="return confirm('Are you sure you want to block this student?');">
+                                <a href="reg-students.php?inid=<?php echo htmlentities($result->id); ?>" onclick="return confirm('Are you sure you want to inactive this student?');">
                                   <button class=" btn btn-danger"> Inactive</button>
                                 </a>
                               <?php } else { ?>
