@@ -10,7 +10,6 @@ if (strlen($_SESSION['login']) == 0) {
 } else {
   $rid = intval($_GET['rid']);
 
-  //get book id
   $sql = "SELECT * FROM tblissuedbookdetails WHERE id=$rid;";
   $query = $dbh->prepare($sql);
   $query->execute();
@@ -22,7 +21,6 @@ if (strlen($_SESSION['login']) == 0) {
     $fine = $_POST['fine'];
     $rstatus = 1;
 
-    //return book and update available qty
     $sql = "UPDATE tblissuedbookdetails SET fine=$fine, RetrunStatus=1 WHERE id=$rid; UPDATE tblbooks SET Available_Qty=Available_Qty+1 WHERE tblbooks.id=$book_id";
     $query = $dbh->prepare($sql);
     $query->execute();

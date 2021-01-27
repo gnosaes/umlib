@@ -91,7 +91,7 @@ if (strlen($_SESSION['login']) == 0) {
                   <div class="form-group">
                     <label>Select Book Title</label>
                     <select class="form-control" name="bookid" required=" required">
-                      <option value=""> Select a student </option>
+                      <option value=""> Select a title </option>
                       <?php
                       $sql = "SELECT * from tblbooks where Available_Qty>0";
                       $query = $dbh->prepare($sql);
