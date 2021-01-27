@@ -112,7 +112,7 @@ if (strlen($_SESSION['login']) == 0) {
                       </div>
 
                       <div class="form-group">
-                        <label>Fine (RM) :</label>
+                        <label>Fine (RM)</label>
                         <?php
                         if ($result->fine == "") { ?>
                           <input class="form-control" type="text" name="fine" id="fine" />

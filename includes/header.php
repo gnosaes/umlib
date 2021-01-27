@@ -80,7 +80,7 @@
                   </ul>
                 </li>
 
-                <li><a href="issued-books.php">Issued Books</a></li>
+                <li><a href="issued-books.php">Issued Book</a></li>
                 <li>
                   <button data-trigger="#my_offcanvas2" class="btn btn-primary" type="button" style=" margin:8px;">
                     <i class="fa fa-wheelchair" style="font-size:30px; margin:5px; "></i>
@@ -100,8 +100,8 @@
             <div class="navbar-collapse collapse ">
               <ul id="menu-top" class="nav navbar-nav navbar-right">
                 <li><a href="adminlogin.php">Admin Login</a></li>
-                <li><a href="signup.php">User Signup</a></li>
-                <li><a href="index.php">User Login</a></li>
+                <li><a href="signup.php"> Signup </a></li>
+                <li><a href="index.php"> Login </a></li>
                 <li>
                   <button data-trigger="#my_offcanvas2" class="btn btn-primary" type="button" style=" margin:8px;">
                     <i class="fa fa-wheelchair" style="font-size:30px; margin:5px; "></i>
