@@ -2,10 +2,12 @@
 session_start();
 error_reporting(0);
 include('includes/config.php');
-if (strlen($_SESSION['alogin']) == 0) {
-    header('location:index.php');
-} else {
 
+if (strlen($_SESSION['login']) == 0) {
+    header('location:index.php');
+} else if ($_SESSION['role'] == 'student') {
+    header('location:../dashboard.php');
+} else {
     if (isset($_POST['add'])) {
         $bookname = $_POST['bookname'];
         $category = $_POST['category'];
@@ -30,6 +32,7 @@ if (strlen($_SESSION['alogin']) == 0) {
         }
     }
 ?>
+
     <!DOCTYPE html>
     <html lang="en">
 
@@ -45,7 +48,21 @@ if (strlen($_SESSION['alogin']) == 0) {
         <link href="assets/css/style.css" rel="stylesheet" />
         <!-- GOOGLE FONT -->
         <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-
+        <script>
+            function checkISBN() {
+                $("#loaderIcon").show();
+                jQuery.ajax({
+                    url: "check-isbn.php",
+                    data: 'isbnid=' + $("#isbnid").val(),
+                    type: "POST",
+                    success: function(data) {
+                        $("#isbn-availability-status").html(data);
+                        $("#loaderIcon").hide();
+                    },
+                    error: function() {}
+                });
+            }
+        </script>
     </head>
 
     <body>
@@ -94,7 +111,6 @@ if (strlen($_SESSION['alogin']) == 0) {
                                     </select>
                                 </div>
 
-
                                 <div class="form-group">
                                     <label> Author<span style="color:red;">*</span></label>
                                     <select class="form-control" name="author" required="required">
@@ -115,15 +131,16 @@ if (strlen($_SESSION['alogin']) == 0) {
 
                                 <div class="form-group">
                                     <label>ISBN Number<span style="color:red;">*</span></label>
-                                    <input class="form-control" type="text" name="isbn" required="required" autocomplete="off" />
-                                    <p class="help-block">An ISBN is an International Standard Book Number.ISBN Must be unique</p>
+                                    <p class="help-block">An ISBN is an International Standard Book Number</p>
+                                    <input class="form-control" type="text" name="isbn" required="required" autocomplete="off" id="isbnid" onblur="checkISBN()" />
+                                    <span id="isbn-availability-status" style="font-size:12px;"></span>
                                 </div>
 
-                                <div class="form-group">
+                                <div class=" form-group">
                                     <label>Price<span style="color:red;">*</span></label>
                                     <input class="form-control" type="text" name="price" autocomplete="off" required="required" />
                                 </div>
-                                <button type="submit" name="add" class="btn btn-info">Add </button>
+                                <button id="add" type="submit" name="add" class="btn btn-info">Add </button>
                             </form>
                         </div>
                     </div>
