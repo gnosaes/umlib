@@ -8,33 +8,34 @@ if (strlen($_SESSION['login']) == 0) {
 } else if ($_SESSION['role'] == 'student') {
     header('location:../dashboard.php');
 } else {
-    if (isset($_POST['add'])) {
-        $bookname = $_POST['bookname'];
-        $category = $_POST['category'];
-        $author = $_POST['author'];
-        $isbn = $_POST['isbn'];
-        $price = $_POST['price'];
-        $sql = "INSERT INTO  tblbooks(BookName,CatId,AuthorId,ISBNNumber,BookPrice) VALUES(:bookname,:category,:author,:isbn,:price)";
-        $query = $dbh->prepare($sql);
-        $query->bindParam(':bookname', $bookname, PDO::PARAM_STR);
-        $query->bindParam(':category', $category, PDO::PARAM_STR);
-        $query->bindParam(':author', $author, PDO::PARAM_STR);
-        $query->bindParam(':isbn', $isbn, PDO::PARAM_STR);
-        $query->bindParam(':price', $price, PDO::PARAM_STR);
-        $query->execute();
-        $lastInsertId = $dbh->lastInsertId();
-        if ($lastInsertId) {
-            $_SESSION['msg'] = "Book Listed successfully";
-            header('location:manage-books.php');
-        } else {
-            $_SESSION['error'] = "Something went wrong. Please try again";
-            header('location:manage-books.php');
-        }
+  if (isset($_POST['add'])) {
+    $bookname = $_POST['bookname'];
+    $category = $_POST['category'];
+    $author = $_POST['author'];
+    $isbn = $_POST['isbn'];
+    $price = $_POST['price'];
+    $quantity = $_POST['quantity'];
+    $sql = "INSERT INTO  tblbooks(BookName,CatId,AuthorId,ISBNNumber,BookPrice, Quantity) VALUES(:bookname,:category,:author,:isbn,:price,:quantity)";
+    $query = $dbh->prepare($sql);
+    $query->bindParam(':bookname', $bookname, PDO::PARAM_STR);
+    $query->bindParam(':category', $category, PDO::PARAM_STR);
+    $query->bindParam(':author', $author, PDO::PARAM_STR);
+    $query->bindParam(':isbn', $isbn, PDO::PARAM_STR);
+    $query->bindParam(':price', $price, PDO::PARAM_STR);
+    $query->bindParam(':quantity', $quantity, PDO::PARAM_STR);
+    $query->execute();
+    $lastInsertId = $dbh->lastInsertId();
+    if ($lastInsertId) {
+      $_SESSION['msg'] = "Book Listed successfully";
+      header('location:manage-books.php');
+    } else {
+      $_SESSION['error'] = "Something went wrong. Please try again";
+      header('location:manage-books.php');
     }
+  }
 ?>
-
-    <!DOCTYPE html>
-    <html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 
     <head>
         <meta charset="UTF-8" />
@@ -69,7 +70,6 @@ if (strlen($_SESSION['login']) == 0) {
         <!------MENU SECTION START-->
         <?php include('includes/header.php'); ?>
         <!-- MENU SECTION END-->
-        <div class="content-wra
     <div class=" content-wrapper">
             <div class="container">
                 <div class="row pad-botm">
@@ -79,11 +79,9 @@ if (strlen($_SESSION['login']) == 0) {
                 </div>
 
                 <div class="row">
-                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3"">
-<div class=" panel panel-info">
-                        <div class="panel-heading">
-                            Book Info
-                        </div>
+                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                      <div class=" panel panel-info">
+                        <div class="panel-heading">                            Book Info                        </div>
                         <div class="panel-body">
                             <form role="form" method="post">
                                 <div class="form-group">
@@ -136,15 +134,19 @@ if (strlen($_SESSION['login']) == 0) {
                                     <span id="isbn-availability-status" style="font-size:12px;"></span>
                                 </div>
 
-                                <div class=" form-group">
-                                    <label>Price<span style="color:red;">*</span></label>
-                                    <input class="form-control" type="text" name="price" autocomplete="off" required="required" />
-                                </div>
-                                <button id="add" type="submit" name="add" class="btn btn-info">Add </button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+
+                  <div class="form-group">
+                    <label>Price<span style="color:red;">*</span></label>
+                    <input class="form-control" type="text" name="price" autocomplete="off" required="required" />
+                  </div>
+
+                  <div class="form-group">
+                    <label>Quantity<span style="color:red;">*</span></label>
+                    <input class="form-control" type="number" name="quantity" autocomplete="off" required="required" />
+                  </div>
+                  <button type="submit" name="add" class="btn btn-info">Add </button>
+                </form>
+              </div>
             </div>
         </div>
         </div>

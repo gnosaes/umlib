@@ -14,14 +14,16 @@ if (strlen($_SESSION['login']) == 0) {
     $author = $_POST['author'];
     $isbn = $_POST['isbn'];
     $price = $_POST['price'];
+    $quantity = $_POST['quantity'];
     $bookid = intval($_GET['bookid']);
-    $sql = "update  tblbooks set BookName=:bookname,CatId=:category,AuthorId=:author,ISBNNumber=:isbn,BookPrice=:price where id=:bookid";
+    $sql = "update  tblbooks set BookName=:bookname,CatId=:category,AuthorId=:author,ISBNNumber=:isbn,BookPrice=:price, Quantity=:quantity where id=:bookid";
     $query = $dbh->prepare($sql);
     $query->bindParam(':bookname', $bookname, PDO::PARAM_STR);
     $query->bindParam(':category', $category, PDO::PARAM_STR);
     $query->bindParam(':author', $author, PDO::PARAM_STR);
     $query->bindParam(':isbn', $isbn, PDO::PARAM_STR);
     $query->bindParam(':price', $price, PDO::PARAM_STR);
+    $query->bindParam(':quantity', $quantity, PDO::PARAM_STR);
     $query->bindParam(':bookid', $bookid, PDO::PARAM_STR);
     $query->execute();
     $_SESSION['msg'] = "Book info updated successfully";
@@ -66,7 +68,7 @@ if (strlen($_SESSION['login']) == 0) {
                 <form role="form" method="post">
                   <?php
                   $bookid = intval($_GET['bookid']);
-                  $sql = "SELECT tblbooks.BookName,tblcategory.CategoryName,tblcategory.id as cid,tblauthors.AuthorName,tblauthors.id as athrid,tblbooks.ISBNNumber,tblbooks.BookPrice,tblbooks.id as bookid from  tblbooks join tblcategory on tblcategory.id=tblbooks.CatId join tblauthors on tblauthors.id=tblbooks.AuthorId where tblbooks.id=:bookid";
+                  $sql = "SELECT tblbooks.BookName,tblcategory.CategoryName,tblcategory.id as cid,tblauthors.AuthorName,tblauthors.id as athrid,tblbooks.ISBNNumber,tblbooks.BookPrice,tblbooks.Quantity,tblbooks.id as bookid from  tblbooks join tblcategory on tblcategory.id=tblbooks.CatId join tblauthors on tblauthors.id=tblbooks.AuthorId where tblbooks.id=:bookid";
                   $query = $dbh->prepare($sql);
                   $query->bindParam(':bookid', $bookid, PDO::PARAM_STR);
                   $query->execute();
@@ -144,6 +146,11 @@ if (strlen($_SESSION['login']) == 0) {
                       <div class="form-group">
                         <label>Price<span style="color:red;">*</span></label>
                         <input class="form-control" type="text" name="price" value="<?php echo htmlentities($result->BookPrice); ?>" required="required" />
+                      </div>
+
+                      <div class="form-group">
+                        <label>Quantity<span style="color:red;">*</span></label>
+                        <input class="form-control" type="number" name="quantity" value="<?php echo htmlentities($result->Quantity); ?>" required="required" />
                       </div>
                   <?php
                     }
