@@ -9,7 +9,7 @@ if (strlen($_SESSION['login']) > 0) {
   if (isset($_POST['login'])) {
     $username = $_POST['username'];
     $password = md5($_POST['password']);
-    $sql = "SELECT UserName,Password FROM admin WHERE UserName=:username and Password=:password";
+    $sql = "SELECT UserName, Password FROM admin WHERE UserName=:username and Password=:password";
     $query = $dbh->prepare($sql);
     $query->bindParam(':username', $username, PDO::PARAM_STR);
     $query->bindParam(':password', $password, PDO::PARAM_STR);
@@ -58,7 +58,7 @@ if (strlen($_SESSION['login']) > 0) {
       <div class="row">
         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
           <div class="panel panel-info">
-            <div class="panel-heading"> LOGIN</div>
+            <div class="panel-heading"> LOGIN </div>
             <div class="panel-body">
               <form role="form" method="post">
                 <div class="form-group">
@@ -70,8 +70,8 @@ if (strlen($_SESSION['login']) > 0) {
                   <div class="col-sm-12">
                     <div class="form-group">
                       <label>Password</label>
-                      <div class="input-group" id="show_hide_password">
-                        <input class="form-control" type="password">
+                      <div class="input-group" id="showPassword">
+                        <input class="form-control" type="password" name="password" autocomplete="off" required />
                         <div class="input-group-addon">
                           <a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
                         </div>
@@ -98,20 +98,19 @@ if (strlen($_SESSION['login']) > 0) {
 
   <script type="text/javascript">
     $(document).ready(function() {
-      $("#show_hide_password a").on('click', function(event) {
+      $("#showPassword a").on('click', function(event) {
         event.preventDefault();
-        if ($('#show_hide_password input').attr("type") == "text") {
-          $('#show_hide_password input').attr('type', 'password');
-          $('#show_hide_password i').addClass("fa-eye-slash");
-          $('#show_hide_password i').removeClass("fa-eye");
-        } else if ($('#show_hide_password input').attr("type") == "password") {
-          $('#show_hide_password input').attr('type', 'text');
-          $('#show_hide_password i').removeClass("fa-eye-slash");
-          $('#show_hide_password i').addClass("fa-eye");
+        if ($('#showPassword input').attr("type") == "text") {
+          $('#showPassword input').attr('type', 'password');
+          $('#showPassword i').addClass("fa-eye-slash");
+          $('#showPassword i').removeClass("fa-eye");
+        } else if ($('#showPassword input').attr("type") == "password") {
+          $('#showPassword input').attr('type', 'text');
+          $('#showPassword i').removeClass("fa-eye-slash");
+          $('#showPassword i').addClass("fa-eye");
         }
       });
     });
-  </script>
   </script>
 </body>
 

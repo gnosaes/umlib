@@ -15,7 +15,6 @@
 
   <b class="screen-overlay"></b>
 
-
   <aside class="offcanvas offcanvas-right" id="my_offcanvas2">
     <header class="p-4 bg-light border-bottom">
       <button class="btn btn-default btn-close" style="padding:10px; margin-top:10px"> &times Close </button>
@@ -24,7 +23,7 @@
     <div class="alert alert-success" style="margin:20px">
       <a href="#" class="alert-link">enable toggle voice assistance here</a>
     </div>
-    
+
     <div class="row text-center">
       <div class="col-12">
         <form method="post" id="toggleForm">
@@ -104,7 +103,7 @@
                 <li><a href="signup.php">User Signup</a></li>
                 <li><a href="index.php">User Login</a></li>
                 <li>
-                  <button data-trigger="#my_offcanvas2" class="btn btn-primary" type="button" style=" margin:8px;"> 
+                  <button data-trigger="#my_offcanvas2" class="btn btn-primary" type="button" style=" margin:8px;">
                     <i class="fa fa-wheelchair" style="font-size:30px; margin:5px; "></i>
                   </button>
                 <li>

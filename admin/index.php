@@ -67,9 +67,19 @@ if (strlen($_SESSION['login']) > 0) {
                   <input class="form-control" type="text" name="username" required />
                 </div>
 
-                <div class="form-group">
-                  <label>Enter Password</label>
-                  <input class="form-control" type="password" name="password" required />
+                <div class="row justify-content-center">
+                  <div class="col-sm-12">
+                    <div class="form-group">
+                      <label>Enter Password</label>
+                      <div class="input-group" id="showPassword">
+                        <input class="form-control" type="password" name="password" required />
+                        <div class="input-group-addon">
+                          <a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                    <p class="help-block"><a href="user-forgot-password.php">Forgot Password</a></p>
+                  </div>
                 </div>
 
                 <button type="submit" name="login" class="btn btn-info">LOGIN </button>
@@ -89,6 +99,23 @@ if (strlen($_SESSION['login']) > 0) {
   <script src="assets/js/bootstrap.js"></script>
   <!-- CUSTOM SCRIPTS  -->
   <script src="assets/js/custom.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $("#showPassword a").on('click', function(event) {
+        event.preventDefault();
+        if ($('#showPassword input').attr("type") == "text") {
+          $('#showPassword input').attr('type', 'password');
+          $('#showPassword i').addClass("fa-eye-slash");
+          $('#showPassword i').removeClass("fa-eye");
+        } else if ($('#showPassword input').attr("type") == "password") {
+          $('#showPassword input').attr('type', 'text');
+          $('#showPassword i').removeClass("fa-eye-slash");
+          $('#showPassword i').addClass("fa-eye");
+        }
+      });
+    });
+  </script>
 </body>
 
 </html>

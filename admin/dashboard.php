@@ -107,10 +107,7 @@ if (strlen($_SESSION['login']) == 0) {
               <h3><?php echo htmlentities($regstds); ?></h3>
               Registered Users
             </div>
-            <<<<<<< HEAD </div>
-              =======
           </a>
-          >>>>>>> origin/develop
         </div>
 
         <div class="row">

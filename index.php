@@ -73,16 +73,15 @@ if (strlen($_SESSION['login']) > 0) {
               <form role="form" method="post">
                 <div class="form-group">
                   <label>Enter Email</label>
-                  <input class="form-control" type="text" name="emailid" required autocomplete="off" />
+                  <input class="form-control" type="email" name="emailid" required autocomplete="off" />
                 </div>
-
 
                 <div class="row justify-content-center">
                   <div class="col-sm-12">
                     <div class="form-group">
-                      <label>Password</label>
-                      <div class="input-group" id="show_hide_password">
-                        <input class="form-control" type="password">
+                      <label>Enter Password</label>
+                      <div class="input-group" id="showPassword">
+                        <input class="form-control" type="password" name="password" required />
                         <div class="input-group-addon">
                           <a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
                         </div>
@@ -91,6 +90,7 @@ if (strlen($_SESSION['login']) > 0) {
                     <p class="help-block"><a href="user-forgot-password.php">Forgot Password</a></p>
                   </div>
                 </div>
+
                 <button type="submit" name="login" class="btn btn-info">LOGIN </button> | <a href="signup.php">Not Register Yet</a>
               </form>
             </div>
@@ -107,19 +107,19 @@ if (strlen($_SESSION['login']) > 0) {
   <script src="assets/js/bootstrap.js"></script>
   <!-- CUSTOM SCRIPTS  -->
   <script src="assets/js/custom.js"></script>
-  
+
   <script type="text/javascript">
     $(document).ready(function() {
-      $("#show_hide_password a").on('click', function(event) {
+      $("#showPassword a").on('click', function(event) {
         event.preventDefault();
-        if ($('#show_hide_password input').attr("type") == "text") {
-          $('#show_hide_password input').attr('type', 'password');
-          $('#show_hide_password i').addClass("fa-eye-slash");
-          $('#show_hide_password i').removeClass("fa-eye");
-        } else if ($('#show_hide_password input').attr("type") == "password") {
-          $('#show_hide_password input').attr('type', 'text');
-          $('#show_hide_password i').removeClass("fa-eye-slash");
-          $('#show_hide_password i').addClass("fa-eye");
+        if ($('#showPassword input').attr("type") == "text") {
+          $('#showPassword input').attr('type', 'password');
+          $('#showPassword i').addClass("fa-eye-slash");
+          $('#showPassword i').removeClass("fa-eye");
+        } else if ($('#showPassword input').attr("type") == "password") {
+          $('#showPassword input').attr('type', 'text');
+          $('#showPassword i').removeClass("fa-eye-slash");
+          $('#showPassword i').addClass("fa-eye");
         }
       });
     });

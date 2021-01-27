@@ -42,6 +42,7 @@ if (strlen($_SESSION['login']) > 0) {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
@@ -118,7 +119,7 @@ if (strlen($_SESSION['login']) > 0) {
                   <div class="col-sm-12">
                     <div class="form-group">
                       <label>Enter Password</label>
-                      <div class="input-group" id="show_hide_password">
+                      <div class="input-group" id="showPassword">
                         <input class="form-control" type="password" name="password">
                         <div class="input-group-addon">
                           <a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
@@ -128,7 +129,7 @@ if (strlen($_SESSION['login']) > 0) {
 
                     <div class="form-group">
                       <label>Confirm Password</label>
-                      <div class="input-group" id="show_hide_password">
+                      <div class="input-group" id="showRepeat">
                         <input class="form-control" type="password" name="confirmpassword">
                         <div class="input-group-addon">
                           <a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
@@ -157,16 +158,29 @@ if (strlen($_SESSION['login']) > 0) {
 
   <script type="text/javascript">
     $(document).ready(function() {
-      $("#show_hide_password a").on('click', function(event) {
+      $("#showPassword a").on('click', function(event) {
         event.preventDefault();
-        if ($('#show_hide_password input').attr("type") == "text") {
-          $('#show_hide_password input').attr('type', 'password');
-          $('#show_hide_password i').addClass("fa-eye-slash");
-          $('#show_hide_password i').removeClass("fa-eye");
-        } else if ($('#show_hide_password input').attr("type") == "password") {
-          $('#show_hide_password input').attr('type', 'text');
-          $('#show_hide_password i').removeClass("fa-eye-slash");
-          $('#show_hide_password i').addClass("fa-eye");
+        if ($('#showPassword input').attr("type") == "text") {
+          $('#showPassword input').attr('type', 'password');
+          $('#showPassword i').addClass("fa-eye-slash");
+          $('#showPassword i').removeClass("fa-eye");
+        } else if ($('#showPassword input').attr("type") == "password") {
+          $('#showPassword input').attr('type', 'text');
+          $('#showPassword i').removeClass("fa-eye-slash");
+          $('#showPassword i').addClass("fa-eye");
+        }
+      });
+
+      $("#showRepeat a").on('click', function(event) {
+        event.preventDefault();
+        if ($('#showRepeat input').attr("type") == "text") {
+          $('#showRepeat input').attr('type', 'password');
+          $('#showRepeat i').addClass("fa-eye-slash");
+          $('#showRepeat i').removeClass("fa-eye");
+        } else if ($('#showRepeat input').attr("type") == "password") {
+          $('#showRepeat input').attr('type', 'text');
+          $('#showRepeat i').removeClass("fa-eye-slash");
+          $('#showRepeat i').addClass("fa-eye");
         }
       });
     });

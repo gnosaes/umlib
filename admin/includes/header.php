@@ -54,6 +54,7 @@
           <img src="assets/img/logo.png" />
         </a>
       </div>
+
       <?php if (strlen($_SESSION['login']) > 0) { ?>
         <div class="right-div">
           <a href="logout.php" class="btn btn-danger pull-right">LOG OUT</a>
@@ -101,7 +102,8 @@
                     <li role="presentation"><a role="menuitem" tabindex="-1" href="manage-issued-books.php">Manage Issued Books</a></li>
                   </ul>
                 </li>
-                <li><a href="reg-students.php">Student</a></li><li><a href="change-password.php">Change Password</a></li>
+                <li><a href="reg-students.php">Student</a></li>
+                <li><a href="change-password.php">Change Password</a></li>
               </ul>
             </div>
           </div>

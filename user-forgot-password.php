@@ -88,14 +88,32 @@ if (strlen($_SESSION['login']) > 0) {
                   <input class="form-control" type="text" name="mobile" required autocomplete="off" />
                 </div>
 
-                <div class="form-group">
-                  <label>Enter New Password</label>
-                  <input class="form-control" type="password" name="newpassword" required autocomplete="off" />
+                <div class="row justify-content-center">
+                  <div class="col-sm-12">
+                    <div class="form-group">
+                      <label>Enter New Password</label>
+                      <div class="input-group" id="showNew">
+                        <input class="form-control" type="password" name="newpassword" autocomplete="off" required />
+                        <div class="input-group-addon">
+                          <a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
-                <div class="form-group">
-                  <label>Confirm New Password</label>
-                  <input class="form-control" type="password" name="confirmpassword" required autocomplete="off" />
+                <div class="row justify-content-center">
+                  <div class="col-sm-12">
+                    <div class="form-group">
+                      <label>Confirm New Password </label>
+                      <div class="input-group" id="showRepeat">
+                        <input class="form-control" type="password" name="confirmpassword" autocomplete="off" required />
+                        <div class="input-group-addon">
+                          <a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
                 <button type="submit" name="change" class="btn btn-info">SUBMIT</button> | <a href="index.php">Back to Login</a>
@@ -115,6 +133,35 @@ if (strlen($_SESSION['login']) > 0) {
   <script src="assets/js/bootstrap.js"></script>
   <!-- CUSTOM SCRIPTS  -->
   <script src="assets/js/custom.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $("#showNew a").on('click', function(event) {
+        event.preventDefault();
+        if ($('#showNew input').attr("type") == "text") {
+          $('#showNew input').attr('type', 'password');
+          $('#showNew i').addClass("fa-eye-slash");
+          $('#showNew i').removeClass("fa-eye");
+        } else if ($('#showNew input').attr("type") == "password") {
+          $('#showNew input').attr('type', 'text');
+          $('#showNew i').removeClass("fa-eye-slash");
+          $('#showNew i').addClass("fa-eye");
+        }
+      });
+
+      $("#showRepeat a").on('click', function(event) {
+        event.preventDefault();
+        if ($('#showRepeat input').attr("type") == "text") {
+          $('#showRepeat input').attr('type', 'password');
+          $('#showRepeat i').addClass("fa-eye-slash");
+          $('#showRepeat i').removeClass("fa-eye");
+        } else if ($('#showRepeat input').attr("type") == "password") {
+          $('#showRepeat input').attr('type', 'text');
+          $('#showRepeat i').removeClass("fa-eye-slash");
+          $('#showRepeat i').addClass("fa-eye");
+        }
+      });
+    });
+  </script>
 
 </body>
 
