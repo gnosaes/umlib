@@ -51,7 +51,7 @@ if (strlen($_SESSION['login']) > 0) {
     <div class="container">
       <div class="row pad-botm">
         <div class="col-md-12">
-          <h4 class="header-line">ADMIN LOGIN FORM</h4>
+          <h4 class="header-line">ADMIN LOGIN</h4>
         </div>
       </div>
 
@@ -59,7 +59,7 @@ if (strlen($_SESSION['login']) > 0) {
       <div class="row">
         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
           <div class="panel panel-info">
-            <div class="panel-heading"> LOGIN FORM </div>
+            <div class="panel-heading"> LOGIN </div>
             <div class="panel-body">
               <form role="form" method="post">
                 <div class="form-group">
@@ -68,7 +68,7 @@ if (strlen($_SESSION['login']) > 0) {
                 </div>
 
                 <div class="form-group">
-                  <label>Password</label>
+                  <label>Enter Password</label>
                   <input class="form-control" type="password" name="password" required />
                 </div>
 

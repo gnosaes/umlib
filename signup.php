@@ -30,19 +30,18 @@ if (strlen($_SESSION['login']) > 0) {
     $query->bindParam(':id', $lastInsertId, PDO::PARAM_STR);
     $query->execute();
 
-  if ($lastInsertId) {
-    echo '<script>alert("Your Registration successfull and your student id is ' . $student_id . '")</script>';
-    echo "<script type='text/javascript'> document.location ='index.php'; </script>";
-  } else {
-    echo "<script>alert('Something went wrong. Please try again');</script>";   
+    if ($lastInsertId) {
+      echo '<script>alert("Your Registration successfull and your student id is ' . $student_id . '")</script>';
+      echo "<script type='text/javascript'> document.location ='index.php'; </script>";
+    } else {
+      echo "<script>alert('Something went wrong. Please try again');</script>";
+    }
   }
 }
-
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
@@ -80,7 +79,6 @@ if (strlen($_SESSION['login']) > 0) {
       });
     }
   </script>
-
 </head>
 
 <body>
@@ -91,13 +89,13 @@ if (strlen($_SESSION['login']) > 0) {
     <div class="container">
       <div class="row pad-botm">
         <div class="col-md-12">
-          <h4 class="header-line">User Signup</h4>
+          <h4 class="header-line">SIGN UP</h4>
         </div>
       </div>
       <div class="row">
         <div class="col-md-9 col-md-offset-1">
           <div class="panel panel-danger">
-            <div class="panel-heading"> SINGUP FORM </div>
+            <div class="panel-heading"> SIGN UP FORM </div>
             <div class="panel-body">
               <form name="signup" method="post" onSubmit="return valid();">
                 <div class="form-group">
@@ -106,7 +104,7 @@ if (strlen($_SESSION['login']) > 0) {
                 </div>
 
                 <div class="form-group">
-                  <label>Mobile Number :</label>
+                  <label>Enter Mobile Number</label>
                   <input class="form-control" type="text" name="mobileno" maxlength="11" minlength="10" autocomplete="off" required />
                 </div>
 
@@ -122,11 +120,11 @@ if (strlen($_SESSION['login']) > 0) {
                 </div>
 
                 <div class="form-group">
-                  <label>Confirm Password </label>
+                  <label> Confirm Password </label>
                   <input class="form-control" type="password" name="confirmpassword" autocomplete="off" required />
                 </div>
 
-                <button type="submit" name="signup" class="btn btn-danger" id="submit">Register Now </button>
+                <button type="submit" name="signup" class="btn btn-danger" id="submit">SIGN UP</button>
               </form>
             </div>
           </div>

@@ -57,14 +57,14 @@ if (strlen($_SESSION['login']) == 0) {
       <div class="container">
         <div class="row pad-botm">
           <div class="col-md-12">
-            <h4 class="header-line">Issue a New Book</h4>
+            <h4 class="header-line">Issue Book</h4>
           </div>
 
         </div>
         <div class="row">
           <div class="col-md-10 col-sm-6 col-xs-12 col-md-offset-1">
             <div class=" panel panel-info">
-              <div class="panel-heading"> Issue a New Book </div>
+              <div class="panel-heading"> Issue New Book </div>
               <div class="panel-body">
                 <form role="form" method="post">
                   <div class="form-group">

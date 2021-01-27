@@ -4,9 +4,9 @@ error_reporting(0);
 include('includes/config.php');
 
 if (strlen($_SESSION['login']) == 0) {
-  header('location:index.php');
+    header('location:index.php');
 } else if ($_SESSION['role'] == 'student') {
-  header('location:../dashboard.php');
+    header('location:../dashboard.php');
 } else {
   if (isset($_POST['add'])) {
     $bookname = $_POST['bookname'];
@@ -34,9 +34,8 @@ if (strlen($_SESSION['login']) == 0) {
     }
   }
 ?>
-
-    <!DOCTYPE html>
-    <html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 
     <head>
         <meta charset="UTF-8" />
@@ -71,26 +70,22 @@ if (strlen($_SESSION['login']) == 0) {
         <!------MENU SECTION START-->
         <?php include('includes/header.php'); ?>
         <!-- MENU SECTION END-->
-        <div class="content-wra
     <div class=" content-wrapper">
             <div class="container">
                 <div class="row pad-botm">
                     <div class="col-md-12">
                         <h4 class="header-line">Add Book</h4>
-
                     </div>
-
                 </div>
+
                 <div class="row">
-                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3"">
-<div class=" panel panel-info">
-                        <div class="panel-heading">
-                            Book Info
-                        </div>
+                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                      <div class=" panel panel-info">
+                        <div class="panel-heading">                            Book Info                        </div>
                         <div class="panel-body">
                             <form role="form" method="post">
                                 <div class="form-group">
-                                    <label>Book Name<span style="color:red;">*</span></label>
+                                    <label>Book Title<span style="color:red;">*</span></label>
                                     <input class="form-control" type="text" name="bookname" autocomplete="off" required />
                                 </div>
 
@@ -153,21 +148,19 @@ if (strlen($_SESSION['login']) == 0) {
                 </form>
               </div>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-    <!-- CONTENT-WRAPPER SECTION END-->
-    <?php include('includes/footer.php'); ?>
-    <!-- FOOTER SECTION END-->
-    <!-- JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
-    <!-- CORE JQUERY  -->
-    <script src="assets/js/jquery-1.10.2.js"></script>
-    <!-- BOOTSTRAP SCRIPTS  -->
-    <script src="assets/js/bootstrap.js"></script>
-    <!-- CUSTOM SCRIPTS  -->
-    <script src="assets/js/custom.js"></script>
-  </body>
+        </div>
+        <!-- CONTENT-WRAPPER SECTION END-->
+        <?php include('includes/footer.php'); ?>
+        <!-- FOOTER SECTION END-->
+        <!-- JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
+        <!-- CORE JQUERY  -->
+        <script src="assets/js/jquery-1.10.2.js"></script>
+        <!-- BOOTSTRAP SCRIPTS  -->
+        <script src="assets/js/bootstrap.js"></script>
+        <!-- CUSTOM SCRIPTS  -->
+        <script src="assets/js/custom.js"></script>
+    </body>
 
-  </html>
+    </html>
 <?php } ?>

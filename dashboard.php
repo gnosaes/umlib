@@ -10,6 +10,7 @@ if (strlen($_SESSION['login']) == 0) {
 } else { ?>
   <!DOCTYPE html>
   <html lang="en">
+
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,10 +24,11 @@ if (strlen($_SESSION['login']) == 0) {
     <!-- GOOGLE FONT -->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
     <style>
-    a.custom {
-      text-decoration: none;
-    }
-    a.custom:hover div.alert {
+      a.custom {
+        text-decoration: none;
+      }
+
+      a.custom:hover div.alert {
         box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.16);
       }
     </style>
@@ -40,7 +42,7 @@ if (strlen($_SESSION['login']) == 0) {
       <div class="container">
         <div class="row pad-botm">
           <div class="col-md-12">
-            <h4 class="header-line">ADMIN DASHBOARD</h4>
+            <h4 class="header-line">DASHBOARD</h4>
           </div>
         </div>
         <div class="row">
@@ -78,8 +80,8 @@ if (strlen($_SESSION['login']) == 0) {
             </div>
           </a>
         </div>
+        <?php include('includes/slideshow.php'); ?>
       </div>
-    <?php include('includes/slideshow.php'); ?>
     </div>
     <!-- CONTENT-WRAPPER SECTION END-->
     <?php include('includes/footer.php'); ?>
@@ -92,5 +94,6 @@ if (strlen($_SESSION['login']) == 0) {
     <!-- CUSTOM SCRIPTS  -->
     <script src="assets/js/custom.js"></script>
   </body>
+
   </html>
 <?php } ?>

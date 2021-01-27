@@ -46,24 +46,24 @@ if (strlen($_SESSION['login']) == 0) {
       <div class="container">
         <div class="row pad-botm">
           <div class="col-md-12">
-            <h4 class="header-line">Manage Issued Books</h4>
+            <h4 class="header-line">Manage Issued Book</h4>
           </div>
 
           <div class="row">
             <div class="col-md-12">
               <div class="panel panel-default">
-                <div class="panel-heading"> Issued Books </div>
+                <div class="panel-heading"> List of Issued Books </div>
                 <div class="panel-body">
                   <div class="table-responsive">
                     <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                       <thead>
                         <tr>
                           <th>#</th>
-                          <th>Book Name</th>
+                          <th>Book Title</th>
                           <th>ISBN </th>
                           <th>Issued Date</th>
                           <th>Return Date</th>
-                          <th>Fine in(USD)</th>
+                          <th>Fine</th>
                         </tr>
                       </thead>
                       <tbody>
