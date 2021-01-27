@@ -42,6 +42,7 @@ if (strlen($_SESSION['login']) > 0) {
   <title>Online Library Management System</title>
   <!-- BOOTSTRAP CORE STYLE  -->
   <link href="assets/css/bootstrap.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
   <!-- FONT AWESOME STYLE  -->
   <link href="assets/css/font-awesome.css" rel="stylesheet" />
   <!-- CUSTOM STYLE  -->
@@ -75,18 +76,27 @@ if (strlen($_SESSION['login']) > 0) {
                   <input class="form-control" type="text" name="emailid" required autocomplete="off" />
                 </div>
 
-                <div class="form-group">
-                  <label>Enter Password</label>
-                  <input class="form-control" type="password" name="password" required autocomplete="off" />
-                  <p class="help-block"><a href="user-forgot-password.php">Forgot your password?</a></p>
+
+                <div class="row justify-content-center">
+                  <div class="col-sm-12">
+                    <div class="form-group">
+                      <label>Password</label>
+                      <div class="input-group" id="show_hide_password">
+                        <input class="form-control" type="password">
+                        <div class="input-group-addon">
+                          <a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                    <p class="help-block"><a href="user-forgot-password.php">Forgot Password</a></p>
+                  </div>
                 </div>
-                <button type="submit" name="login" class="btn btn-info">LOGIN </button> | <a href="signup.php">Not Registered? Sign Up Now.</a>
+                <button type="submit" name="login" class="btn btn-info">LOGIN </button> | <a href="signup.php">Not Register Yet</a>
               </form>
             </div>
           </div>
         </div>
       </div>
-      <!---LOGIN PABNEL END-->
     </div>
   </div>
   <!-- CONTENT-WRAPPER SECTION END-->
@@ -97,6 +107,23 @@ if (strlen($_SESSION['login']) > 0) {
   <script src="assets/js/bootstrap.js"></script>
   <!-- CUSTOM SCRIPTS  -->
   <script src="assets/js/custom.js"></script>
+  
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $("#show_hide_password a").on('click', function(event) {
+        event.preventDefault();
+        if ($('#show_hide_password input').attr("type") == "text") {
+          $('#show_hide_password input').attr('type', 'password');
+          $('#show_hide_password i').addClass("fa-eye-slash");
+          $('#show_hide_password i').removeClass("fa-eye");
+        } else if ($('#show_hide_password input').attr("type") == "password") {
+          $('#show_hide_password input').attr('type', 'text');
+          $('#show_hide_password i').removeClass("fa-eye-slash");
+          $('#show_hide_password i').addClass("fa-eye");
+        }
+      });
+    });
+  </script>
 
 </body>
 
