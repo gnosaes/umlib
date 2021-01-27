@@ -110,7 +110,7 @@ if (strlen($_SESSION['login']) == 0) {
                     </select>
                   </div>
 
-                  <button id="issue" type="submit" name="issue" id="submit" class="btn btn-info"> Issue Book </button>
+                  <button id="issue" type="submit" name="issue" id="submit" class="btn btn-info"> Submit </button>
                 </form>
               </div>
             </div>
