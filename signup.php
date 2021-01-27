@@ -110,23 +110,38 @@ if (isset($_POST['signup'])) {
                   <span id="user-availability-status" style="font-size:12px;"></span>
                 </div>
 
-                <div class="form-group">
-                  <label>Enter Password</label>
-                  <input class="form-control" type="password" name="password" autocomplete="off" required />
-                </div>
+                <div class="row justify-content-center">
+                  <div class="col-sm-12">
+                    <div class="form-group">
+                      <label>Enter Password</label>
+                      <div class="input-group" id="show_hide_password">
+                        <input class="form-control" type="password" name="password">
+                        <div class="input-group-addon">
+                          <a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                        </div>
+                      </div>
+                    </div>
 
-                <div class="form-group">
-                  <label>Confirm Password </label>
-                  <input class="form-control" type="password" name="confirmpassword" autocomplete="off" required />
-                </div>
-
-                <button type="submit" name="signup" class="btn btn-danger" id="submit">Register Now </button>
+                    <div class="form-group">
+                      <label>Confirm Password</label>
+                      <div class="input-group" id="show_hide_password">
+                        <input class="form-control" type="password" name="confirmpassword">
+                        <div class="input-group-addon">
+                          <a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                        </div>
+                      </div>
               </form>
             </div>
+
+            <button type="submit" name="signup" class="btn btn-danger" id="submit">Register Now </button>
+            </form>
           </div>
         </div>
       </div>
     </div>
+  </div>
+  </div>
+  </div>
   </div>
   <!-- CONTENT-WRAPPER SECTION END-->
   <?php include('includes/footer.php'); ?>
@@ -135,6 +150,23 @@ if (isset($_POST['signup'])) {
   <script src="assets/js/bootstrap.js"></script>
   <!-- CUSTOM SCRIPTS  -->
   <script src="assets/js/custom.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $("#show_hide_password a").on('click', function(event) {
+        event.preventDefault();
+        if ($('#show_hide_password input').attr("type") == "text") {
+          $('#show_hide_password input').attr('type', 'password');
+          $('#show_hide_password i').addClass("fa-eye-slash");
+          $('#show_hide_password i').removeClass("fa-eye");
+        } else if ($('#show_hide_password input').attr("type") == "password") {
+          $('#show_hide_password input').attr('type', 'text');
+          $('#show_hide_password i').removeClass("fa-eye-slash");
+          $('#show_hide_password i').addClass("fa-eye");
+        }
+      });
+    });
+  </script>
 </body>
 
 </html>

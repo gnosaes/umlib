@@ -40,6 +40,7 @@ if (isset($_POST['login'])) {
   <title>Online Library Management System</title>
   <!-- BOOTSTRAP CORE STYLE  -->
   <link href="assets/css/bootstrap.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
   <!-- FONT AWESOME STYLE  -->
   <link href="assets/css/font-awesome.css" rel="stylesheet" />
   <!-- CUSTOM STYLE  -->
@@ -73,19 +74,40 @@ if (isset($_POST['login'])) {
                   <input class="form-control" type="text" name="emailid" required autocomplete="off" />
                 </div>
 
-                <div class="form-group">
-                  <label>Password</label>
-                  <input class="form-control" type="password" name="password" required autocomplete="off" />
-                  <p class="help-block"><a href="user-forgot-password.php">Forgot Password</a></p>
-                </div>
-                <button type="submit" name="login" class="btn btn-info">LOGIN </button> | <a href="signup.php">Not Register Yet</a>
+
+                <div class="row justify-content-center">
+                  <div class="col-sm-12">
+                    <div class="form-group">
+                      <label>Password</label>
+                      <div class="input-group" id="show_hide_password">
+                        <input class="form-control" type="password">
+                        <div class="input-group-addon">
+                          <a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                        </div>
+
+                      </div>
+                    </div>
+                    <p class="help-block"><a href="user-forgot-password.php">Forgot Password</a></p>
               </form>
             </div>
+            <!-- <div class="form-group">
+                  <label>Password</label>
+                  <input class="form-control" type="password" name="password" id="txtPassword" required autocomplete="off" />
+                  <input class="form-control" type="password" name="password" id="password" placeholder="Enter the password">
+                  <i class="far fa-eye" id="togglePassword"></i> -->
+            <!-- <input type="checkbox" onclick="myFunction()" style="text-align:right;"> Show Password -->
+
+
+
           </div>
+          <button type="submit" name="login" class="btn btn-info">LOGIN </button> | <a href="signup.php">Not Register Yet</a>
+          </form>
         </div>
       </div>
-      <!---LOGIN PABNEL END-->
     </div>
+  </div>
+  <!---LOGIN PABNEL END-->
+  </div>
   </div>
   <!-- CONTENT-WRAPPER SECTION END-->
   <?php include('includes/footer.php'); ?>
@@ -95,6 +117,23 @@ if (isset($_POST['login'])) {
   <script src="assets/js/bootstrap.js"></script>
   <!-- CUSTOM SCRIPTS  -->
   <script src="assets/js/custom.js"></script>
+  
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $("#show_hide_password a").on('click', function(event) {
+        event.preventDefault();
+        if ($('#show_hide_password input').attr("type") == "text") {
+          $('#show_hide_password input').attr('type', 'password');
+          $('#show_hide_password i').addClass("fa-eye-slash");
+          $('#show_hide_password i').removeClass("fa-eye");
+        } else if ($('#show_hide_password input').attr("type") == "password") {
+          $('#show_hide_password input').attr('type', 'text');
+          $('#show_hide_password i').removeClass("fa-eye-slash");
+          $('#show_hide_password i').addClass("fa-eye");
+        }
+      });
+    });
+  </script>
 
 </body>
 

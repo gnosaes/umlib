@@ -19,3 +19,6 @@
     mainApp.custom_fun();
   });
 })(jQuery);
+
+//password toggle
+
