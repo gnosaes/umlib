@@ -15,6 +15,7 @@
 
   <b class="screen-overlay"></b>
 
+
   <aside class="offcanvas offcanvas-right" id="my_offcanvas2">
     <header class="p-4 bg-light border-bottom">
       <button class="btn btn-default btn-close" style="padding:10px; margin-top:10px"> &times Close </button>
@@ -23,7 +24,7 @@
     <div class="alert alert-success" style="margin:20px">
       <a href="#" class="alert-link">enable toggle voice assistance here</a>
     </div>
-
+    
     <div class="row text-center">
       <div class="col-12">
         <form method="post" id="toggleForm">
@@ -57,7 +58,7 @@
 
       <?php if (strlen($_SESSION['login']) > 0) { ?>
         <div class="right-div">
-          <a href="logout.php" class="btn btn-danger pull-right">LOG ME OUT</a>
+          <a href="logout.php" class="btn btn-danger pull-right">LOG OUT</a>
         </div>
       <?php } ?>
     </div>
@@ -75,7 +76,7 @@
                 <li>
                   <a href="#" class="dropdown-toggle" id="ddlmenuItem" data-toggle="dropdown"> Account <i class="fa fa-angle-down"></i></a>
                   <ul class="dropdown-menu" role="menu" aria-labelledby="ddlmenuItem">
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="my-profile.php">My Profile</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="my-profile.php">Profile</a></li>
                     <li role="presentation"><a role="menuitem" tabindex="-1" href="change-password.php">Change Password</a></li>
                   </ul>
                 </li>
@@ -102,7 +103,10 @@
                 <li><a href="adminlogin.php">Admin Login</a></li>
                 <li><a href="signup.php">User Signup</a></li>
                 <li><a href="index.php">User Login</a></li>
-                <li><button data-trigger="#my_offcanvas2" class="btn btn-primary" type="button" style=" margin:8px;"> <i class="fa fa-wheelchair" style="font-size:30px; margin:5px; "></i></button>
+                <li>
+                  <button data-trigger="#my_offcanvas2" class="btn btn-primary" type="button" style=" margin:8px;"> 
+                    <i class="fa fa-wheelchair" style="font-size:30px; margin:5px; "></i>
+                  </button>
                 <li>
               </ul>
             </div>

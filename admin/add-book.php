@@ -4,33 +4,33 @@ error_reporting(0);
 include('includes/config.php');
 
 if (strlen($_SESSION['login']) == 0) {
-  header('location:index.php');
+    header('location:index.php');
 } else if ($_SESSION['role'] == 'student') {
-  header('location:../dashboard.php');
+    header('location:../dashboard.php');
 } else {
-  if (isset($_POST['add'])) {
-    $bookname = $_POST['bookname'];
-    $category = $_POST['category'];
-    $author = $_POST['author'];
-    $isbn = $_POST['isbn'];
-    $price = $_POST['price'];
-    $sql = "INSERT INTO  tblbooks(BookName,CatId,AuthorId,ISBNNumber,BookPrice) VALUES(:bookname,:category,:author,:isbn,:price)";
-    $query = $dbh->prepare($sql);
-    $query->bindParam(':bookname', $bookname, PDO::PARAM_STR);
-    $query->bindParam(':category', $category, PDO::PARAM_STR);
-    $query->bindParam(':author', $author, PDO::PARAM_STR);
-    $query->bindParam(':isbn', $isbn, PDO::PARAM_STR);
-    $query->bindParam(':price', $price, PDO::PARAM_STR);
-    $query->execute();
-    $lastInsertId = $dbh->lastInsertId();
-    if ($lastInsertId) {
-      $_SESSION['msg'] = "Book Listed successfully";
-      header('location:manage-books.php');
-    } else {
-      $_SESSION['error'] = "Something went wrong. Please try again";
-      header('location:manage-books.php');
+    if (isset($_POST['add'])) {
+        $bookname = $_POST['bookname'];
+        $category = $_POST['category'];
+        $author = $_POST['author'];
+        $isbn = $_POST['isbn'];
+        $price = $_POST['price'];
+        $sql = "INSERT INTO  tblbooks(BookName,CatId,AuthorId,ISBNNumber,BookPrice) VALUES(:bookname,:category,:author,:isbn,:price)";
+        $query = $dbh->prepare($sql);
+        $query->bindParam(':bookname', $bookname, PDO::PARAM_STR);
+        $query->bindParam(':category', $category, PDO::PARAM_STR);
+        $query->bindParam(':author', $author, PDO::PARAM_STR);
+        $query->bindParam(':isbn', $isbn, PDO::PARAM_STR);
+        $query->bindParam(':price', $price, PDO::PARAM_STR);
+        $query->execute();
+        $lastInsertId = $dbh->lastInsertId();
+        if ($lastInsertId) {
+            $_SESSION['msg'] = "Book Listed successfully";
+            header('location:manage-books.php');
+        } else {
+            $_SESSION['error'] = "Something went wrong. Please try again";
+            header('location:manage-books.php');
+        }
     }
-  }
 ?>
 
     <!DOCTYPE html>
@@ -75,10 +75,9 @@ if (strlen($_SESSION['login']) == 0) {
                 <div class="row pad-botm">
                     <div class="col-md-12">
                         <h4 class="header-line">Add Book</h4>
-
                     </div>
-
                 </div>
+
                 <div class="row">
                     <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3"">
 <div class=" panel panel-info">
@@ -88,7 +87,7 @@ if (strlen($_SESSION['login']) == 0) {
                         <div class="panel-body">
                             <form role="form" method="post">
                                 <div class="form-group">
-                                    <label>Book Name<span style="color:red;">*</span></label>
+                                    <label>Book Title<span style="color:red;">*</span></label>
                                     <input class="form-control" type="text" name="bookname" autocomplete="off" required />
                                 </div>
 
@@ -144,22 +143,22 @@ if (strlen($_SESSION['login']) == 0) {
                                 <button id="add" type="submit" name="add" class="btn btn-info">Add </button>
                             </form>
                         </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-    <!-- CONTENT-WRAPPER SECTION END-->
-    <?php include('includes/footer.php'); ?>
-    <!-- FOOTER SECTION END-->
-    <!-- JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
-    <!-- CORE JQUERY  -->
-    <script src="assets/js/jquery-1.10.2.js"></script>
-    <!-- BOOTSTRAP SCRIPTS  -->
-    <script src="assets/js/bootstrap.js"></script>
-    <!-- CUSTOM SCRIPTS  -->
-    <script src="assets/js/custom.js"></script>
-  </body>
+        </div>
+        <!-- CONTENT-WRAPPER SECTION END-->
+        <?php include('includes/footer.php'); ?>
+        <!-- FOOTER SECTION END-->
+        <!-- JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
+        <!-- CORE JQUERY  -->
+        <script src="assets/js/jquery-1.10.2.js"></script>
+        <!-- BOOTSTRAP SCRIPTS  -->
+        <script src="assets/js/bootstrap.js"></script>
+        <!-- CUSTOM SCRIPTS  -->
+        <script src="assets/js/custom.js"></script>
+    </body>
 
-  </html>
+    </html>
 <?php } ?>

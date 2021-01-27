@@ -57,14 +57,14 @@ if (strlen($_SESSION['login']) == 0) {
       <div class="container">
         <div class="row pad-botm">
           <div class="col-md-12">
-            <h4 class="header-line">Manage Reg Students</h4>
+            <h4 class="header-line">Manage Student</h4>
           </div>
         </div>
         <div class="row">
           <div class="col-md-12">
             <!-- Advanced Tables -->
             <div class="panel panel-default">
-              <div class="panel-heading">Reg Students</div>
+              <div class="panel-heading">Student</div>
               <div class="panel-body">
                 <div class="table-responsive">
                   <table class="table table-striped table-bordered table-hover" id="dataTables-example">
@@ -73,9 +73,9 @@ if (strlen($_SESSION['login']) == 0) {
                         <th>#</th>
                         <th>Student ID</th>
                         <th>Student Name</th>
-                        <th>Email id </th>
+                        <th>Email </th>
                         <th>Mobile Number</th>
-                        <th>Reg Date</th>
+                        <th>Register Date</th>
                         <th>Status</th>
                         <th>Action</th>
                       </tr>

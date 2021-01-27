@@ -44,7 +44,7 @@ if (strlen($_SESSION['login']) == 0) {
       <div class="container">
         <div class="row pad-botm">
           <div class="col-md-12">
-            <h4 class="header-line">Manage Categories</h4>
+            <h4 class="header-line">Manage Category</h4>
           </div>
           <div class="row">
             <?php if ($_SESSION['error'] != "") { ?>
@@ -93,7 +93,7 @@ if (strlen($_SESSION['login']) == 0) {
           <div class="col-md-12">
             <!-- Advanced Tables -->
             <div class="panel panel-default">
-              <div class="panel-heading"> Categories Listing </div>
+              <div class="panel-heading">List of Categories</div>
               <div class="panel-body">
                 <div class="table-responsive">
                   <table class="table table-striped table-bordered table-hover" id="dataTables-example">
@@ -102,8 +102,8 @@ if (strlen($_SESSION['login']) == 0) {
                         <th>#</th>
                         <th>Category</th>
                         <th>Status</th>
-                        <th>Creation Date</th>
-                        <th>Updation Date</th>
+                        <th>Date Created</th>
+                        <th>Update Date</th>
                         <th>Action</th>
                       </tr>
                     </thead>
