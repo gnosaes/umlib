@@ -10,6 +10,7 @@ if (strlen($_SESSION['login']) == 0) {
 } else { ?>
   <!DOCTYPE html>
   <html lang="en">
+
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -154,5 +155,6 @@ if (strlen($_SESSION['login']) == 0) {
     <!-- CUSTOM SCRIPTS  -->
     <script src="assets/js/custom.js"></script>
   </body>
-</html>
+
+  </html>
 <?php } ?>
