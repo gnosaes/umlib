@@ -17,22 +17,26 @@ body {
   font-family: "Open Sans", sans-serif;
   line-height: 28px;
 }
+
 .set-radius-zero {
   border-radius: 0px;
   -moz-border-radius: 0px;
   -webkit-border-radius: 0px;
 }
+
 .content-wrapper {
   margin-top: 40px;
   min-height: 800px;
   padding-bottom: 90px;
 }
+
 .header-line {
   font-weight: 900;
   padding-bottom: 25px;
   border-bottom: 1px solid #eeeeee;
   text-transform: uppercase;
 }
+
 .pad-botm {
   padding-bottom: 30px;
 }
@@ -43,25 +47,42 @@ body {
 
 .right-div {
   float: right;
-  padding: 20px;
+  padding: 0px;
+  margin-top: -65px;
 }
+
 #menu-top a {
-  color: #000;
+  background: indigo;
+  color: #fff;
   text-decoration: none;
   font-weight: 500;
   padding: 25px 15px 25px 15px;
   text-transform: uppercase;
+  transition: 0.3s;
 }
+
+#menu-top a:hover {
+  background: rgba(109, 0, 187, 0.897);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 25px 15px 25px 15px;
+  text-transform: uppercase;
+  transition: 0.3s;
+}
+
 .menu-section {
-  background-color: #f7f7f7;
-  border-bottom: 5px solid #9170e4;
+  background-color: indigo;
+  border-bottom: 0px solid indigo;
   width: 100%;
 }
+
 .menu-top-active {
-  background-color: #eeeeee;
+  background-color: rgba(109, 0, 187, 0.623);
 }
+
 .navbar-inverse {
-  background-color: #fff;
+  background-color: indigo;
   border-color: rgba(155, 153, 153, 0.23);
 }
 
@@ -69,13 +90,39 @@ body {
   min-height: 90px;
   margin-bottom: 0px;
 }
+
+.navbar-header {
+  float: left;
+  padding: 15px;
+  text-align: center;
+  width: 100%;
+}
+
+.navbar-brand {
+  float: none;
+}
+
+
 .navbar-inverse .navbar-collapse,
 .navbar-inverse .navbar-form {
   border-color: transparent;
 }
+
 .navbar-toggle {
   background-color: black;
   border: 1px solid black;
+  transition: 0.3s;
+}
+
+.alert {
+  color: white;
+  border-radius: 15px;
+  transition: 0.3s;
+  padding: 15px;
+}
+
+.alert:hover {
+  transition: 0.3s;
 }
 
 /* =============================================================
@@ -95,6 +142,7 @@ body {
 .slide-bdr {
   border: 5px solid #9170e4;
 }
+
 .chat-widget-left:after {
   top: 100%;
   left: 10%;
@@ -117,6 +165,7 @@ body {
   border: 1px solid #f70e62;
   font-size: 12px;
 }
+
 .chat-widget-right:after {
   top: 100%;
   right: 10%;
@@ -152,31 +201,38 @@ body {
   float: left;
   margin-right: 30px;
 }
+
 .img-right-chat {
   border: 3px double #e1e1e1;
   float: right;
   margin-left: 30px;
 }
+
 .chat-widget-main img-right {
   border: 3px double #e1e1e1;
   float: left;
 }
+
 .chat-widget-name-left h4 {
   font-weight: normal;
   font-size: 11px;
 }
+
 .chat-widget-name-left h5 {
   font-weight: normal;
   font-size: 10px;
 }
+
 .chat-widget-name-right h4 {
   font-weight: normal;
   font-size: 11px;
 }
+
 .chat-widget-name-right h5 {
   font-weight: normal;
   font-size: 10px;
 }
+
 .chat-widget-name-right {
   color: #808080;
   margin-top: 40px;
@@ -197,151 +253,147 @@ body {
    FOOTER SECTION STYLES
  ============================================================ */
 .footer-section {
-  padding: 25px 50px 25px 50px;
-  color: #000;
+  padding: 55px 50px 55px 50px;
+  color: #fff;
   font-size: 13px;
-  background-color: #f7f7f7;
-  text-align: right;
-  border-top: 5px solid #9170e4;
+  background-color: #333;
+  text-align: center;
+  border-top: 5px solid #444;
 }
 
 .footer-section a,
 .footer-section a:hover {
-  color: #000;
+  color: #fff;
 }
 
+/* panel heading */
 
-    /* =============================================================
-   SIDEBAR SECTION STYLES
- ============================================================ */
- .offcanvas-active {
-    overflow: hidden;
+.panel {
+  background: #fff;
+  border: 1px solid #ccc;
 }
 
-.screen-overlay {
-    width: 0%;
-    height: 100%;
-    z-index: 1001;
-    position: fixed;
-    top: 0;
-    left: 0;
-    opacity: 0;
-    visibility: hidden;
-    background-color: rgba(34, 34, 34, 0.6);
-    transition: opacity .2s linear, visibility .1s, width 1s ease-in;
+.panel-heading {
+  background: indigo;
+  color: #fff;
+  border: 1px solid #f1f1f1;
+
 }
 
-.screen-overlay.show {
-    transition: opacity .5s ease, width 0s;
-    opacity: 1;
-    width: 100%;
-    visibility: visible;
+.btn-primary {
+  background: #ffb327ec;
+  color: #fff;
+  border: 1px solid #ffc31d;
+  border-radius: 10px;
+  transition: 0.3s;
 }
 
-.offcanvas {
-    width: 350px;
-    visibility: hidden;
-    transform: translateX(-100%);
-    transition: all .2s;
-    border-radius: 0;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
-    display: block;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    z-index: 1200;
-    background-color: #fff;
-    overflow-y: scroll;
-    overflow-x: hidden;
+.btn-primary:hover {
+  background: #ffae00;
+  color: #fff;
+  border: 1px solid #ffc31d;
+  border-radius: 10px;
 }
 
-.offcanvas.offcanvas-right {
-    right: 0;
-    left: auto;
-    transform: translateX(100%);
+.btn-info {
+  background: rgb(58, 94, 255);
+  color: #fff;
+  border: 1px solid rgb(58, 94, 255);
+  border-radius: 10px;
+  transition: 0.3s;
 }
 
-.offcanvas.show {
-    visibility: visible;
-    transform: translateX(0);
-    transition: transform .2s;
+.btn-info:hover {
+  background: rgb(40, 79, 255);
+  color: #fff;
+  border: 1px solid rgb(58, 94, 255);
+  border-radius: 10px;
+  transition: 0.3s;
 }
 
-.offcanvas .btn-close {
-    position: absolute;
-    right: 15px;
-    top: 10px;
+.btn-danger {
+  color: #fff;
+  border: 1px solid #ff325f;
+  border-radius: 10px;
+  transition: 0.3s;
 }
+
 
 /* =============================================================
     SIDEBAR SECTION STYLES
-  ============================================================ */ 
-  .offcanvas-active {
-    overflow: hidden;
+  ============================================================ */
+.offcanvas-active {
+  overflow: hidden;
 }
 
 .screen-overlay {
-    width: 0%;
-    height: 100%;
-    z-index: 1001;
-    position: fixed;
-    top: 0;
-    left: 0;
-    opacity: 0;
-    visibility: hidden;
-    background-color: rgba(34, 34, 34, 0.6);
-    transition: opacity .2s linear, visibility .1s, width 1s ease-in;
+  width: 0%;
+  height: 100%;
+  z-index: 1001;
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+  background-color: rgba(34, 34, 34, 0.6);
+  transition: opacity 0.2s linear, visibility 0.1s, width 1s ease-in;
 }
 
 .screen-overlay.show {
-    transition: opacity .5s ease, width 0s;
-    opacity: 1;
-    width: 100%;
-    visibility: visible;
+  transition: opacity 0.5s ease, width 0s;
+  opacity: 1;
+  width: 100%;
+  visibility: visible;
 }
 
 .offcanvas {
-    width: 350px;
-    visibility: hidden;
-    transform: translateX(-100%);
-    transition: all .2s;
-    border-radius: 0;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
-    display: block;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    z-index: 1200;
-    background-color: #fff;
-    overflow-y: scroll;
-    overflow-x: hidden;
+  width: 350px;
+  visibility: hidden;
+  transform: translateX(-100%);
+  transition: all 0.2s;
+  border-radius: 0;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  z-index: 1200;
+  background-color: #fff;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .offcanvas.offcanvas-right {
-    right: 0;
-    left: auto;
-    transform: translateX(100%);
+  right: 0;
+  left: auto;
+  transform: translateX(100%);
 }
 
 .offcanvas.show {
-    visibility: visible;
-    transform: translateX(0);
-    transition: transform .2s;
+  visibility: visible;
+  transform: translateX(0);
+  transition: transform 0.2s;
 }
 
 .offcanvas .btn-close {
-    position: absolute;
-    right: 15px;
-    top: 10px;
+  position: absolute;
+  right: 15px;
+  top: 10px;
 }
 
+.field-icon {
+  float: right;
+  margin-left: -25px;
+  margin-top: -25px;
+  position: relative;
+  z-index: 2;
+}
 
-
-
+.container {
+  margin: auto;
+}
 
 button {
   outline: none !important;
 }
-

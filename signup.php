@@ -95,7 +95,7 @@ if (strlen($_SESSION['login']) > 0) {
       </div>
       <div class="row">
         <div class="col-md-9 col-md-offset-1">
-          <div class="panel panel-danger">
+          <div class="panel ">
             <div class="panel-heading"> SIGN UP FORM </div>
             <div class="panel-body">
               <form name="signup" method="post" onSubmit="return valid();">
@@ -138,7 +138,7 @@ if (strlen($_SESSION['login']) > 0) {
                     </div>
                   </div>
                 </div>
-                <button type="submit" name="signup" class="btn btn-danger" id="submit">Register Now </button>
+                <button type="submit" name="signup" class="btn btn-danger" id="submit">SIGN UP </button>
               </form>
             </div>
           </div>

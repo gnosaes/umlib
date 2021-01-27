@@ -51,7 +51,7 @@ if (strlen($_SESSION['login']) == 0) {
 
           <div class="row">
             <div class="col-md-12">
-              <div class="panel panel-default">
+              <div class="panel">
                 <div class="panel-heading"> List of Issued Books </div>
                 <div class="panel-body">
                   <div class="table-responsive">

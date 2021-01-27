@@ -50,6 +50,7 @@ if (strlen($_SESSION['login']) > 0) {
   <!-- GOOGLE FONT -->
   <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 
+
 </head>
 
 <body>
@@ -67,7 +68,7 @@ if (strlen($_SESSION['login']) > 0) {
       <!--LOGIN PANEL START-->
       <div class="row">
         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-          <div class="panel panel-info">
+          <div class="panel ">
             <div class="panel-heading"> LOGIN</div>
             <div class="panel-body">
               <form role="form" method="post">
@@ -87,17 +88,18 @@ if (strlen($_SESSION['login']) > 0) {
                         </div>
                       </div>
                     </div>
-                    <p class="help-block"><a href="user-forgot-password.php">Forgot Password</a></p>
+                    <p class="help-block"><a href="user-forgot-password.php">Forgot Password ?</a></p>
                   </div>
                 </div>
 
-                <button type="submit" name="login" class="btn btn-info">LOGIN </button> | <a href="signup.php">Not Register Yet</a>
+                <button type="submit" name="login" class="btn btn-info">LOGIN </button> | <a href="signup.php">Not Register Yet ? Sign Up Now</a>
               </form>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
   </div>
   <!-- CONTENT-WRAPPER SECTION END-->
   <?php include('includes/footer.php'); ?>
