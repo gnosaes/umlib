@@ -88,11 +88,11 @@ if (strlen($_SESSION['login']) > 0) {
                         </div>
                       </div>
                     </div>
-                    <p class="help-block"><a href="user-forgot-password.php">Forgot Password ?</a></p>
+                    <p class="help-block"><a href="user-forgot-password.php">Forgot your password?</a></p>
                   </div>
                 </div>
 
-                <button type="submit" name="login" class="btn btn-info">LOGIN </button> | <a href="signup.php">Not Register Yet ? Sign Up Now</a>
+                <button type="submit" name="login" class="btn btn-info">LOGIN </button> | <a href="signup.php">Not Registered? Sign Up Now.</a>
               </form>
             </div>
           </div>

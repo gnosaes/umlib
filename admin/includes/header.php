@@ -75,7 +75,7 @@
                   <a href="#" class="dropdown-toggle" id="ddlmenuItem" data-toggle="dropdown"> Category <i class="fa fa-angle-down"></i></a>
                   <ul class="dropdown-menu" role="menu" aria-labelledby="ddlmenuItem">
                     <li role="presentation"><a role="menuitem" tabindex="-1" href="add-category.php">Add Category</a></li>
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="manage-categories.php">Manage Categories</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="manage-categories.php">Manage Category</a></li>
                   </ul>
                 </li>
 
@@ -83,7 +83,7 @@
                   <a href="#" class="dropdown-toggle" id="ddlmenuItem" data-toggle="dropdown"> Author <i class="fa fa-angle-down"></i></a>
                   <ul class="dropdown-menu" role="menu" aria-labelledby="ddlmenuItem">
                     <li role="presentation"><a role="menuitem" tabindex="-1" href="add-author.php">Add Author</a></li>
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="manage-authors.php">Manage Authors</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="manage-authors.php">Manage Author</a></li>
                   </ul>
                 </li>
 
@@ -91,7 +91,7 @@
                   <a href="#" class="dropdown-toggle" id="ddlmenuItem" data-toggle="dropdown"> Book <i class="fa fa-angle-down"></i></a>
                   <ul class="dropdown-menu" role="menu" aria-labelledby="ddlmenuItem">
                     <li role="presentation"><a role="menuitem" tabindex="-1" href="add-book.php">Add Book</a></li>
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="manage-books.php">Manage Books</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="manage-books.php">Manage Book</a></li>
                   </ul>
                 </li>
 
@@ -99,7 +99,7 @@
                   <a href="#" class="dropdown-toggle" id="ddlmenuItem" data-toggle="dropdown"> Issue Book <i class="fa fa-angle-down"></i></a>
                   <ul class="dropdown-menu" role="menu" aria-labelledby="ddlmenuItem">
                     <li role="presentation"><a role="menuitem" tabindex="-1" href="issue-book.php">Issue New Book</a></li>
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="manage-issued-books.php">Manage Issued Books</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="manage-issued-books.php">Manage Issued Book</a></li>
                   </ul>
                 </li>
                 <li><a href="reg-students.php">Student</a></li>

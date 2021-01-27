@@ -138,7 +138,7 @@ if (strlen($_SESSION['login']) > 0) {
                     </div>
                   </div>
                 </div>
-                <button type="submit" name="signup" class="btn btn-danger" id="submit">SIGN UP </button>
+                <button type="submit" name="signup" class="btn btn-danger" id="submit">SIGN UP</button>
               </form>
             </div>
           </div>

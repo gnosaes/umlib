@@ -69,7 +69,7 @@ if (strlen($_SESSION['login']) > 0) {
                 <div class="row justify-content-center">
                   <div class="col-sm-12">
                     <div class="form-group">
-                      <label>Password</label>
+                      <label>Enter Password</label>
                       <div class="input-group" id="showPassword">
                         <input class="form-control" type="password" name="password" autocomplete="off" required />
                         <div class="input-group-addon">
