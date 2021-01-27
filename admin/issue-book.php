@@ -18,6 +18,10 @@ if (strlen($_SESSION['login']) == 0) {
     $query->execute();
     $lastInsertId = $dbh->lastInsertId();
     if ($lastInsertId) {
+      $sql1 = "UPDATE tblbooks SET Available_Qty=Available_Qty-1 WHERE tblbooks.id=:bookid";
+      $query1 = $dbh->prepare($sql1);
+      $query1->bindParam(':bookid', $bookid, PDO::PARAM_STR);
+      $query1->execute();
       $_SESSION['msg'] = "Book issued successfully";
       header('location:manage-issued-books.php');
     } else {
@@ -71,6 +75,20 @@ if (strlen($_SESSION['login']) == 0) {
           error: function() {}
         });
       }
+
+      function checkBookQuantity() {
+        $("#loaderIcon").show();
+        jQuery.ajax({
+          url: "check-book-quantity.php",
+          data: 'bookid=' + $("#bookid").val(),
+          type: "GET",
+          success: function(data) {
+            $("#book-availability-status").html(data);
+            $("#loaderIcon").hide();
+          },
+          error: function() {}
+        });
+      }
     </script>
     <style type="text/css">
       .others {
@@ -98,7 +116,7 @@ if (strlen($_SESSION['login']) == 0) {
               <div class="panel-body">
                 <form role="form" method="post">
                   <div class="form-group">
-                    <label>Srtudent id<span style="color:red;">*</span></label>
+                    <label>Student id<span style="color:red;">*</span></label>
                     <input class="form-control" type="text" name="studentid" id="studentid" onBlur="getstudent()" autocomplete="off" required />
                   </div>
 
@@ -107,15 +125,17 @@ if (strlen($_SESSION['login']) == 0) {
                   </div>
 
                   <div class="form-group">
-                    <label>ISBN Number or Book Title<span style="color:red;">*</span></label>
-                    <input class="form-control" type="text" name="booikid" id="bookid" onBlur="getbook()" required="required" />
+                    <label>ISBN Number<span style="color:red;">*</span></label>
+                    <input class="form-control" type="number" name="bookid" id="bookid" onBlur="getbook()" required="required" />
                   </div>
 
                   <div class="form-group">
-                    <select class="form-control" name="bookdetails" id="get_book_name" readonly> </select>
+                    <label>Select Book Title</label>
+                    <select class="form-control" name="bookdetails" id="get_book_name" readonly onblur="checkBookQuantity()"> </select>
+                    <span id="book-availability-status" style="font-size:12px;"></span>
                   </div>
 
-                  <button type="submit" name="issue" id="submit" class="btn btn-info">Issue Book </button>
+                  <button id="issue" type="submit" name="issue" id="submit" class="btn btn-info">Issue Book </button>
                 </form>
               </div>
             </div>
