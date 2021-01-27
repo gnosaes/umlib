@@ -51,21 +51,20 @@ if (strlen($_SESSION['login']) > 0) {
     <div class="container">
       <div class="row pad-botm">
         <div class="col-md-12">
-          <h4 class="header-line">ADMIN LOGIN FORM</h4>
+          <h4 class="header-line">ADMIN LOGIN</h4>
         </div>
       </div>
       <!--LOGIN PANEL START-->
       <div class="row">
         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
           <div class="panel panel-info">
-            <div class="panel-heading"> LOGIN FORM </div>
+            <div class="panel-heading"> LOGIN</div>
             <div class="panel-body">
               <form role="form" method="post">
                 <div class="form-group">
                   <label>Enter Username</label>
                   <input class="form-control" name="username" autocomplete="off" required />
                 </div>
-
 
                 <div class="row justify-content-center">
                   <div class="col-sm-12">
@@ -76,22 +75,17 @@ if (strlen($_SESSION['login']) > 0) {
                         <div class="input-group-addon">
                           <a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
                         </div>
-
                       </div>
                     </div>
-
+                  </div>
+                </div>
+                <button type="submit" name="login" class="btn btn-info"> LOGIN </button>
               </form>
             </div>
           </div>
-
-          <button type="submit" name="login" class="btn btn-info"> LOGIN </button>
-          </form>
         </div>
       </div>
     </div>
-  </div>
-  <!---LOGIN PABNEL END-->
-  </div>
   </div>
   <!-- CONTENT-WRAPPER SECTION END-->
   <?php include('includes/footer.php'); ?>

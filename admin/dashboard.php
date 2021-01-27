@@ -10,6 +10,7 @@ if (strlen($_SESSION['login']) == 0) {
 } else { ?>
   <!DOCTYPE html>
   <html lang="en">
+
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -57,7 +58,7 @@ if (strlen($_SESSION['login']) == 0) {
               $listdbooks = $query->rowCount();
               ?>
               <h3><?php echo htmlentities($listdbooks); ?></h3>
-              Books Listed
+              Listed Books
             </div>
           </a>
 
@@ -72,7 +73,7 @@ if (strlen($_SESSION['login']) == 0) {
               $issuedbooks = $query1->rowCount();
               ?>
               <h3><?php echo htmlentities($issuedbooks); ?> </h3>
-              Times Book Issued
+              Books Issued
             </div>
           </a>
 
@@ -89,7 +90,7 @@ if (strlen($_SESSION['login']) == 0) {
               $returnedbooks = $query2->rowCount();
               ?>
               <h3><?php echo htmlentities($returnedbooks); ?></h3>
-              Times Books Returned
+              Books Returned
             </div>
           </a>
 
@@ -106,7 +107,10 @@ if (strlen($_SESSION['login']) == 0) {
               <h3><?php echo htmlentities($regstds); ?></h3>
               Registered Users
             </div>
+            <<<<<<< HEAD </div>
+              =======
           </a>
+          >>>>>>> origin/develop
         </div>
 
         <div class="row">
@@ -121,7 +125,7 @@ if (strlen($_SESSION['login']) == 0) {
               $listdathrs = $query4->rowCount();
               ?>
               <h3><?php echo htmlentities($listdathrs); ?></h3>
-              Authors Listed
+              Listed Authors
             </div>
           </a>
 
@@ -154,5 +158,6 @@ if (strlen($_SESSION['login']) == 0) {
     <!-- CUSTOM SCRIPTS  -->
     <script src="assets/js/custom.js"></script>
   </body>
-</html>
+
+  </html>
 <?php } ?>

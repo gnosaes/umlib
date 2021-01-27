@@ -8,18 +8,24 @@ if (strlen($_SESSION['login']) == 0) {
 } else if ($_SESSION['role'] == 'student') {
   header('location:../dashboard.php');
 } else {
+  $rid = intval($_GET['rid']);
+
+  $sql = "SELECT * FROM tblissuedbookdetails WHERE id=$rid;";
+  $query = $dbh->prepare($sql);
+  $query->execute();
+
+  $result = $query->fetch(PDO::FETCH_OBJ);
+  $book_id = $result->BookId;
+
   if (isset($_POST['return'])) {
-    $rid = intval($_GET['rid']);
     $fine = $_POST['fine'];
     $rstatus = 1;
-    $sql = "update tblissuedbookdetails set fine=:fine,RetrunStatus=:rstatus where id=:rid";
+
+    $sql = "UPDATE tblissuedbookdetails SET fine=$fine, RetrunStatus=1 WHERE id=$rid; UPDATE tblbooks SET Available_Qty=Available_Qty+1 WHERE tblbooks.id=$book_id";
     $query = $dbh->prepare($sql);
-    $query->bindParam(':rid', $rid, PDO::PARAM_STR);
-    $query->bindParam(':fine', $fine, PDO::PARAM_STR);
-    $query->bindParam(':rstatus', $rstatus, PDO::PARAM_STR);
     $query->execute();
 
-    $_SESSION['msg'] = "Book Returned successfully";
+    $_SESSION['msg'] = "Book returned successfully";
     header('location:manage-issued-books.php');
   }
 ?>
@@ -38,37 +44,7 @@ if (strlen($_SESSION['login']) == 0) {
     <link href="assets/css/style.css" rel="stylesheet" />
     <!-- GOOGLE FONT -->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-    <script>
-      // function for get student name
-      function getstudent() {
-        $("#loaderIcon").show();
-        jQuery.ajax({
-          url: "get_student.php",
-          data: 'studentid=' + $("#studentid").val(),
-          type: "POST",
-          success: function(data) {
-            $("#get_student_name").html(data);
-            $("#loaderIcon").hide();
-          },
-          error: function() {}
-        });
-      }
 
-      //function for book details
-      function getbook() {
-        $("#loaderIcon").show();
-        jQuery.ajax({
-          url: "get_book.php",
-          data: 'bookid=' + $("#bookid").val(),
-          type: "POST",
-          success: function(data) {
-            $("#get_book_name").html(data);
-            $("#loaderIcon").hide();
-          },
-          error: function() {}
-        });
-      }
-    </script>
     <style type="text/css">
       .others {
         color: red;
@@ -85,14 +61,14 @@ if (strlen($_SESSION['login']) == 0) {
       <div class="container">
         <div class="row pad-botm">
           <div class="col-md-12">
-            <h4 class="header-line">Issued Book Details</h4>
+            <h4 class="header-line">Edit Issued Book</h4>
           </div>
 
         </div>
         <div class="row">
           <div class="col-md-10 col-sm-6 col-xs-12 col-md-offset-1">
             <div class=" panel panel-info">
-              <div class="panel-heading"> Issued Book Details</div>
+              <div class="panel-heading"> Update Issued Book</div>
               <div class="panel-body">
                 <form role="form" method="post">
                   <?php
@@ -102,30 +78,28 @@ if (strlen($_SESSION['login']) == 0) {
                   $query->bindParam(':rid', $rid, PDO::PARAM_STR);
                   $query->execute();
                   $results = $query->fetchAll(PDO::FETCH_OBJ);
-                  $cnt = 1;
                   if ($query->rowCount() > 0) {
                     foreach ($results as $result) { ?>
                       <div class="form-group">
-                        <label>Student Name :</label>
+                        <label>Student Name &emsp;&emsp;&emsp;:</label>
                         <?php echo htmlentities($result->FullName); ?>
                       </div>
 
                       <div class="form-group">
-                        <label>Book Name :</label>
+                        <label>Book Title &emsp;&emsp;&emsp;&emsp;&emsp;:</label>
                         <?php echo htmlentities($result->BookName); ?>
                       </div>
 
 
                       <div class="form-group">
-                        <label>ISBN :</label>
+                        <label>ISBN &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;:</label>
                         <?php echo htmlentities($result->ISBNNumber); ?>
                       </div>
 
                       <div class="form-group">
-                        <label>Book Issued Date :</label>
+                        <label>Book Issued Date &emsp;&nbsp;&nbsp;:</label>
                         <?php echo htmlentities($result->IssuesDate); ?>
                       </div>
-
 
                       <div class="form-group">
                         <label>Book Returned Date :</label>
@@ -138,17 +112,17 @@ if (strlen($_SESSION['login']) == 0) {
                       </div>
 
                       <div class="form-group">
-                        <label>Fine (in USD) :</label>
+                        <label>Fine (RM) :</label>
                         <?php
                         if ($result->fine == "") { ?>
-                          <input class="form-control" type="text" name="fine" id="fine" required />
+                          <input class="form-control" type="text" name="fine" id="fine" />
                         <?php } else {
                           echo htmlentities($result->fine);
                         }
                         ?>
                       </div>
                       <?php if ($result->RetrunStatus == 0) { ?>
-                        <button type="submit" name="return" id="submit" class="btn btn-info">Return Book </button>
+                        <button type="submit" name="return" id="submit" class="btn btn-info">Update</button>
                   <?php }
                     }
                   } ?>

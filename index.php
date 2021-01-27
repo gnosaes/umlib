@@ -60,7 +60,7 @@ if (strlen($_SESSION['login']) > 0) {
     <div class="container">
       <div class="row pad-botm">
         <div class="col-md-12">
-          <h4 class="header-line">USER LOGIN FORM</h4>
+          <h4 class="header-line">LOGIN</h4>
         </div>
       </div>
 
@@ -68,11 +68,11 @@ if (strlen($_SESSION['login']) > 0) {
       <div class="row">
         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
           <div class="panel panel-info">
-            <div class="panel-heading"> LOGIN FORM </div>
+            <div class="panel-heading"> LOGIN</div>
             <div class="panel-body">
               <form role="form" method="post">
                 <div class="form-group">
-                  <label>Enter Email id</label>
+                  <label>Enter Email</label>
                   <input class="form-control" type="text" name="emailid" required autocomplete="off" />
                 </div>
 
@@ -86,30 +86,18 @@ if (strlen($_SESSION['login']) > 0) {
                         <div class="input-group-addon">
                           <a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
                         </div>
-
                       </div>
                     </div>
                     <p class="help-block"><a href="user-forgot-password.php">Forgot Password</a></p>
+                  </div>
+                </div>
+                <button type="submit" name="login" class="btn btn-info">LOGIN </button> | <a href="signup.php">Not Register Yet</a>
               </form>
             </div>
-            <!-- <div class="form-group">
-                  <label>Password</label>
-                  <input class="form-control" type="password" name="password" id="txtPassword" required autocomplete="off" />
-                  <input class="form-control" type="password" name="password" id="password" placeholder="Enter the password">
-                  <i class="far fa-eye" id="togglePassword"></i> -->
-            <!-- <input type="checkbox" onclick="myFunction()" style="text-align:right;"> Show Password -->
-
-
-
           </div>
-          <button type="submit" name="login" class="btn btn-info">LOGIN </button> | <a href="signup.php">Not Register Yet</a>
-          </form>
         </div>
       </div>
     </div>
-  </div>
-  <!---LOGIN PABNEL END-->
-  </div>
   </div>
   <!-- CONTENT-WRAPPER SECTION END-->
   <?php include('includes/footer.php'); ?>

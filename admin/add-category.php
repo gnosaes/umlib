@@ -63,7 +63,7 @@ if (strlen($_SESSION['login']) == 0) {
                     <label>Category Name</label>
                     <input class="form-control" type="text" name="category" autocomplete="off" required />
                   </div>
-                  <button type="submit" name="create" class="btn btn-info">Create </button>
+                  <button type="submit" name="create" class="btn btn-info">Add </button>
                 </form>
               </div>
             </div>
