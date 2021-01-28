@@ -16,7 +16,6 @@
     <div class="alert alert-success" style="margin:20px">
       <a href="#" class="alert-link">enable toggle voice assistance here</a>
     </div>
-
     <div class="row text-center">
       <div class="col-12">
         <form method="post" id="toggleForm">

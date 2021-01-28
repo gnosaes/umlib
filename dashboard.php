@@ -42,7 +42,7 @@ if (strlen($_SESSION['login']) == 0) {
       <div class="container">
         <div class="row pad-botm">
           <div class="col-md-12">
-            <h4 class="header-line">DASHBOARD</h4>
+            <h4 class="header-line">ADMIN DASHBOARD</h4>
           </div>
         </div>
         <div class="row">

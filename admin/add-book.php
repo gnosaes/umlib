@@ -75,9 +75,10 @@ if (strlen($_SESSION['login']) == 0) {
                 <div class="row pad-botm">
                     <div class="col-md-12">
                         <h4 class="header-line">Add Book</h4>
-                    </div>
-                </div>
 
+                    </div>
+
+                </div>
                 <div class="row">
                     <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
                         <div class=" panel">
@@ -133,7 +134,6 @@ if (strlen($_SESSION['login']) == 0) {
                                         <input class="form-control" type="text" name="isbn" required="required" autocomplete="off" id="isbnid" onblur="checkISBN()" />
                                         <span id="isbn-availability-status" style="font-size:12px;"></span>
                                     </div>
-
 
                                     <div class="form-group">
                                         <label>Price<span style="color:red;">*</span></label>

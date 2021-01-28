@@ -66,7 +66,7 @@ if (strlen($_SESSION['login']) > 0) {
     <div class="container">
       <div class="row pad-botm">
         <div class="col-md-12">
-          <h4 class="header-line">Password Recovery</h4>
+          <h4 class="header-line">User Password Recovery</h4>
         </div>
       </div>
 
@@ -75,11 +75,13 @@ if (strlen($_SESSION['login']) > 0) {
         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
           <div class="panel">
             <div class="panel-heading tts">PASSWORD RECOVERY FORM</div>
+
             <div class="panel-body">
               <form role="form" name="chngpwd" method="post" onSubmit="return valid();">
 
                 <div class="form-group">
                   <label class="tts">Enter Your Email</label>
+
                   <input class="form-control" type="email" name="email" required autocomplete="off" />
                 </div>
 

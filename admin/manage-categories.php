@@ -44,7 +44,7 @@ if (strlen($_SESSION['login']) == 0) {
       <div class="container">
         <div class="row pad-botm">
           <div class="col-md-12">
-            <h4 class="header-line">Manage Category</h4>
+            <h4 class="header-line">Manage Categories</h4>
           </div>
           <div class="row">
             <?php if ($_SESSION['error'] != "") { ?>
@@ -102,8 +102,8 @@ if (strlen($_SESSION['login']) == 0) {
                         <th>#</th>
                         <th>Category</th>
                         <th>Status</th>
-                        <th>Date Created</th>
-                        <th>Update Date</th>
+                        <th>Creation Date</th>
+                        <th>Updation Date</th>
                         <th>Action</th>
                       </tr>
                     </thead>

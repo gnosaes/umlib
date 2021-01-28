@@ -57,7 +57,7 @@ if (strlen($_SESSION['login']) == 0) {
       <div class="container">
         <div class="row pad-botm">
           <div class="col-md-12">
-            <h4 class="header-line">Manage Student</h4>
+            <h4 class="header-line">Manage Reg Students</h4>
           </div>
         </div>
         <div class="row">
@@ -73,9 +73,9 @@ if (strlen($_SESSION['login']) == 0) {
                         <th>#</th>
                         <th>Student ID</th>
                         <th>Student Name</th>
-                        <th>Email </th>
+                        <th>Email id </th>
                         <th>Mobile Number</th>
-                        <th>Register Date</th>
+                        <th>Reg Date</th>
                         <th>Status</th>
                         <th>Action</th>
                       </tr>

@@ -89,13 +89,14 @@ if (strlen($_SESSION['login']) > 0) {
     <div class="container">
       <div class="row pad-botm">
         <div class="col-md-12">
-          <h4 class="header-line">SIGN UP</h4>
+          <h4 class="header-line">User Signup</h4>
         </div>
       </div>
       <div class="row">
         <div class="col-md-9 col-md-offset-1">
           <div class="panel ">
             <div class="panel-heading tts"> SIGN UP FORM </div>
+
             <div class="panel-body">
               <form name="signup" method="post" onSubmit="return valid();">
                 <div class="form-group">
@@ -105,6 +106,7 @@ if (strlen($_SESSION['login']) > 0) {
 
                 <div class="form-group">
                   <label class="tts">Enter Mobile Number</label>
+
                   <input class="form-control" type="text" name="mobileno" maxlength="11" minlength="10" autocomplete="off" required />
                 </div>
 

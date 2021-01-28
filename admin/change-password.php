@@ -84,11 +84,10 @@ if (strlen($_SESSION['login']) == 0) {
       <div class="container">
         <div class="row pad-botm">
           <div class="col-md-12">
-            <h4 class="header-line">Change Password</h4>
+            <h4 class="header-line">User Change Password</h4>
           </div>
         </div>
         <?php if ($error) { ?><div class="errorWrap"><strong>ERROR</strong>:<?php echo htmlentities($error); ?> </div><?php } else if ($msg) { ?><div class="succWrap"><strong>SUCCESS</strong>:<?php echo htmlentities($msg); ?> </div><?php } ?>
-
         <!--LOGIN PANEL START-->
         <div class="row">
           <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
@@ -96,7 +95,6 @@ if (strlen($_SESSION['login']) == 0) {
               <div class="panel-heading"> Change Password </div>
               <div class="panel-body">
                 <form role="form" method="post" onSubmit="return valid();" name="chngpwd">
-
                   <div class="row justify-content-center">
                     <div class="col-sm-12">
                       <div class="form-group">

@@ -57,7 +57,7 @@ if (strlen($_SESSION['login']) == 0) {
       <div class="container">
         <div class="row pad-botm">
           <div class="col-md-12">
-            <h4 class="header-line">Issue Book</h4>
+            <h4 class="header-line">Issue a New Book</h4>
           </div>
 
         </div>
@@ -109,7 +109,6 @@ if (strlen($_SESSION['login']) == 0) {
                       } ?>
                     </select>
                   </div>
-
                   <button id="issue" type="submit" name="issue" id="submit" class="btn btn-info"> Submit </button>
                 </form>
               </div>

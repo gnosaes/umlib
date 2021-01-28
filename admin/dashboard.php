@@ -57,8 +57,9 @@ if (strlen($_SESSION['login']) == 0) {
               $results = $query->fetchAll(PDO::FETCH_OBJ);
               $listdbooks = $query->rowCount();
               ?>
+
               <h3><?php echo htmlentities($listdbooks); ?></h3>
-              Listed Books
+              Books Listed
             </div>
           </a>
 
@@ -73,7 +74,7 @@ if (strlen($_SESSION['login']) == 0) {
               $issuedbooks = $query1->rowCount();
               ?>
               <h3><?php echo htmlentities($issuedbooks); ?> </h3>
-              Books Issued
+              Times Book Issued
             </div>
           </a>
 
@@ -90,7 +91,7 @@ if (strlen($_SESSION['login']) == 0) {
               $returnedbooks = $query2->rowCount();
               ?>
               <h3><?php echo htmlentities($returnedbooks); ?></h3>
-              Books Returned
+              Times Books Returned
             </div>
           </a>
 
@@ -122,7 +123,7 @@ if (strlen($_SESSION['login']) == 0) {
               $listdathrs = $query4->rowCount();
               ?>
               <h3><?php echo htmlentities($listdathrs); ?></h3>
-              Listed Authors
+              Authors Listed
             </div>
           </a>
 

@@ -35,7 +35,7 @@ if (strlen($_SESSION['login']) == 0) {
       <div class="container">
         <div class="row pad-botm">
           <div class="col-md-12">
-            <h4 class="header-line">Manage Issued Book</h4>
+            <h4 class="header-line">Manage Issued Books</h4>
           </div>
           <div class="row">
             <?php if ($_SESSION['error'] != "") { ?>
@@ -82,7 +82,7 @@ if (strlen($_SESSION['login']) == 0) {
                       <tr>
                         <th>#</th>
                         <th>Student Name</th>
-                        <th>Book Title</th>
+                        <th>Book Name</th>
                         <th>ISBN </th>
                         <th>Issued Date</th>
                         <th>Return Date</th>

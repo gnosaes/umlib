@@ -56,7 +56,7 @@ if (strlen($_SESSION['login']) == 0) {
       <div class="container">
         <div class="row pad-botm">
           <div class="col-md-12">
-            <h4 class="header-line">Edit Book</h4>
+            <h4 class="header-line">Add Book</h4>
           </div>
         </div>
 
@@ -77,7 +77,7 @@ if (strlen($_SESSION['login']) == 0) {
                   if ($query->rowCount() > 0) {
                     foreach ($results as $result) { ?>
                       <div class="form-group">
-                        <label>Book Title<span style="color:red;">*</span></label>
+                        <label>Book Name<span style="color:red;">*</span></label>
                         <input class="form-control" type="text" name="bookname" value="<?php echo htmlentities($result->BookName); ?>" required />
                       </div>
 
@@ -140,11 +140,11 @@ if (strlen($_SESSION['login']) == 0) {
                       <div class="form-group">
                         <label>ISBN Number<span style="color:red;">*</span></label>
                         <input class="form-control" type="text" name="isbn" value="<?php echo htmlentities($result->ISBNNumber); ?>" required="required" />
-                        <p class="help-block">An ISBN is an International Standard Book Number. It must be unique</p>
+                        <p class="help-block">An ISBN is an International Standard Book Number.ISBN Must be unique</p>
                       </div>
 
                       <div class="form-group">
-                        <label>Price<span style="color:red;">*</span></label>
+                        <label>Price in USD<span style="color:red;">*</span></label>
                         <input class="form-control" type="text" name="price" value="<?php echo htmlentities($result->BookPrice); ?>" required="required" />
                       </div>
 

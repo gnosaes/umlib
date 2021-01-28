@@ -51,7 +51,7 @@ if (strlen($_SESSION['login']) > 0) {
     <div class="container">
       <div class="row pad-botm">
         <div class="col-md-12">
-          <h4 class="header-line">ADMIN LOGIN</h4>
+          <h4 class="header-line">ADMIN LOGIN FORM</h4>
         </div>
       </div>
       <!--LOGIN PANEL START-->
@@ -65,7 +65,6 @@ if (strlen($_SESSION['login']) > 0) {
                   <label>Enter Username</label>
                   <input class="form-control" name="username" autocomplete="off" required />
                 </div>
-
                 <div class="row justify-content-center">
                   <div class="col-sm-12">
                     <div class="form-group">

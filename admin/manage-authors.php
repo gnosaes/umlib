@@ -46,7 +46,7 @@ if (strlen($_SESSION['login']) == 0) {
       <div class="container">
         <div class="row pad-botm">
           <div class="col-md-12">
-            <h4 class="header-line">Manage Author</h4>
+            <h4 class="header-line">Manage Authors</h4>
           </div>
           <div class="row">
             <?php if ($_SESSION['error'] != "") { ?>
@@ -102,9 +102,9 @@ if (strlen($_SESSION['login']) == 0) {
                     <thead>
                       <tr>
                         <th>#</th>
-                        <th>Author Name</th>
-                        <th>Date Created</th>
-                        <th>Update Date</th>
+                        <th>Author</th>
+                        <th>Creation Date</th>
+                        <th>Updation Date</th>
                         <th>Action</th>
                       </tr>
                     </thead>
