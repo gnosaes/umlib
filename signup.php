@@ -64,8 +64,7 @@ if (strlen($_SESSION['login']) > 0) {
       }
       return true;
     }
-  </script>
-  <script>
+
     function checkAvailability() {
       $("#loaderIcon").show();
       jQuery.ajax({
@@ -96,21 +95,21 @@ if (strlen($_SESSION['login']) > 0) {
       <div class="row">
         <div class="col-md-9 col-md-offset-1">
           <div class="panel ">
-            <div class="panel-heading"> SIGN UP FORM </div>
+            <div class="panel-heading tts"> SIGN UP FORM </div>
             <div class="panel-body">
               <form name="signup" method="post" onSubmit="return valid();">
                 <div class="form-group">
-                  <label>Enter Full Name</label>
+                  <label class="tts">Enter Full Name</label>
                   <input class="form-control" type="name" name="fullanme" autocomplete="off" required />
                 </div>
 
                 <div class="form-group">
-                  <label>Enter Mobile Number</label>
+                  <label class="tts">Enter Mobile Number</label>
                   <input class="form-control" type="text" name="mobileno" maxlength="11" minlength="10" autocomplete="off" required />
                 </div>
 
                 <div class="form-group">
-                  <label>Enter Email</label>
+                  <label class="tts">Enter Email</label>
                   <input class="form-control" type="email" name="email" id="emailid" onBlur="checkAvailability()" autocomplete="off" required />
                   <span id="user-availability-status" style="font-size:12px;"></span>
                 </div>
@@ -118,27 +117,27 @@ if (strlen($_SESSION['login']) > 0) {
                 <div class="row justify-content-center">
                   <div class="col-sm-12">
                     <div class="form-group">
-                      <label>Enter Password</label>
+                      <label class="tts">Enter Password</label>
                       <div class="input-group" id="showPassword">
                         <input class="form-control" type="password" name="password">
                         <div class="input-group-addon">
-                          <a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                          <a><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
                         </div>
                       </div>
                     </div>
 
                     <div class="form-group">
-                      <label>Confirm Password</label>
+                      <label class="tts">Confirm Password</label>
                       <div class="input-group" id="showRepeat">
                         <input class="form-control" type="password" name="confirmpassword">
                         <div class="input-group-addon">
-                          <a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                          <a><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-                <button type="submit" name="signup" class="btn btn-danger" id="submit">SIGN UP</button>
+                <button type="submit" name="signup" class="btn btn-danger btn-tts" id="submit">SIGN UP</button>
               </form>
             </div>
           </div>
@@ -156,35 +155,8 @@ if (strlen($_SESSION['login']) > 0) {
   <!-- CUSTOM SCRIPTS  -->
   <script src="assets/js/custom.js"></script>
 
-  <script type="text/javascript">
-    $(document).ready(function() {
-      $("#showPassword a").on('click', function(event) {
-        event.preventDefault();
-        if ($('#showPassword input').attr("type") == "text") {
-          $('#showPassword input').attr('type', 'password');
-          $('#showPassword i').addClass("fa-eye-slash");
-          $('#showPassword i').removeClass("fa-eye");
-        } else if ($('#showPassword input').attr("type") == "password") {
-          $('#showPassword input').attr('type', 'text');
-          $('#showPassword i').removeClass("fa-eye-slash");
-          $('#showPassword i').addClass("fa-eye");
-        }
-      });
-
-      $("#showRepeat a").on('click', function(event) {
-        event.preventDefault();
-        if ($('#showRepeat input').attr("type") == "text") {
-          $('#showRepeat input').attr('type', 'password');
-          $('#showRepeat i').addClass("fa-eye-slash");
-          $('#showRepeat i').removeClass("fa-eye");
-        } else if ($('#showRepeat input').attr("type") == "password") {
-          $('#showRepeat input').attr('type', 'text');
-          $('#showRepeat i').removeClass("fa-eye-slash");
-          $('#showRepeat i').addClass("fa-eye");
-        }
-      });
-    });
-  </script>
+  <script src="https://code.responsivevoice.org/responsivevoice.js?key=2iYwTISH"></script>
+  <script src="assets/js/speaker.js"></script>
 </body>
 
 </html>

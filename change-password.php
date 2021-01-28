@@ -96,14 +96,14 @@ if (strlen($_SESSION['login']) == 0) {
         <div class="row">
           <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
             <div class="panel ">
-              <div class="panel-heading"> Change Your Password </div>
+              <div class="panel-heading tts"> Change Password Form </div>
               <div class="panel-body">
                 <form role="form" method="post" onSubmit="return valid();" name="chngpwd">
 
                   <div class="row justify-content-center">
                     <div class="col-sm-12">
                       <div class="form-group">
-                        <label>Enter Current Password</label>
+                        <label class="tts">Enter Current Password</label>
                         <div class="input-group" id="showOld">
                           <input class="form-control" type="password" name="password" autocomplete="off" required />
                           <div class="input-group-addon">
@@ -117,7 +117,7 @@ if (strlen($_SESSION['login']) == 0) {
                   <div class="row justify-content-center">
                     <div class="col-sm-12">
                       <div class="form-group">
-                        <label>Enter New Password</label>
+                        <label class="tts">Enter New Password</label>
                         <div class="input-group" id="showNew">
                           <input class="form-control" type="password" name="newpassword" autocomplete="off" required />
                           <div class="input-group-addon">
@@ -131,7 +131,7 @@ if (strlen($_SESSION['login']) == 0) {
                   <div class="row justify-content-center">
                     <div class="col-sm-12">
                       <div class="form-group">
-                        <label>Confirm New Password </label>
+                        <label class="tts">Confirm New Password </label>
                         <div class="input-group" id="showRepeat">
                           <input class="form-control" type="password" name="confirmpassword" autocomplete="off" required />
                           <div class="input-group-addon">
@@ -142,7 +142,7 @@ if (strlen($_SESSION['login']) == 0) {
                     </div>
                   </div>
 
-                  <button type="submit" name="change" class="btn btn-info">Submit </button>
+                  <button type="submit" name="change" class="btn btn-info btn-tts">Submit </button>
                 </form>
               </div>
             </div>
@@ -160,48 +160,8 @@ if (strlen($_SESSION['login']) == 0) {
     <!-- CUSTOM SCRIPTS  -->
     <script src="assets/js/custom.js"></script>
 
-    <script type="text/javascript">
-      $(document).ready(function() {
-        $("#showOld a").on('click', function(event) {
-          event.preventDefault();
-          if ($('#showOld input').attr("type") == "text") {
-            $('#showOld input').attr('type', 'password');
-            $('#showOld i').addClass("fa-eye-slash");
-            $('#showOld i').removeClass("fa-eye");
-          } else if ($('#showOld input').attr("type") == "password") {
-            $('#showOld input').attr('type', 'text');
-            $('#showOld i').removeClass("fa-eye-slash");
-            $('#showOld i').addClass("fa-eye");
-          }
-        });
-
-        $("#showNew a").on('click', function(event) {
-          event.preventDefault();
-          if ($('#showNew input').attr("type") == "text") {
-            $('#showNew input').attr('type', 'password');
-            $('#showNew i').addClass("fa-eye-slash");
-            $('#showNew i').removeClass("fa-eye");
-          } else if ($('#showNew input').attr("type") == "password") {
-            $('#showNew input').attr('type', 'text');
-            $('#showNew i').removeClass("fa-eye-slash");
-            $('#showNew i').addClass("fa-eye");
-          }
-        });
-
-        $("#showRepeat a").on('click', function(event) {
-          event.preventDefault();
-          if ($('#showRepeat input').attr("type") == "text") {
-            $('#showRepeat input').attr('type', 'password');
-            $('#showRepeat i').addClass("fa-eye-slash");
-            $('#showRepeat i').removeClass("fa-eye");
-          } else if ($('#showRepeat input').attr("type") == "password") {
-            $('#showRepeat input').attr('type', 'text');
-            $('#showRepeat i').removeClass("fa-eye-slash");
-            $('#showRepeat i').addClass("fa-eye");
-          }
-        });
-      });
-    </script>
+    <script src="https://code.responsivevoice.org/responsivevoice.js?key=2iYwTISH"></script>
+    <script src="assets/js/speaker.js"></script>
   </body>
 
   </html>

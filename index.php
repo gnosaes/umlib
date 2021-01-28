@@ -61,7 +61,7 @@ if (strlen($_SESSION['login']) > 0) {
     <div class="container">
       <div class="row pad-botm">
         <div class="col-md-12">
-          <h4 class="header-line">LOGIN</h4>
+          <h4 class="header-line header-tts">LOGIN</h4>
         </div>
       </div>
 
@@ -69,18 +69,18 @@ if (strlen($_SESSION['login']) > 0) {
       <div class="row">
         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
           <div class="panel ">
-            <div class="panel-heading"> LOGIN</div>
+            <div class="panel-heading tts"> LOGIN FORM </div>
             <div class="panel-body">
               <form role="form" method="post">
                 <div class="form-group">
-                  <label>Enter Email</label>
+                  <label class="tts">Enter Email</label>
                   <input class="form-control" type="email" name="emailid" required autocomplete="off" />
                 </div>
 
                 <div class="row justify-content-center">
                   <div class="col-sm-12">
                     <div class="form-group">
-                      <label>Enter Password</label>
+                      <label class="tts">Enter Password</label>
                       <div class="input-group" id="showPassword">
                         <input class="form-control" type="password" name="password" required />
                         <div class="input-group-addon">
@@ -88,18 +88,17 @@ if (strlen($_SESSION['login']) > 0) {
                         </div>
                       </div>
                     </div>
-                    <p class="help-block"><a href="user-forgot-password.php">Forgot your password?</a></p>
+                    <p class="help-block"><a href="user-forgot-password.php" class="tts">Forgot your password?</a></p>
                   </div>
                 </div>
 
-                <button type="submit" name="login" class="btn btn-info">LOGIN </button> | <a href="signup.php">Not Registered? Sign Up Now.</a>
+                <button type="submit" name="login" class="btn btn-info btn-tts"> LOGIN </button> | <a href="signup.php" class="tts">Not Registered? Sign Up Now.</a>
               </form>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
   </div>
   <!-- CONTENT-WRAPPER SECTION END-->
   <?php include('includes/footer.php'); ?>
@@ -110,23 +109,8 @@ if (strlen($_SESSION['login']) > 0) {
   <!-- CUSTOM SCRIPTS  -->
   <script src="assets/js/custom.js"></script>
 
-  <script type="text/javascript">
-    $(document).ready(function() {
-      $("#showPassword a").on('click', function(event) {
-        event.preventDefault();
-        if ($('#showPassword input').attr("type") == "text") {
-          $('#showPassword input').attr('type', 'password');
-          $('#showPassword i').addClass("fa-eye-slash");
-          $('#showPassword i').removeClass("fa-eye");
-        } else if ($('#showPassword input').attr("type") == "password") {
-          $('#showPassword input').attr('type', 'text');
-          $('#showPassword i').removeClass("fa-eye-slash");
-          $('#showPassword i').addClass("fa-eye");
-        }
-      });
-    });
-  </script>
-
+  <script src="https://code.responsivevoice.org/responsivevoice.js?key=2iYwTISH"></script>
+  <script src="assets/js/speaker.js"></script>
 </body>
 
 </html>

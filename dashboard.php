@@ -46,7 +46,7 @@ if (strlen($_SESSION['login']) == 0) {
           </div>
         </div>
         <div class="row">
-          <a class="custom col-md-3 col-sm-3 col-xs-6" href="issued-books.php">
+          <a class="custom col-md-3 col-sm-3 col-xs-6 menu-tts" href="issued-books.php" alt="Issued book">
             <div class="alert alert-info back-widget-set text-center" style="background: indigo;">
               <i class="fa fa-bars fa-5x"></i>
               <?php
@@ -59,10 +59,10 @@ if (strlen($_SESSION['login']) == 0) {
               $issuedbooks = $query1->rowCount();
               ?>
               <h3><?php echo htmlentities($issuedbooks); ?> </h3>
-              Book Issued
+              Books Issued
             </div>
           </a>
-          <a class="custom col-md-3 col-sm-3 col-xs-6" href="issued-books.php">
+          <a class="custom col-md-3 col-sm-3 col-xs-6 menu-tts" href="issued-books.php" alt="Issued book">
             <div class="alert alert-warning back-widget-set text-center" style="background: #ffc31d;">
               <i class="fa fa-recycle fa-5x"></i>
               <?php
@@ -93,6 +93,9 @@ if (strlen($_SESSION['login']) == 0) {
     <script src="assets/js/bootstrap.js"></script>
     <!-- CUSTOM SCRIPTS  -->
     <script src="assets/js/custom.js"></script>
+
+    <script src="https://code.responsivevoice.org/responsivevoice.js?key=2iYwTISH"></script>
+    <script src="assets/js/speaker.js"></script>
   </body>
 
   </html>

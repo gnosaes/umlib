@@ -1,18 +1,11 @@
 <head>
-  <!-- jQuery -->
   <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-
-  <!-- Bootstrap files (jQuery first, then Popper.js, then Bootstrap JS) -->
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
   <link href="assets/css/style.css" rel="stylesheet" />
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/js/bootstrap.bundle.min.js" type="text/javascript"></script>
   <script src="assets/js/sidebar.js"></script>
   <script src="assets/js/toggle.js"></script>
-
 </head>
 
 <body>
-
   <b class="screen-overlay"></b>
 
   <aside class="offcanvas offcanvas-right" id="my_offcanvas2">
@@ -42,6 +35,10 @@
     </div>
   </aside>
 
+  <button data-trigger="#my_offcanvas2" class="btn btn-primary tts-toggle-button" type="button">
+    <i class="fa fa-wheelchair" style="font-size:30px; margin:5px; "></i>
+  </button>
+
   <div class="navbar navbar-inverse set-radius-zero">
     <div class="container">
       <div class="navbar-header">
@@ -54,12 +51,6 @@
           <img src="assets/img/logo_white.png" />
         </a>
       </div>
-
-      <?php if (strlen($_SESSION['login']) > 0) { ?>
-        <div class="right-div">
-          <a href="logout.php" class="btn btn-danger pull-right">LOG OUT</a>
-        </div>
-      <?php } ?>
     </div>
   </div>
   <!-- LOGO HEADER END-->
@@ -104,11 +95,7 @@
                 </li>
                 <li><a href="reg-students.php">Student</a></li>
                 <li><a href="change-password.php">Change Password</a></li>
-                <li>
-                  <button data-trigger="#my_offcanvas2" class="btn btn-primary" type="button" style=" margin-top:5px; margin-left:120px;">
-                    <i class="fa fa-wheelchair" style="font-size:30px; margin:5px; "></i>
-                  </button>
-                <li>
+                <li><a href="logout.php">Log out</a></li>
               </ul>
             </div>
           </div>
@@ -124,11 +111,6 @@
                 <li><a href="index.php">Admin Login</a></li>
                 <li><a href="../signup.php">Sign Up</a></li>
                 <li><a href="../index.php">Login</a></li>
-                <li>
-                  <button data-trigger="#my_offcanvas2" class="btn btn-primary" type="button" style=" margin-top:5px; margin-left:370px;">
-                    <i class="fa fa-wheelchair" style="font-size:30px; margin:5px; "></i>
-                  </button>
-                <li>
               </ul>
             </div>
           </div>
