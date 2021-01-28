@@ -52,7 +52,7 @@ if (strlen($_SESSION['login']) == 0) {
 
         <div class="row">
           <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-            <div class="panel panel-info">
+            <div class="panel">
               <div class="panel-heading"> Author Info </div>
               <div class="panel-body">
                 <form role="form" method="post">
