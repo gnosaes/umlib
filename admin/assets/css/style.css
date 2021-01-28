@@ -102,7 +102,6 @@ body {
   float: none;
 }
 
-
 .navbar-inverse .navbar-collapse,
 .navbar-inverse .navbar-form {
   border-color: transparent;
@@ -277,7 +276,6 @@ body {
   background: indigo;
   color: #fff;
   border: 1px solid #f1f1f1;
-
 }
 
 .btn-primary {
@@ -317,7 +315,6 @@ body {
   border-radius: 10px;
   transition: 0.3s;
 }
-
 
 /* =============================================================
     SIDEBAR SECTION STYLES
@@ -396,4 +393,17 @@ body {
 
 button {
   outline: none !important;
+}
+
+button.btn.btn-primary.tts-toggle-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 15px;
+  z-index: 100;
+}
+
+.navbar-collapse.collapse {
+  display: flex !important;
+  justify-content: center;
 }

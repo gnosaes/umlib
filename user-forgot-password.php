@@ -55,7 +55,7 @@ if (strlen($_SESSION['login']) > 0) {
       return true;
     }
   </script>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -73,25 +73,25 @@ if (strlen($_SESSION['login']) > 0) {
       <!--LOGIN PANEL START-->
       <div class="row">
         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-          <div class="panel panel-info">
-            <div class="panel-heading">PASSWORD RECOVERY FORM</div>
+          <div class="panel">
+            <div class="panel-heading tts">PASSWORD RECOVERY FORM</div>
             <div class="panel-body">
               <form role="form" name="chngpwd" method="post" onSubmit="return valid();">
 
                 <div class="form-group">
-                  <label>Enter Your Email</label>
+                  <label class="tts">Enter Your Email</label>
                   <input class="form-control" type="email" name="email" required autocomplete="off" />
                 </div>
 
                 <div class="form-group">
-                  <label>Enter Your Mobile Number</label>
+                  <label class="tts">Enter Your Mobile Number</label>
                   <input class="form-control" type="text" name="mobile" required autocomplete="off" />
                 </div>
 
                 <div class="row justify-content-center">
                   <div class="col-sm-12">
                     <div class="form-group">
-                      <label>Enter New Password</label>
+                      <label class="tts">Enter New Password</label>
                       <div class="input-group" id="showNew">
                         <input class="form-control" type="password" name="newpassword" autocomplete="off" required />
                         <div class="input-group-addon">
@@ -105,7 +105,7 @@ if (strlen($_SESSION['login']) > 0) {
                 <div class="row justify-content-center">
                   <div class="col-sm-12">
                     <div class="form-group">
-                      <label>Confirm New Password </label>
+                      <label class="tts">Confirm Password </label>
                       <div class="input-group" id="showRepeat">
                         <input class="form-control" type="password" name="confirmpassword" autocomplete="off" required />
                         <div class="input-group-addon">
@@ -116,7 +116,7 @@ if (strlen($_SESSION['login']) > 0) {
                   </div>
                 </div>
 
-                <button type="submit" name="change" class="btn btn-info">SUBMIT</button> | <a href="index.php">Back to Login</a>
+                <button type="submit" name="change" class="btn btn-info btn-tts">SUBMIT</button> | <a href="index.php" class="tts">Back to login</a>
               </form>
             </div>
           </div>
@@ -128,41 +128,15 @@ if (strlen($_SESSION['login']) > 0) {
   <!-- CONTENT-WRAPPER SECTION END-->
   <?php include('includes/footer.php'); ?>
   <!-- FOOTER SECTION END-->
-  <script src="assets/js/jquery-1.10.2.js"></script>
+  <!-- <script src="assets/js/jquery-1.10.2.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
   <!-- BOOTSTRAP SCRIPTS  -->
   <script src="assets/js/bootstrap.js"></script>
   <!-- CUSTOM SCRIPTS  -->
   <script src="assets/js/custom.js"></script>
-  <script type="text/javascript">
-    $(document).ready(function() {
-      $("#showNew a").on('click', function(event) {
-        event.preventDefault();
-        if ($('#showNew input').attr("type") == "text") {
-          $('#showNew input').attr('type', 'password');
-          $('#showNew i').addClass("fa-eye-slash");
-          $('#showNew i').removeClass("fa-eye");
-        } else if ($('#showNew input').attr("type") == "password") {
-          $('#showNew input').attr('type', 'text');
-          $('#showNew i').removeClass("fa-eye-slash");
-          $('#showNew i').addClass("fa-eye");
-        }
-      });
 
-      $("#showRepeat a").on('click', function(event) {
-        event.preventDefault();
-        if ($('#showRepeat input').attr("type") == "text") {
-          $('#showRepeat input').attr('type', 'password');
-          $('#showRepeat i').addClass("fa-eye-slash");
-          $('#showRepeat i').removeClass("fa-eye");
-        } else if ($('#showRepeat input').attr("type") == "password") {
-          $('#showRepeat input').attr('type', 'text');
-          $('#showRepeat i').removeClass("fa-eye-slash");
-          $('#showRepeat i').addClass("fa-eye");
-        }
-      });
-    });
-  </script>
-
+  <script src="https://code.responsivevoice.org/responsivevoice.js?key=2iYwTISH"></script>
+  <script src="assets/js/speaker.js"></script>
 </body>
 
 </html>

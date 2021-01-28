@@ -1,18 +1,11 @@
 <head>
-  <!-- jQuery -->
   <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-
-  <!-- Bootstrap files (jQuery first, then Popper.js, then Bootstrap JS) -->
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
   <link href="assets/css/style.css" rel="stylesheet" />
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/js/bootstrap.bundle.min.js" type="text/javascript"></script>
   <script src="assets/js/sidebar.js"></script>
   <script src="assets/js/toggle.js"></script>
-
 </head>
 
 <body>
-
   <b class="screen-overlay"></b>
 
   <aside class="offcanvas offcanvas-right" id="my_offcanvas2">
@@ -42,24 +35,22 @@
     </div>
   </aside>
 
+  <button data-trigger="#my_offcanvas2" class="btn btn-primary tts-toggle-button" type="button">
+    <i class="fa fa-wheelchair" style="font-size:30px; margin:5px; "></i>
+  </button>
+
   <div class="navbar navbar-inverse set-radius-zero">
     <div class="container">
       <div class="navbar-header">
+        <a class="navbar-brand">
+          <img src="assets/img/logo_white.png" />
+        </a>
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand">
-          <img src="assets/img/logo_white.png" />
-        </a>
       </div>
-
-      <?php if (strlen($_SESSION['login']) > 0) { ?>
-        <div class="right-div">
-          <a href="logout.php" class="btn btn-danger pull-right">LOG OUT</a>
-        </div>
-      <?php } ?>
     </div>
   </div>
   <!-- LOGO HEADER END-->
@@ -70,28 +61,14 @@
           <div class="col-md-12">
             <div class="navbar-collapse collapse ">
               <ul id="menu-top" class="nav navbar-nav navbar-right">
-                <li><a href="dashboard.php" class="menu-top-active">DASHBOARD</a></li>
-
-                <li>
-                  <a href="#" class="dropdown-toggle" id="ddlmenuItem" data-toggle="dropdown"> Account <i class="fa fa-angle-down"></i></a>
-                  <ul class="dropdown-menu" role="menu" aria-labelledby="ddlmenuItem">
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="my-profile.php">Profile</a></li>
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="change-password.php">Change Password</a></li>
-                  </ul>
-                </li>
-
-                <li><a href="issued-books.php">Issued Book</a></li>
-                <li>
-                  <button data-trigger="#my_offcanvas2" class="btn btn-primary" type="button" style=" margin-top:5px; margin-left:320px;">
-                    <i class="fa fa-wheelchair" style=" font-size:30px; margin:5px; "></i>
-                  </button></span>
-                </li>
-
+                <li><a href="dashboard.php" class="menu-top-active a-tts">Dashboard</a></li>
+                <li><a href="issued-books.php" class="menu-top-active a-tts">Issued Book</a></li>
+                <li><a href="my-profile.php" class="menu-top-active a-tts">Profile</a></li>
+                <li><a href="change-password.php" class="menu-top-active a-tts">Change Password</a></li>
+                <li><a href="logout.php" class="btn-tts">Log out</a></li>
               </ul>
             </div>
           </div>
-
-
         </div>
       </div>
     </section>
@@ -103,13 +80,8 @@
             <div class="navbar-collapse collapse ">
               <ul id="menu-top" class="nav navbar-nav navbar-right">
                 <li><a href="adminlogin.php">Admin Login</a></li>
-                <li><a href="signup.php"> Signup </a></li>
-                <li><a href="index.php"> Login </a></li>
-                <li>
-                  <button data-trigger="#my_offcanvas2" class="btn btn-primary" type="button" style="  margin-top:5px; margin-left:350px;">
-                    <i class="fa fa-wheelchair" style="font-size:30px; margin:5px; "></i>
-                  </button>
-                <li>
+                <li><a href="signup.php" class="a-tts"> Signup </a></li>
+                <li><a href="index.php" class="a-tts"> Login </a></li>
               </ul>
             </div>
           </div>

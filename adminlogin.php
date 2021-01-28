@@ -58,7 +58,7 @@ if (strlen($_SESSION['login']) > 0) {
       <div class="row">
         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
           <div class="panel ">
-            <div class="panel-heading"> LOGIN </div>
+            <div class="panel-heading"> LOGIN FORM </div>
             <div class="panel-body">
               <form role="form" method="post">
                 <div class="form-group">
@@ -95,21 +95,18 @@ if (strlen($_SESSION['login']) > 0) {
   <script src="assets/js/bootstrap.js"></script>
   <!-- CUSTOM SCRIPTS  -->
   <script src="assets/js/custom.js"></script>
-
-  <script type="text/javascript">
-    $(document).ready(function() {
-      $("#showPassword a").on('click', function(event) {
-        event.preventDefault();
-        if ($('#showPassword input').attr("type") == "text") {
-          $('#showPassword input').attr('type', 'password');
-          $('#showPassword i').addClass("fa-eye-slash");
-          $('#showPassword i').removeClass("fa-eye");
-        } else if ($('#showPassword input').attr("type") == "password") {
-          $('#showPassword input').attr('type', 'text');
-          $('#showPassword i').removeClass("fa-eye-slash");
-          $('#showPassword i').addClass("fa-eye");
-        }
-      });
+  <script>
+    $("#showPassword a").on("click", function(event) {
+      event.preventDefault();
+      if ($("#showPassword input").attr("type") == "text") {
+        $("#showPassword input").attr("type", "password");
+        $("#showPassword i").addClass("fa-eye-slash");
+        $("#showPassword i").removeClass("fa-eye");
+      } else if ($("#showPassword input").attr("type") == "password") {
+        $("#showPassword input").attr("type", "text");
+        $("#showPassword i").removeClass("fa-eye-slash");
+        $("#showPassword i").addClass("fa-eye");
+      }
     });
   </script>
 </body>

@@ -52,18 +52,18 @@ if (strlen($_SESSION['login']) == 0) {
           <div class="row">
             <div class="col-md-12">
               <div class="panel">
-                <div class="panel-heading"> List of Issued Books </div>
+                <div class="panel-heading tts"> List of Issued Books </div>
                 <div class="panel-body">
                   <div class="table-responsive">
                     <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                       <thead>
                         <tr>
                           <th>#</th>
-                          <th>Book Title</th>
+                          <th class="tts">Book Title</th>
                           <th>ISBN </th>
-                          <th>Issued Date</th>
-                          <th>Return Date</th>
-                          <th>Fine</th>
+                          <th class="tts">Issued Date</th>
+                          <th class="tts">Return Date</th>
+                          <th class="tts">Fine</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -79,33 +79,23 @@ if (strlen($_SESSION['login']) == 0) {
                           foreach ($results as $result) {
                         ?>
                             <tr class="odd gradeX">
-                              <td class="center">
-                                <?php echo htmlentities($cnt); ?>
-                              </td>
-                              <td class="center">
-                                <?php echo htmlentities($result->BookName); ?>
-                              </td>
-                              <td class="center">
-                                <?php echo htmlentities($result->ISBNNumber); ?>
-                              </td>
-                              <td class="center">
-                                <?php echo htmlentities($result->IssuesDate); ?>
-                              </td>
-                              <td class="center">
+                              <td class="center"> <?php echo htmlentities($cnt++); ?> </td>
+                              <td class="center tts"> <?php echo htmlentities($result->BookName); ?> </td>
+                              <td class="center"> <?php echo htmlentities($result->ISBNNumber); ?> </td>
+                              <td class="center tts"> <?php echo htmlentities($result->IssuesDate); ?> </td>
+                              <td class="center td-tts" alt="Returned date">
                                 <?php if ($result->ReturnDate == "") { ?>
                                   <span style="color:red">
-                                    <?php echo htmlentities("Not Return Yet"); ?>
+                                    <?php echo htmlentities("Books has not return Yet"); ?>
                                   </span>
-                                <?php } else {
+                                <?php
+                                } else {
                                   echo htmlentities($result->ReturnDate);
-                                }
-                                ?>
+                                } ?>
                               </td>
-                              <td class="center">
-                                <?php echo htmlentities($result->fine); ?>
-                              </td>
+                              <td class="center tts"> <?php echo htmlentities($result->fine); ?> </td>
                             </tr>
-                        <?php $cnt = $cnt + 1;
+                        <?php
                           }
                         } ?>
                       </tbody>
@@ -134,6 +124,8 @@ if (strlen($_SESSION['login']) == 0) {
     <!-- CUSTOM SCRIPTS  -->
     <script src="assets/js/custom.js"></script>
 
+    <script src="https://code.responsivevoice.org/responsivevoice.js?key=2iYwTISH"></script>
+    <script src="assets/js/speaker.js"></script>
   </body>
 
   </html>
