@@ -1,14 +1,17 @@
 <?php
 session_start();
-include('includes/config.php');
 error_reporting(0);
-if (strlen($_SESSION['alogin']) == 0) {
+include('includes/config.php');
+
+if (strlen($_SESSION['login']) == 0) {
   header('location:index.php');
+} else if ($_SESSION['role'] == 'student') {
+  header('location:../dashboard.php');
 } else {
   if (isset($_POST['change'])) {
     $password = md5($_POST['password']);
     $newpassword = md5($_POST['newpassword']);
-    $username = $_SESSION['alogin'];
+    $username = $_SESSION['login'];
     $sql = "SELECT Password FROM admin where UserName=:username and Password=:password";
     $query = $dbh->prepare($sql);
     $query->bindParam(':username', $username, PDO::PARAM_STR);
@@ -88,29 +91,53 @@ if (strlen($_SESSION['alogin']) == 0) {
         <!--LOGIN PANEL START-->
         <div class="row">
           <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-            <div class="panel panel-info">
-              <div class="panel-heading">
-                Change Password
-              </div>
+            <div class="panel ">
+              <div class="panel-heading"> Change Password </div>
               <div class="panel-body">
                 <form role="form" method="post" onSubmit="return valid();" name="chngpwd">
-
-                  <div class="form-group">
-                    <label>Current Password</label>
-                    <input class="form-control" type="password" name="password" autocomplete="off" required />
+                  <div class="row justify-content-center">
+                    <div class="col-sm-12">
+                      <div class="form-group">
+                        <label>Enter Current Password</label>
+                        <div class="input-group" id="showOld">
+                          <input class="form-control" type="password" name="password" autocomplete="off" required />
+                          <div class="input-group-addon">
+                            <a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
 
-                  <div class="form-group">
-                    <label>Enter Password</label>
-                    <input class="form-control" type="password" name="newpassword" autocomplete="off" required />
+                  <div class="row justify-content-center">
+                    <div class="col-sm-12">
+                      <div class="form-group">
+                        <label>Enter New Password</label>
+                        <div class="input-group" id="showNew">
+                          <input class="form-control" type="password" name="newpassword" autocomplete="off" required />
+                          <div class="input-group-addon">
+                            <a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
 
-                  <div class="form-group">
-                    <label>Confirm Password </label>
-                    <input class="form-control" type="password" name="confirmpassword" autocomplete="off" required />
+                  <div class="row justify-content-center">
+                    <div class="col-sm-12">
+                      <div class="form-group">
+                        <label>Confirm New Password </label>
+                        <div class="input-group" id="showRepeat">
+                          <input class="form-control" type="password" name="confirmpassword" autocomplete="off" required />
+                          <div class="input-group-addon">
+                            <a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
 
-                  <button type="submit" name="change" class="btn btn-info">Chnage </button>
+                  <button type="submit" name="change" class="btn btn-info"> Submit </button>
                 </form>
               </div>
             </div>
@@ -127,6 +154,49 @@ if (strlen($_SESSION['alogin']) == 0) {
     <script src="assets/js/bootstrap.js"></script>
     <!-- CUSTOM SCRIPTS  -->
     <script src="assets/js/custom.js"></script>
+
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#showOld a").on('click', function(event) {
+          event.preventDefault();
+          if ($('#showOld input').attr("type") == "text") {
+            $('#showOld input').attr('type', 'password');
+            $('#showOld i').addClass("fa-eye-slash");
+            $('#showOld i').removeClass("fa-eye");
+          } else if ($('#showOld input').attr("type") == "password") {
+            $('#showOld input').attr('type', 'text');
+            $('#showOld i').removeClass("fa-eye-slash");
+            $('#showOld i').addClass("fa-eye");
+          }
+        });
+
+        $("#showNew a").on('click', function(event) {
+          event.preventDefault();
+          if ($('#showNew input').attr("type") == "text") {
+            $('#showNew input').attr('type', 'password');
+            $('#showNew i').addClass("fa-eye-slash");
+            $('#showNew i').removeClass("fa-eye");
+          } else if ($('#showNew input').attr("type") == "password") {
+            $('#showNew input').attr('type', 'text');
+            $('#showNew i').removeClass("fa-eye-slash");
+            $('#showNew i').addClass("fa-eye");
+          }
+        });
+
+        $("#showRepeat a").on('click', function(event) {
+          event.preventDefault();
+          if ($('#showRepeat input').attr("type") == "text") {
+            $('#showRepeat input').attr('type', 'password');
+            $('#showRepeat i').addClass("fa-eye-slash");
+            $('#showRepeat i').removeClass("fa-eye");
+          } else if ($('#showRepeat input').attr("type") == "password") {
+            $('#showRepeat input').attr('type', 'text');
+            $('#showRepeat i').removeClass("fa-eye-slash");
+            $('#showRepeat i').addClass("fa-eye");
+          }
+        });
+      });
+    </script>
   </body>
 
   </html>

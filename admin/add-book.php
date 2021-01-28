@@ -2,23 +2,27 @@
 session_start();
 error_reporting(0);
 include('includes/config.php');
-if (strlen($_SESSION['alogin']) == 0) {
-    header('location:index.php');
-} else {
 
+if (strlen($_SESSION['login']) == 0) {
+    header('location:index.php');
+} else if ($_SESSION['role'] == 'student') {
+    header('location:../dashboard.php');
+} else {
     if (isset($_POST['add'])) {
         $bookname = $_POST['bookname'];
         $category = $_POST['category'];
         $author = $_POST['author'];
         $isbn = $_POST['isbn'];
         $price = $_POST['price'];
-        $sql = "INSERT INTO  tblbooks(BookName,CatId,AuthorId,ISBNNumber,BookPrice) VALUES(:bookname,:category,:author,:isbn,:price)";
+        $quantity = $_POST['quantity'];
+        $sql = "INSERT INTO  tblbooks(BookName,CatId,AuthorId,ISBNNumber,BookPrice, Quantity) VALUES(:bookname,:category,:author,:isbn,:price,:quantity)";
         $query = $dbh->prepare($sql);
         $query->bindParam(':bookname', $bookname, PDO::PARAM_STR);
         $query->bindParam(':category', $category, PDO::PARAM_STR);
         $query->bindParam(':author', $author, PDO::PARAM_STR);
         $query->bindParam(':isbn', $isbn, PDO::PARAM_STR);
         $query->bindParam(':price', $price, PDO::PARAM_STR);
+        $query->bindParam(':quantity', $quantity, PDO::PARAM_STR);
         $query->execute();
         $lastInsertId = $dbh->lastInsertId();
         if ($lastInsertId) {
@@ -45,15 +49,28 @@ if (strlen($_SESSION['alogin']) == 0) {
         <link href="assets/css/style.css" rel="stylesheet" />
         <!-- GOOGLE FONT -->
         <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-
+        <script>
+            function checkISBN() {
+                $("#loaderIcon").show();
+                jQuery.ajax({
+                    url: "check-isbn.php",
+                    data: 'isbnid=' + $("#isbnid").val(),
+                    type: "POST",
+                    success: function(data) {
+                        $("#isbn-availability-status").html(data);
+                        $("#loaderIcon").hide();
+                    },
+                    error: function() {}
+                });
+            }
+        </script>
     </head>
 
     <body>
         <!------MENU SECTION START-->
         <?php include('includes/header.php'); ?>
         <!-- MENU SECTION END-->
-        <div class="content-wra
-    <div class=" content-wrapper">
+        <div class=" content-wrapper">
             <div class="container">
                 <div class="row pad-botm">
                     <div class="col-md-12">
@@ -63,78 +80,77 @@ if (strlen($_SESSION['alogin']) == 0) {
 
                 </div>
                 <div class="row">
-                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3"">
-<div class=" panel panel-info">
-                        <div class="panel-heading">
-                            Book Info
-                        </div>
-                        <div class="panel-body">
-                            <form role="form" method="post">
-                                <div class="form-group">
-                                    <label>Book Name<span style="color:red;">*</span></label>
-                                    <input class="form-control" type="text" name="bookname" autocomplete="off" required />
-                                </div>
+                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                        <div class=" panel">
+                            <div class="panel-heading"> Book Info </div>
+                            <div class="panel-body">
+                                <form role="form" method="post">
+                                    <div class="form-group">
+                                        <label>Book Title<span style="color:red;">*</span></label>
+                                        <input class="form-control" type="text" name="bookname" autocomplete="off" required />
+                                    </div>
 
-                                <div class="form-group">
-                                    <label> Category<span style="color:red;">*</span></label>
-                                    <select class="form-control" name="category" required="required">
-                                        <option value=""> Select Category</option>
-                                        <?php
-                                        $status = 1;
-                                        $sql = "SELECT * from  tblcategory where Status=:status";
-                                        $query = $dbh->prepare($sql);
-                                        $query->bindParam(':status', $status, PDO::PARAM_STR);
-                                        $query->execute();
-                                        $results = $query->fetchAll(PDO::FETCH_OBJ);
-                                        $cnt = 1;
-                                        if ($query->rowCount() > 0) {
-                                            foreach ($results as $result) {               ?>
-                                                <option value="<?php echo htmlentities($result->id); ?>"><?php echo htmlentities($result->CategoryName); ?></option>
-                                        <?php }
-                                        } ?>
-                                    </select>
-                                </div>
+                                    <div class="form-group">
+                                        <label> Category<span style="color:red;">*</span></label>
+                                        <select class="form-control" name="category" required="required">
+                                            <option value=""> Select Category</option>
+                                            <?php
+                                            $status = 1;
+                                            $sql = "SELECT * from  tblcategory where Status=:status";
+                                            $query = $dbh->prepare($sql);
+                                            $query->bindParam(':status', $status, PDO::PARAM_STR);
+                                            $query->execute();
+                                            $results = $query->fetchAll(PDO::FETCH_OBJ);
+                                            $cnt = 1;
+                                            if ($query->rowCount() > 0) {
+                                                foreach ($results as $result) {               ?>
+                                                    <option value="<?php echo htmlentities($result->id); ?>"><?php echo htmlentities($result->CategoryName); ?></option>
+                                            <?php }
+                                            } ?>
+                                        </select>
+                                    </div>
 
+                                    <div class="form-group">
+                                        <label> Author<span style="color:red;">*</span></label>
+                                        <select class="form-control" name="author" required="required">
+                                            <option value=""> Select Author</option>
+                                            <?php
+                                            $sql = "SELECT * from  tblauthors ";
+                                            $query = $dbh->prepare($sql);
+                                            $query->execute();
+                                            $results = $query->fetchAll(PDO::FETCH_OBJ);
+                                            $cnt = 1;
+                                            if ($query->rowCount() > 0) {
+                                                foreach ($results as $result) {               ?>
+                                                    <option value="<?php echo htmlentities($result->id); ?>"><?php echo htmlentities($result->AuthorName); ?></option>
+                                            <?php }
+                                            } ?>
+                                        </select>
+                                    </div>
 
-                                <div class="form-group">
-                                    <label> Author<span style="color:red;">*</span></label>
-                                    <select class="form-control" name="author" required="required">
-                                        <option value=""> Select Author</option>
-                                        <?php
+                                    <div class="form-group">
+                                        <label>ISBN Number<span style="color:red;">*</span></label>
+                                        <p class="help-block">An ISBN is an International Standard Book Number</p>
+                                        <input class="form-control" type="text" name="isbn" required="required" autocomplete="off" id="isbnid" onblur="checkISBN()" />
+                                        <span id="isbn-availability-status" style="font-size:12px;"></span>
+                                    </div>
 
-                                        $sql = "SELECT * from  tblauthors ";
-                                        $query = $dbh->prepare($sql);
-                                        $query->execute();
-                                        $results = $query->fetchAll(PDO::FETCH_OBJ);
-                                        $cnt = 1;
-                                        if ($query->rowCount() > 0) {
-                                            foreach ($results as $result) {               ?>
-                                                <option value="<?php echo htmlentities($result->id); ?>"><?php echo htmlentities($result->AuthorName); ?></option>
-                                        <?php }
-                                        } ?>
-                                    </select>
-                                </div>
+                                    <div class="form-group">
+                                        <label>Price<span style="color:red;">*</span></label>
+                                        <input class="form-control" type="text" name="price" autocomplete="off" required="required" />
+                                    </div>
 
-                                <div class="form-group">
-                                    <label>ISBN Number<span style="color:red;">*</span></label>
-                                    <input class="form-control" type="text" name="isbn" required="required" autocomplete="off" />
-                                    <p class="help-block">An ISBN is an International Standard Book Number.ISBN Must be unique</p>
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Price<span style="color:red;">*</span></label>
-                                    <input class="form-control" type="text" name="price" autocomplete="off" required="required" />
-                                </div>
-                                <button type="submit" name="add" class="btn btn-info">Add </button>
-
-                            </form>
+                                    <div class="form-group">
+                                        <label>Quantity<span style="color:red;">*</span></label>
+                                        <input class="form-control" type="number" name="quantity" autocomplete="off" required="required" />
+                                    </div>
+                                    <button type="submit" name="add" class="btn btn-info">Add </button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
-
             </div>
-
-        </div>
         </div>
         <!-- CONTENT-WRAPPER SECTION END-->
         <?php include('includes/footer.php'); ?>

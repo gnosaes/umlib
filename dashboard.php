@@ -2,8 +2,11 @@
 session_start();
 error_reporting(0);
 include('includes/config.php');
+
 if (strlen($_SESSION['login']) == 0) {
   header('location:index.php');
+} else if ($_SESSION['role'] == 'admin') {
+  header('location:admin/dashboard.php');
 } else { ?>
   <!DOCTYPE html>
   <html lang="en">
@@ -20,7 +23,15 @@ if (strlen($_SESSION['login']) == 0) {
     <link href="assets/css/style.css" rel="stylesheet" />
     <!-- GOOGLE FONT -->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <style>
+      a.custom {
+        text-decoration: none;
+      }
 
+      a.custom:hover div.alert {
+        box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.16);
+      }
+    </style>
   </head>
 
   <body>
@@ -34,10 +45,9 @@ if (strlen($_SESSION['login']) == 0) {
             <h4 class="header-line">ADMIN DASHBOARD</h4>
           </div>
         </div>
-
         <div class="row">
-          <div class="col-md-3 col-sm-3 col-xs-6">
-            <div class="alert alert-info back-widget-set text-center">
+          <a class="custom col-md-3 col-sm-3 col-xs-6 menu-tts" href="issued-books.php" alt="Issued book">
+            <div class="alert alert-info back-widget-set text-center" style="background: indigo;">
               <i class="fa fa-bars fa-5x"></i>
               <?php
               $sid = $_SESSION['stdid'];
@@ -48,14 +58,12 @@ if (strlen($_SESSION['login']) == 0) {
               $results1 = $query1->fetchAll(PDO::FETCH_OBJ);
               $issuedbooks = $query1->rowCount();
               ?>
-
               <h3><?php echo htmlentities($issuedbooks); ?> </h3>
-              Book Issued
+              Books Issued
             </div>
-          </div>
-
-          <div class="col-md-3 col-sm-3 col-xs-6">
-            <div class="alert alert-warning back-widget-set text-center">
+          </a>
+          <a class="custom col-md-3 col-sm-3 col-xs-6 menu-tts" href="issued-books.php" alt="Issued book">
+            <div class="alert alert-warning back-widget-set text-center" style="background: #ffc31d;">
               <i class="fa fa-recycle fa-5x"></i>
               <?php
               $rsts = 0;
@@ -67,12 +75,12 @@ if (strlen($_SESSION['login']) == 0) {
               $results2 = $query2->fetchAll(PDO::FETCH_OBJ);
               $returnedbooks = $query2->rowCount();
               ?>
-
               <h3><?php echo htmlentities($returnedbooks); ?></h3>
               Books Not Returned Yet
             </div>
-          </div>
+          </a>
         </div>
+        <?php include('includes/slideshow.php'); ?>
       </div>
     </div>
     <!-- CONTENT-WRAPPER SECTION END-->
@@ -85,6 +93,9 @@ if (strlen($_SESSION['login']) == 0) {
     <script src="assets/js/bootstrap.js"></script>
     <!-- CUSTOM SCRIPTS  -->
     <script src="assets/js/custom.js"></script>
+
+    <script src="https://code.responsivevoice.org/responsivevoice.js?key=2iYwTISH"></script>
+    <script src="assets/js/speaker.js"></script>
   </body>
 
   </html>

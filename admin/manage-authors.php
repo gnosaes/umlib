@@ -2,8 +2,11 @@
 session_start();
 error_reporting(0);
 include('includes/config.php');
-if (strlen($_SESSION['alogin']) == 0) {
+
+if (strlen($_SESSION['login']) == 0) {
   header('location:index.php');
+} else if ($_SESSION['role'] == 'student') {
+  header('location:../dashboard.php');
 } else {
   if (isset($_GET['del'])) {
     $id = $_GET['del'];
@@ -91,8 +94,8 @@ if (strlen($_SESSION['alogin']) == 0) {
         <div class="row">
           <div class="col-md-12">
             <!-- Advanced Tables -->
-            <div class="panel panel-default">
-              <div class="panel-heading"> Authors Listing </div>
+            <div class="panel">
+              <div class="panel-heading"> List of Authors</div>
               <div class="panel-body">
                 <div class="table-responsive">
                   <table class="table table-striped table-bordered table-hover" id="dataTables-example">

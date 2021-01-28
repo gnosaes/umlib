@@ -1,9 +1,12 @@
 <?php
 session_start();
-include('includes/config.php');
 error_reporting(0);
+include('includes/config.php');
+
 if (strlen($_SESSION['login']) == 0) {
   header('location:index.php');
+} else if ($_SESSION['role'] == 'admin') {
+  header('location:admin/dashboard.php');
 } else {
   if (isset($_POST['change'])) {
     $password = md5($_POST['password']);
@@ -26,7 +29,6 @@ if (strlen($_SESSION['login']) == 0) {
       $error = "Your current password is wrong";
     }
   }
-
 ?>
   <!DOCTYPE html>
   <html lang="en">
@@ -82,7 +84,7 @@ if (strlen($_SESSION['login']) == 0) {
       <div class="container">
         <div class="row pad-botm">
           <div class="col-md-12">
-            <h4 class="header-line">User Change Password</h4>
+            <h4 class="header-line"> CHANGE PASSWORD </h4>
           </div>
         </div>
         <?php if ($error) { ?>
@@ -93,27 +95,54 @@ if (strlen($_SESSION['login']) == 0) {
         <!--LOGIN PANEL START-->
         <div class="row">
           <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-            <div class="panel panel-info">
-              <div class="panel-heading"> Change Password </div>
+            <div class="panel ">
+              <div class="panel-heading tts"> Change Password Form </div>
               <div class="panel-body">
                 <form role="form" method="post" onSubmit="return valid();" name="chngpwd">
 
-                  <div class="form-group">
-                    <label>Current Password</label>
-                    <input class="form-control" type="password" name="password" autocomplete="off" required />
+                  <div class="row justify-content-center">
+                    <div class="col-sm-12">
+                      <div class="form-group">
+                        <label class="tts">Enter Current Password</label>
+                        <div class="input-group" id="showOld">
+                          <input class="form-control" type="password" name="password" autocomplete="off" required />
+                          <div class="input-group-addon">
+                            <a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
 
-                  <div class="form-group">
-                    <label>Enter Password</label>
-                    <input class="form-control" type="password" name="newpassword" autocomplete="off" required />
+                  <div class="row justify-content-center">
+                    <div class="col-sm-12">
+                      <div class="form-group">
+                        <label class="tts">Enter New Password</label>
+                        <div class="input-group" id="showNew">
+                          <input class="form-control" type="password" name="newpassword" autocomplete="off" required />
+                          <div class="input-group-addon">
+                            <a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
 
-                  <div class="form-group">
-                    <label>Confirm Password </label>
-                    <input class="form-control" type="password" name="confirmpassword" autocomplete="off" required />
+                  <div class="row justify-content-center">
+                    <div class="col-sm-12">
+                      <div class="form-group">
+                        <label class="tts">Confirm New Password </label>
+                        <div class="input-group" id="showRepeat">
+                          <input class="form-control" type="password" name="confirmpassword" autocomplete="off" required />
+                          <div class="input-group-addon">
+                            <a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
 
-                  <button type="submit" name="change" class="btn btn-info">Chnage </button>
+                  <button type="submit" name="change" class="btn btn-info btn-tts">Submit </button>
                 </form>
               </div>
             </div>
@@ -130,6 +159,9 @@ if (strlen($_SESSION['login']) == 0) {
     <script src="assets/js/bootstrap.js"></script>
     <!-- CUSTOM SCRIPTS  -->
     <script src="assets/js/custom.js"></script>
+
+    <script src="https://code.responsivevoice.org/responsivevoice.js?key=2iYwTISH"></script>
+    <script src="assets/js/speaker.js"></script>
   </body>
 
   </html>

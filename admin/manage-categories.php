@@ -2,8 +2,10 @@
 session_start();
 error_reporting(0);
 include('includes/config.php');
-if (strlen($_SESSION['alogin']) == 0) {
+if (strlen($_SESSION['login']) == 0) {
   header('location:index.php');
+} else if ($_SESSION['role'] == 'student') {
+  header('location:../dashboard.php');
 } else {
   if (isset($_GET['del'])) {
     $id = $_GET['del'];
@@ -32,7 +34,6 @@ if (strlen($_SESSION['alogin']) == 0) {
     <link href="assets/css/style.css" rel="stylesheet" />
     <!-- GOOGLE FONT -->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-
   </head>
 
   <body>
@@ -91,8 +92,8 @@ if (strlen($_SESSION['alogin']) == 0) {
         <div class="row">
           <div class="col-md-12">
             <!-- Advanced Tables -->
-            <div class="panel panel-default">
-              <div class="panel-heading"> Categories Listing </div>
+            <div class="panel ">
+              <div class="panel-heading">List of Categories</div>
               <div class="panel-body">
                 <div class="table-responsive">
                   <table class="table table-striped table-bordered table-hover" id="dataTables-example">
@@ -137,9 +138,6 @@ if (strlen($_SESSION['alogin']) == 0) {
                             <td class="center">
                               <a href="edit-category.php?catid=<?php echo htmlentities($result->id); ?>">
                                 <button class="btn btn-primary"><i class="fa fa-edit "></i> Edit</button>
-                              </a>
-                              <a href="manage-categories.php?del=<?php echo htmlentities($result->id); ?>" onclick="return confirm('Are you sure you want to delete?');">
-                                <button class=" btn btn-danger"><i class="fa fa-pencil"></i> Delete</button>
                               </a>
                             </td>
                           </tr>

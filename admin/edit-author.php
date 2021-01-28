@@ -2,10 +2,12 @@
 session_start();
 error_reporting(0);
 include('includes/config.php');
-if (strlen($_SESSION['alogin']) == 0) {
-  header('location:index.php');
-} else {
 
+if (strlen($_SESSION['login']) == 0) {
+  header('location:index.php');
+} else if ($_SESSION['role'] == 'student') {
+  header('location:../dashboard.php');
+} else {
   if (isset($_POST['update'])) {
     $athrid = intval($_GET['athrid']);
     $author = $_POST['author'];
@@ -50,7 +52,7 @@ if (strlen($_SESSION['alogin']) == 0) {
 
         <div class="row">
           <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-            <div class="panel panel-info">
+            <div class="panel">
               <div class="panel-heading"> Author Info </div>
               <div class="panel-body">
                 <form role="form" method="post">
@@ -77,7 +79,6 @@ if (strlen($_SESSION['alogin']) == 0) {
             </div>
           </div>
         </div>
-
       </div>
     </div>
     <!-- CONTENT-WRAPPER SECTION END-->

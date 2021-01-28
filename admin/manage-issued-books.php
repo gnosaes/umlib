@@ -2,8 +2,10 @@
 session_start();
 error_reporting(0);
 include('includes/config.php');
-if (strlen($_SESSION['alogin']) == 0) {
+if (strlen($_SESSION['login']) == 0) {
   header('location:index.php');
+} else if ($_SESSION['role'] == 'student') {
+  header('location:../dashboard.php');
 } else {
 ?>
   <!DOCTYPE html>
@@ -71,8 +73,8 @@ if (strlen($_SESSION['alogin']) == 0) {
         <div class="row">
           <div class="col-md-12">
             <!-- Advanced Tables -->
-            <div class="panel panel-default">
-              <div class="panel-heading"> Issued Books </div>
+            <div class="panel ">
+              <div class="panel-heading"> List of Issued Books </div>
               <div class="panel-body">
                 <div class="table-responsive">
                   <table class="table table-striped table-bordered table-hover" id="dataTables-example">
@@ -115,7 +117,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                               <?php if ($result->ReturnDate == "") {
                                 echo htmlentities("Not Return Yet");
                               } else {
-                                echo htmlentities($result->ReturnDate);
+                                echo htmlentities("Return");
                               }
                               ?></td>
                             <td class="center">
